@@ -9,15 +9,18 @@ public class Substrate : MonoBehaviour
     public List<Cell> cells = new List<Cell>();
     public GameObject defaultCell;
     public float radius = 1;
-    // Start is called before the first frame update
+    public float temperature = 1;
+    
     void Start()
     {
-        CreateCell(0, 0);
-        //KillCell(cells[0]);
+        Time.timeScale = temperature;
+        SpawnCell(0.5f, 0.5f);
+        SpawnCell(-0.5f, -0.5f);
     }
 
     public void update()
     {
+        Time.timeScale = temperature;
         List<Cell> deadCells = new List<Cell>();
         foreach (Cell cell in cells)
         {
@@ -34,16 +37,26 @@ public class Substrate : MonoBehaviour
 
     public void fixedupdate()
     {
+        for (int i = 0; i < cells.Count; i++)
+        {
+            for (int j = 0; j < cells.Count; j++)
+            {
+                if (i != j) cells[i].react(cells[j]);
+            }
+        }
+
+        float deltaT = Time.fixedDeltaTime;
         foreach (Cell cell in cells)
         {
-            cell.fixedupdate();
+            cell.fixedupdate(deltaT);
         }
     }
 
-    void CreateCell(float x, float y)
+    void SpawnCell(float x, float y)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         Cell cell = cellObject.AddComponent<Cell>();
+        cell.position = new Vector2(x, y);
         cell.radius /= radius;
         cell.substrate = this;
         cells.Add(cell);

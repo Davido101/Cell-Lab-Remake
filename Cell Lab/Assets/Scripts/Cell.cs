@@ -8,54 +8,67 @@ using UnityEngine.UIElements;
 
 public class Cell : MonoBehaviour
 {
-    const float springConst = 2000;
+    const float springConst = 100;
     public GameObject cellObject;
     public Rigidbody2D rb;
     public Substrate substrate;
+    public Vector2 position = Vector2.zero;
+    public Vector2 velocity = new Vector2(0.05f,0.05f);
+    public Vector2 force = Vector2.zero;
     public float radius = 30;
     public bool dead = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         cellObject = this.gameObject;
         cellObject.transform.localScale = new Vector3(radius, radius, 1);
         rb = cellObject.AddComponent<Rigidbody2D>();
         rb.gravityScale = 0;
-        rb.velocity = new Vector2(0.1f, 0.1f);
         cellObject.GetComponent<SpriteRenderer>().color = (Color)(new Color32(179, 255, 57, 255));
     }
 
     public void update()
     {
         cellObject.transform.localScale = new Vector3(radius, radius, 1);
-        Vector2 position = GetPos();
+    }
+
+    public void fixedupdate(float deltaT)
+    {
         float length = position.magnitude;
         if (length >= 1)
         {
             Kill();
             return;
         }
-    }
 
-    public void fixedupdate()
-    {
-        Vector2 position = GetPos();
         float r = radius / 1000;
-        float length = position.magnitude;
         float substrateCollision = length + r - 1;
         if (substrateCollision > 0)
         {
-            Vector2 force = -position / length * substrateCollision * springConst;
-            //force.x = Mathf.Round(force.x);
-            //force.y = Mathf.Round(force.y);
-            //Debug.Log(force);
-            rb.AddRelativeForce(force);
+            force += -position / length * substrateCollision * springConst;
+        }
+
+        velocity += force * deltaT;
+        position += velocity * deltaT;
+        SetPos(position);
+
+        force = Vector2.zero;
+    }
+
+    public void react(Cell cell)
+    {
+        Vector2 relativePos = cell.position - this.position;
+        float proximity = relativePos.magnitude;
+        float collision = (this.radius + cell.radius) / 1000 - proximity;
+        if (collision > 0)
+        {
+            force += -relativePos / proximity * collision * springConst;
         }
     }
 
-    public Vector2 GetPos()
+    public void SetPos(Vector2 pos)
     {
-        return this.gameObject.transform.position;
+        this.gameObject.transform.position = new Vector3(pos.x, pos.y, 0);
     }
 
     public void Kill()
