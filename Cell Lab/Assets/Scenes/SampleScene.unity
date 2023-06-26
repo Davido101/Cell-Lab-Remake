@@ -235,7 +235,7 @@ MonoBehaviour:
   cells: []
   defaultCell: {fileID: -3888481672020999207, guid: a49a75bfad6bdad4ca8a3026578c3390, type: 3}
   radius: 1
-  temperature: 2
+  temperature: 1
 --- !u!1 &982744654
 GameObject:
   m_ObjectHideFlags: 0
