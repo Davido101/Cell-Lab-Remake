@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,13 +19,12 @@ public class Substrate : MonoBehaviour
         camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
         camera.orthographicSize = 1.25f * radius;
         adjustSpeed();
-        SpawnCell(0.5f, 0.5f);
-        SpawnCell(-0.5f, -0.5f);
+        SpawnCell(0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(-0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
     }
 
-    public void update()
-    {
-
+    public void update() 
+    { 
         adjustSpeed();
         List<Cell> deadCells = new List<Cell>();
         foreach (Cell cell in cells)
@@ -62,12 +62,12 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    void SpawnCell(float x, float y)
+    void SpawnCell(float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         Cell cell = cellObject.AddComponent<Cell>();
         cell.position = new Vector2(x * radius, y * radius);
-        //cell.radius /= radius;
+        cell.color = color;
         cell.substrate = this;
         cells.Add(cell);
     }

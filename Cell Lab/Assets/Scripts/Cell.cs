@@ -16,12 +16,15 @@ public class Cell : MonoBehaviour
     public Vector2 force = Vector2.zero;
     public float radius = 30;
     public bool dead = false;
+    const int opacity = 1;
+    public Color color = Color.white;
     
     void Start()
     {
         cellObject = this.gameObject;
         cellObject.transform.localScale = new Vector3(radius, radius, 1);
-        cellObject.GetComponent<SpriteRenderer>().color = (Color)(new Color32(179, 255, 57, 255));
+        color.a = opacity;
+        cellObject.GetComponent<SpriteRenderer>().color = color;
     }
 
     public void update()
