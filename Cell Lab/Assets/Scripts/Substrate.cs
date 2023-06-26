@@ -17,14 +17,15 @@ public class Substrate : MonoBehaviour
         this.transform.localScale = new Vector3(radius, radius, 1);
         camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
         camera.orthographicSize = 1.25f * radius;
-        Time.timeScale = temperature;
+        adjustSpeed();
         SpawnCell(0.5f, 0.5f);
         SpawnCell(-0.5f, -0.5f);
     }
 
     public void update()
     {
-        Time.timeScale = temperature;
+
+        adjustSpeed();
         List<Cell> deadCells = new List<Cell>();
         foreach (Cell cell in cells)
         {
@@ -49,11 +50,16 @@ public class Substrate : MonoBehaviour
             }
         }
 
-        float deltaT = Time.fixedDeltaTime;
+        float deltaT = temperature / Time.timeScale / 50;
         foreach (Cell cell in cells)
         {
             cell.fixedupdate(deltaT);
         }
+    }
+
+    void adjustSpeed()
+    {
+        Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
     void SpawnCell(float x, float y)
