@@ -41,7 +41,7 @@ public class Substrate : MonoBehaviour
         {
             for (int j = 0; j < cells.Count; j++)
             {
-                if (i != j) cells[i].react(cells[j]);
+                if (i != j && !cells[i].dead && !cells[j].dead) cells[i].react(cells[j]);
             }
         }
 
