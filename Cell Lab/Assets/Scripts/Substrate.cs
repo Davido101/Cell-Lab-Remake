@@ -7,9 +7,15 @@ using UnityEngine;
 
 public class Substrate : MonoBehaviour
 {
+    const float maxScale = 1.25f;
+    public float zoomSpeed = 3.5f;
+    public float zoomSnap = 0.99f;
+    public float moveSpeed = 3.5f;
+    Vector3 originalPos;
     public List<Cell> cells = new List<Cell>();
     public GameObject defaultCell;
     public float radius = 1;
+    public float zoom = 1;
     public float temperature = 1;
     public Camera camera;
 
@@ -17,15 +23,17 @@ public class Substrate : MonoBehaviour
     {
         this.transform.localScale = new Vector3(radius, radius, 1);
         camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
-        camera.orthographicSize = 1.25f * radius;
-        adjustSpeed();
+        zoom = maxScale * radius;
+        camera.orthographicSize = zoom;
+        AdjustSpeed();
         SpawnCell(0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
         SpawnCell(-0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
     }
 
-    public void update() 
-    { 
-        adjustSpeed();
+    public void update()
+    {
+        UpdateCamera();
+        AdjustSpeed();
         List<Cell> deadCells = new List<Cell>();
         foreach (Cell cell in cells)
         {
@@ -57,7 +65,7 @@ public class Substrate : MonoBehaviour
         }
     }
 
-    void adjustSpeed()
+    void AdjustSpeed()
     {
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
@@ -72,8 +80,40 @@ public class Substrate : MonoBehaviour
         cells.Add(cell);
     }
 
-    void KillCell(Cell cell)
+    void UpdateCamera()
     {
-        cell.Kill();
+        float maxZoom = maxScale * radius;
+
+        // Zoom
+        float scrolling = Input.GetAxis("Mouse ScrollWheel");
+        if (scrolling != 0)
+        {
+            float zooming = Mathf.Pow(zoomSpeed, -scrolling);
+            zoom *= zooming;
+            zoom = Mathf.Clamp(zoom, 0.0001f, maxZoom);
+        }
+        float zoomLerping = 1 - Mathf.Pow(1 - zoomSnap, Time.deltaTime);
+        camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, zoom, zoomLerping);
+
+        // Move
+        if (Input.GetMouseButtonDown(1))
+        {
+            originalPos = camera.ScreenToWorldPoint(Input.mousePosition);
+        }
+        if (Input.GetMouseButton(1))
+        {
+            Vector3 movement = originalPos - camera.ScreenToWorldPoint(Input.mousePosition);
+            camera.transform.position += movement;
+        }
+
+        Vector3 bottomLeft = camera.ScreenToWorldPoint(Vector3.zero);
+        Vector3 topRight = camera.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
+        float maxZoomX = maxZoom * Screen.width / Screen.height;
+
+        float leftDiff = Mathf.Max(-bottomLeft.x - maxZoomX, 0);
+        float rightDiff = Mathf.Max(topRight.x - maxZoomX, 0);
+        float bottomDiff = Mathf.Max(-bottomLeft.y - maxZoom, 0);
+        float topDiff = Mathf.Max(topRight.y - maxZoom, 0);
+        camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
     }
 }

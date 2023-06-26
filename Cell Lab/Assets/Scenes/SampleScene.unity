@@ -245,8 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   substrate: {fileID: 1579594369}
-  scrollSpeed: 3.5
-  moveSpeed: 3.5
   camera: {fileID: 0}
 --- !u!4 &982744656
 Transform:
@@ -348,8 +346,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07444cdf1b83d56489bf976169a0dabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  zoomSpeed: 3.5
+  zoomSnap: 0.99
+  moveSpeed: 3.5
   cells: []
   defaultCell: {fileID: -3888481672020999207, guid: a49a75bfad6bdad4ca8a3026578c3390, type: 3}
   radius: 1
+  zoom: 1
   temperature: 1
   camera: {fileID: 0}
