@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class Cell : MonoBehaviour
 {
-    const float springConst = 100;
+    public float springConst = 100;
     public GameObject cellObject;
     public Substrate substrate;
     public Vector2 position = Vector2.zero;
@@ -32,14 +32,14 @@ public class Cell : MonoBehaviour
     public void fixedupdate(float deltaT)
     {
         float length = position.magnitude;
-        if (length >= 1)
+        if (length >= substrate.radius)
         {
             Kill();
             return;
         }
 
         float r = radius / 1000;
-        float substrateCollision = length + r - 1;
+        float substrateCollision = length + r - substrate.radius;
         if (substrateCollision > 0)
         {
             force += -position / length * substrateCollision * springConst;

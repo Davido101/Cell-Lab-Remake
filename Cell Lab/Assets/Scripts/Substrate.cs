@@ -10,9 +10,13 @@ public class Substrate : MonoBehaviour
     public GameObject defaultCell;
     public float radius = 1;
     public float temperature = 1;
-    
+    public Camera camera;
+
     void Start()
     {
+        this.transform.localScale = new Vector3(radius, radius, 1);
+        camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
+        camera.orthographicSize = 1.25f * radius;
         Time.timeScale = temperature;
         SpawnCell(0.5f, 0.5f);
         SpawnCell(-0.5f, -0.5f);
@@ -56,8 +60,8 @@ public class Substrate : MonoBehaviour
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         Cell cell = cellObject.AddComponent<Cell>();
-        cell.position = new Vector2(x, y);
-        cell.radius /= radius;
+        cell.position = new Vector2(x * radius, y * radius);
+        //cell.radius /= radius;
         cell.substrate = this;
         cells.Add(cell);
     }
