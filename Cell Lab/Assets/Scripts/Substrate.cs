@@ -26,8 +26,8 @@ public class Substrate : MonoBehaviour
         zoom = maxScale * radius;
         camera.orthographicSize = zoom;
         AdjustSpeed();
-        SpawnCell(0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
-        SpawnCell(-0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Phagocyte), 0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Phagocyte), -0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public void update()
@@ -54,7 +54,7 @@ public class Substrate : MonoBehaviour
         {
             for (int j = 0; j < cells.Count; j++)
             {
-                if (i != j && !cells[i].dead && !cells[j].dead) cells[i].react(cells[j]);
+                if (i != j && !cells[i].dead && !cells[j].dead) cells[i].React(cells[j]);
             }
         }
 
@@ -70,10 +70,10 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    void SpawnCell(float x, float y, Color color)
+    void SpawnCell(Type cellType, float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
-        Cell cell = cellObject.AddComponent<Cell>();
+        Cell cell = cellObject.AddComponent(cellType) as Cell;
         cell.position = new Vector2(x * radius, y * radius);
         cell.color = color;
         cell.substrate = this;

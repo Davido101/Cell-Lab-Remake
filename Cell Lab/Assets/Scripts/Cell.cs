@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -8,13 +9,15 @@ using UnityEngine.UIElements;
 
 public class Cell : MonoBehaviour
 {
-    public float springConst = 100;
+    public float springConst = 200;
     public GameObject cellObject;
     public Substrate substrate;
+    public Type cellType = typeof(Cell);
     public Vector2 position = Vector2.zero;
     public Vector2 velocity = new Vector2(0.15f,0.15f);
     public Vector2 force = Vector2.zero;
-    public float radius = 30;
+    public float mass = 2.16f;
+    public float radius = Mathf.Sqrt(2.16f/4000);
     public bool dead = false;
     const int opacity = 1;
     public Color color = Color.white;
@@ -34,36 +37,49 @@ public class Cell : MonoBehaviour
 
     public void fixedupdate(float deltaT)
     {
-        float length = position.magnitude;
-        if (length >= substrate.radius)
-        {
-            Kill();
-            return;
-        }
+        if (KillIfOutsideSubstrate()) return;
+        force += SubstrateReactionForce();
+        UpdatePos(deltaT);
+    }
 
-        float r = radius / 1000;
-        float substrateCollision = length + r - substrate.radius;
-        if (substrateCollision > 0)
-        {
-            force += -position / length * substrateCollision * springConst;
-        }
+    public void React(Cell cell)
+    {
+        force += ReactionForce(cell);
+    }
 
-        velocity += force * deltaT;
+    public void UpdatePos(float deltaT)
+    {
+        velocity += force / mass * deltaT;
         position += velocity * deltaT;
         SetPos(position);
-
         force = Vector2.zero;
     }
 
-    public void react(Cell cell)
+    public Boolean KillIfOutsideSubstrate()
+    {
+        if (position.magnitude >= substrate.radius)
+        {
+            Kill();
+            return true;
+        }
+        return false;
+    }
+
+    public Vector2 SubstrateReactionForce()
+    {
+        return this.ReactionForce(position, position.magnitude + radius - substrate.radius);
+    }
+
+    public Vector2 ReactionForce(Cell cell)
     {
         Vector2 relativePos = cell.position - this.position;
-        float proximity = relativePos.magnitude;
-        float collision = (this.radius + cell.radius) / 1000 - proximity;
-        if (collision > 0)
-        {
-            force += -relativePos / proximity * collision * springConst;
-        }
+        float collision = this.radius + cell.radius - relativePos.magnitude;
+        return this.ReactionForce(relativePos, collision);
+    }
+
+    public Vector2 ReactionForce(Vector2 pos, float collision)
+    {
+        return -pos / pos.magnitude * Mathf.Max(collision, 0) * springConst;
     }
 
     public void SetPos(Vector2 pos)
