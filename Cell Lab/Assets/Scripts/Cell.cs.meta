@@ -3,7 +3,10 @@ guid: cd5fdb783925107408e66246d2c1f43a
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - cellObject: {instanceID: 0}
+  - substrate: {instanceID: 0}
+  - sprite: {fileID: 3286163911610860551, guid: a49a75bfad6bdad4ca8a3026578c3390, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
