@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
+using TMPro;
 
 public class Substrate : MonoBehaviour
 {
@@ -18,6 +19,7 @@ public class Substrate : MonoBehaviour
     public float zoom = 1;
     public float temperature = 1;
     public Camera camera;
+    public TMP_Text zoomAmount;
 
     void Start()
     {
@@ -115,5 +117,6 @@ public class Substrate : MonoBehaviour
         float bottomDiff = Mathf.Max(-bottomLeft.y - maxZoom, 0);
         float topDiff = Mathf.Max(topRight.y - maxZoom, 0);
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
+        zoomAmount.text = $"x{Math.Floor((1.25f / camera.orthographicSize) * 50)}";
     }
 }

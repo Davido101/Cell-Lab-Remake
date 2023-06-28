@@ -1,380 +1,227 @@
 { "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
-,{ "pid":12345, "tid":0, "ts":1687974376886737, "dur":30565, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974376917311, "dur":1571, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974376918938, "dur":71, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919009, "dur":319, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919426, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/globalgamemanagers" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919512, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/globalgamemanagers.assets.resS" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919841, "dur":72, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/boot.config_l6pt.info" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919965, "dur":61, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.ARModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920139, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920393, "dur":74, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.ClusterRendererModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920471, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.ContentLoadModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920525, "dur":81, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.CoreModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920610, "dur":85, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.CrashReportingModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376920804, "dur":105, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.GameCenterModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376921115, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.ImageConversionModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376921272, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376921444, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.PerformanceReportingModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376921814, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376921886, "dur":67, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.StreamingModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922192, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922302, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.TilemapModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922354, "dur":54, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UIElementsModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922493, "dur":53, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UmbraModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922550, "dur":69, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityAnalyticsCommonModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922720, "dur":57, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityTestProtocolModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922781, "dur":55, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922840, "dur":87, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestAudioModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376922944, "dur":57, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923071, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923143, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.VFXModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923272, "dur":56, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.VideoModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923381, "dur":68, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.WindModule.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923630, "dur":53, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.VectorGraphics.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923722, "dur":79, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.VisualScripting.Core.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923805, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.2D.Animation.Runtime.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923860, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.2D.Tilemap.Extras.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376923913, "dur":65, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.VisualScripting.Flow.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376924128, "dur":66, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.Timeline.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376924258, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.Collections.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376925543, "dur":51, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/mscorlib.dll" }}
-,{ "pid":12345, "tid":0, "ts":1687974376926459, "dur":80, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.ContentLoadModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1687974376927287, "dur":81, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.IMGUIModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1687974376927514, "dur":87, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.InputModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":0, "ts":1687974376919383, "dur":16887, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974376936278, "dur":5933477, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974382869755, "dur":81, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974382869868, "dur":73, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974382870079, "dur":4690, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
-,{ "pid":12345, "tid":1, "ts":1687974376919826, "dur":16490, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376936320, "dur":773, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376937094, "dur":800, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376937895, "dur":1504, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376939549, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376939612, "dur":51, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
-,{ "pid":12345, "tid":1, "ts":1687974376939663, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376939822, "dur":86, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376939955, "dur":169, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940171, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940277, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940372, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940432, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940498, "dur":173, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940678, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940749, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940819, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376940880, "dur":304, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376941218, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376941290, "dur":957, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942253, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942317, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942388, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942464, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942535, "dur":98, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942642, "dur":77, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942728, "dur":105, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942840, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942916, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376942987, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943055, "dur":105, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943205, "dur":88, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943300, "dur":127, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943435, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943506, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943578, "dur":122, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943708, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943782, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943845, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943905, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376943964, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376944636, "dur":484, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/csharpactions/Cell Lab_9sts.info" }}
-,{ "pid":12345, "tid":1, "ts":1687974376945445, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376947508, "dur":307, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.AudioModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":1, "ts":1687974376947857, "dur":360, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":1, "ts":1687974376948381, "dur":5921361, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376919741, "dur":16551, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376936296, "dur":3100, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376939475, "dur":375, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/MacStandalonePlayerBuildProgram/boot.config" }}
-,{ "pid":12345, "tid":2, "ts":1687974376939995, "dur":86, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940147, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940243, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940348, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940502, "dur":193, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940704, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940791, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376940869, "dur":442, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376941311, "dur":314, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.VisualScripting.State.dll" }}
-,{ "pid":12345, "tid":2, "ts":1687974376941630, "dur":634, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942273, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942356, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942430, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942507, "dur":112, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942629, "dur":88, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942725, "dur":204, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376942937, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943016, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943089, "dur":83, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943213, "dur":436, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943658, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943743, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943821, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943895, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376943954, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376945174, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376945236, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376946590, "dur":1843, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":2, "ts":1687974376948482, "dur":5921259, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376919809, "dur":16493, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376936310, "dur":1073, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376937384, "dur":169, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376937554, "dur":1847, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376939418, "dur":359, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376939803, "dur":93, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\MacStandaloneSupport\\NiceIO.dll" }}
-,{ "pid":12345, "tid":3, "ts":1687974376939783, "dur":117, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"MacOSCodeSignDylibCopy C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Frameworks/UnityPlayer.dylib" }}
-,{ "pid":12345, "tid":3, "ts":1687974376939900, "dur":133, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940040, "dur":195, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\MacStandaloneSupport\\MonoBleedingEdge\\etc\\mono\\4.0\\web.config" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940039, "dur":197, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/MonoBleedingEdge/etc/mono/4.0/web.config" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940236, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940342, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940452, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940513, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940581, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940655, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940726, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940797, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376940862, "dur":556, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376941418, "dur":342, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.Collections.LowLevel.ILSupport.dll" }}
-,{ "pid":12345, "tid":3, "ts":1687974376941765, "dur":113, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376941886, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376941965, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376942028, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376942089, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376942154, "dur":5524, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":3, "ts":1687974376947680, "dur":289, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/UnityEngine.VideoModule.dll" }}
-,{ "pid":12345, "tid":3, "ts":1687974376948317, "dur":5921431, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1687974376919968, "dur":16363, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1687974376936334, "dur":1056, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1687974376937390, "dur":2012, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1687974376939780, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"ProjectSettings\\BurstAotSettings_StandaloneOSX.json" }}
-,{ "pid":12345, "tid":4, "ts":1687974376939408, "dur":468, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"GenerateNativePluginsForAssemblies Library/Bee/artifacts/MacStandalonePlayerBuildProgram/AsyncPluginsFromLinker" }}
-,{ "pid":12345, "tid":4, "ts":1687974376939876, "dur":140, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":4, "ts":1687974376946269, "dur":73, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"MacOSCodeSignDylibCopy C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/PlugIns/lib_burst_generated.bundle" }}
-,{ "pid":12345, "tid":4, "ts":1687974376946845, "dur":163053, "ph":"X", "name": "MacOSCodeSignDylibCopy",  "args": { "detail":"C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/PlugIns/lib_burst_generated.bundle" }}
-,{ "pid":12345, "tid":4, "ts":1687974377110140, "dur":4281, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\RuntimeInitializeOnLoads.json" }}
-,{ "pid":12345, "tid":4, "ts":1687974377114423, "dur":883, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\ScriptingAssemblies.json" }}
-,{ "pid":12345, "tid":4, "ts":1687974377115309, "dur":532, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\boot.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974377115842, "dur":29585, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377145430, "dur":18422, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ARModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377163855, "dur":21398, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AccessibilityModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377185256, "dur":114912, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AndroidJNIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377300170, "dur":31851, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AnimationModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377332023, "dur":26735, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AssetBundleModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377358760, "dur":36287, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.AudioModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377395050, "dur":18788, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ClothModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377413840, "dur":15911, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ClusterInputModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377429753, "dur":16041, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ClusterRendererModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377445796, "dur":19671, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ContentLoadModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377465469, "dur":76455, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.CoreModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377541926, "dur":17074, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.CrashReportingModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377559002, "dur":19019, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.DSPGraphModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377578023, "dur":18442, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.DirectorModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377596467, "dur":15117, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.GIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377611586, "dur":48240, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.GameCenterModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377659828, "dur":18374, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.GridModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377678204, "dur":15514, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.HotReloadModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377693725, "dur":63154, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.IMGUIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377756881, "dur":16239, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ImageConversionModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377773122, "dur":26488, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.InputLegacyModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377799612, "dur":16453, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.InputModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377816067, "dur":20170, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.JSONSerializeModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377836239, "dur":16807, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.LocalizationModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377853048, "dur":33796, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ParticleSystemModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377886847, "dur":15041, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.PerformanceReportingModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377901890, "dur":37201, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.Physics2DModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377939093, "dur":30236, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.PhysicsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377969331, "dur":14716, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ProfilerModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974377984049, "dur":46058, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.PropertiesModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378030110, "dur":15747, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.RuntimeInitializeOnLoadManagerInitializerModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378045859, "dur":15603, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.ScreenCaptureModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378061464, "dur":25913, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.SharedInternalsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378087380, "dur":16971, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.SpriteMaskModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378104354, "dur":18140, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.SpriteShapeModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378122496, "dur":16375, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.StreamingModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378138873, "dur":24980, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.SubstanceModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378163855, "dur":28336, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.SubsystemsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378192193, "dur":16515, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TLSModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378208710, "dur":31545, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TerrainModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378240257, "dur":16062, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TerrainPhysicsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378256321, "dur":32286, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TextCoreFontEngineModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378288609, "dur":70916, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TextCoreTextEngineModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378359527, "dur":29906, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TextRenderingModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378389440, "dur":30135, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.TilemapModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378419577, "dur":58104, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UIElementsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378477683, "dur":23829, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UIModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378501514, "dur":15314, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UmbraModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378516830, "dur":15419, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityAnalyticsCommonModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378532251, "dur":40886, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityAnalyticsModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378573140, "dur":18700, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityConnectModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378591843, "dur":15398, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityCurlModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378607243, "dur":14701, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityTestProtocolModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378621946, "dur":18152, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityWebRequestAssetBundleModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378640100, "dur":18564, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityWebRequestAudioModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378658667, "dur":69862, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityWebRequestModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378728531, "dur":16630, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityWebRequestTextureModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378745163, "dur":29118, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UnityWebRequestWWWModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378774283, "dur":30454, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.VFXModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378804739, "dur":17899, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.VRModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378822640, "dur":16189, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.VehiclesModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378838833, "dur":29380, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.VideoModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378868215, "dur":28909, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.VirtualTexturingModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378897126, "dur":16013, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.WindModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378913141, "dur":653, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.XRModule.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378913795, "dur":22241, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378936038, "dur":21533, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Assembly-CSharp.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378957573, "dur":30278, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.IK.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974378987853, "dur":223798, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.VectorGraphics.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379211653, "dur":68194, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Burst.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379279854, "dur":59916, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.VisualScripting.Core.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379339772, "dur":55736, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.Animation.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379395510, "dur":42137, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.Tilemap.Extras.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379437649, "dur":66379, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.VisualScripting.Flow.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379504031, "dur":928, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.InternalAPIEngineBridge.001.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379504961, "dur":36042, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.Common.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379541005, "dur":91932, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\UnityEngine.UI.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379632939, "dur":51802, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Timeline.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379684743, "dur":18442, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.InternalAPIEngineBridge.003.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379703187, "dur":46098, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Collections.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379749287, "dur":55317, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.SpriteShape.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379804606, "dur":21777, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.2D.PixelPerfect.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379826385, "dur":42589, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Mathematics.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974379868976, "dur":148688, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.TextMeshPro.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380017666, "dur":34413, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.VisualScripting.State.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380052081, "dur":16390, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Collections.LowLevel.ILSupport.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380068474, "dur":45724, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.VisualScripting.Antlr3.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380114201, "dur":844, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Unity.Burst.Unsafe.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380115046, "dur":16346, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Runtime.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380131403, "dur":34164, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\netstandard.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380165569, "dur":169158, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\Mono.Security.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380334729, "dur":75631, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.ComponentModel.Composition.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380410362, "dur":79127, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Configuration.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380489491, "dur":95815, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Core.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380585309, "dur":29479, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Data.DataSetExtensions.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380614790, "dur":114344, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Data.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380729136, "dur":131128, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Drawing.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380860272, "dur":24422, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.EnterpriseServices.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380884696, "dur":26797, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.IO.Compression.FileSystem.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380911495, "dur":69412, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.IO.Compression.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974380980910, "dur":71187, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Net.Http.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381052099, "dur":50391, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Numerics.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381102492, "dur":99414, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Runtime.Serialization.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381201908, "dur":108127, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Security.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381310037, "dur":64911, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.ServiceModel.Internals.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381374950, "dur":39272, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Transactions.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381414224, "dur":61601, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Xml.Linq.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381475827, "dur":166944, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.Xml.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381642774, "dur":129594, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\System.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381772370, "dur":220475, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\Data\\Managed\\mscorlib.dll" }}
-,{ "pid":12345, "tid":4, "ts":1687974381992910, "dur":6072, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\2.0\\machine.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974381998986, "dur":5488, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\2.0\\web.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974382004480, "dur":6030, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\4.0\\machine.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974382010513, "dur":5912, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\4.0\\web.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974382016430, "dur":5614, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\4.5\\machine.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974382022047, "dur":6489, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\4.5\\web.config" }}
-,{ "pid":12345, "tid":4, "ts":1687974382028541, "dur":17497, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\MonoBleedingEdge\\etc\\mono\\mconfig\\config.xml" }}
-,{ "pid":12345, "tid":4, "ts":1687974382046042, "dur":653, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Resources\\DefaultPreferences.plist" }}
-,{ "pid":12345, "tid":4, "ts":1687974382046699, "dur":64, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Builds\\Mac.app\\Contents\\Info.plist" }}
-,{ "pid":12345, "tid":4, "ts":1687974377110133, "dur":4936763, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"MacOSCodeSignBundleInPlace C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/MacOS/Cell Lab (+1 other)" }}
-,{ "pid":12345, "tid":4, "ts":1687974382047364, "dur":822058, "ph":"X", "name": "MacOSCodeSignBundleInPlace",  "args": { "detail":"C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/MacOS/Cell Lab (+1 other)" }}
-,{ "pid":12345, "tid":5, "ts":1687974376920067, "dur":16270, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376936341, "dur":882, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376937224, "dur":754, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376937979, "dur":1418, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940062, "dur":442, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/csharpactions/lib_burst_generated.bundle_7sm1.info" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940509, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940612, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940697, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940785, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940853, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376940921, "dur":225, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376941154, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376941231, "dur":535, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376941773, "dur":363, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942145, "dur":345, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942498, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942627, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942714, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942786, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376942853, "dur":383, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943244, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943318, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943398, "dur":79, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943483, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943553, "dur":185, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943747, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943833, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376943899, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376944260, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376945195, "dur":108, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376945435, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376946244, "dur":371, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376946660, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376947543, "dur":360, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.AnimationModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":5, "ts":1687974376948196, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":5, "ts":1687974376948344, "dur":5921400, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376920119, "dur":16229, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376936349, "dur":1022, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376937371, "dur":832, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376938204, "dur":1242, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376939524, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376939706, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376939839, "dur":98, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376939990, "dur":85, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940117, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940217, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940322, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940435, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940495, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940569, "dur":69, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940644, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940707, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940773, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940832, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376940905, "dur":475, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941380, "dur":256, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Mac.app/Contents/Resources/Data/Managed/Unity.Mathematics.dll" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941643, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941756, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941838, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941910, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376941973, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942035, "dur":56, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942097, "dur":65, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942169, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942268, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942335, "dur":160, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942503, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942585, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942649, "dur":76, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942734, "dur":79, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942819, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942891, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376942960, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943060, "dur":168, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943235, "dur":70, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943311, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943392, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943460, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943527, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943595, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943663, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943731, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943799, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943858, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376943915, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376944327, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":6, "ts":1687974376945381, "dur":52, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/System.Core-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1687974376946627, "dur":53, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.StreamingModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1687974376947584, "dur":340, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"ExtractUsedFeatures Library/Bee/artifacts/MacStandalonePlayerBuildProgram/Features/UnityEngine.AssetBundleModule-FeaturesChecked.txt" }}
-,{ "pid":12345, "tid":6, "ts":1687974376948325, "dur":5921425, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
-,{ "pid":12345, "tid":0, "ts":1687974382880271, "dur":1503, "ph":"X", "name": "ProfilerWriteOutput" }
+,{ "pid":12345, "tid":0, "ts":1687975957750925, "dur":26124, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957777073, "dur":543, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957777641, "dur":58, "ph":"X", "name": "Tundra",  "args": { "detail":"PrepareNodes" }}
+,{ "pid":12345, "tid":0, "ts":1687975957777699, "dur":333, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778202, "dur":81, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/level0" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778345, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778454, "dur":61, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778556, "dur":79, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/boot.config" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778640, "dur":87, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778731, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"WriteText Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
+,{ "pid":12345, "tid":0, "ts":1687975957779165, "dur":99, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.ClothModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957779393, "dur":90, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.CrashReportingModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957779786, "dur":70, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957779861, "dur":68, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.InputLegacyModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957780003, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957780067, "dur":60, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.NVIDIAModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957780181, "dur":71, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.Physics2DModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957780717, "dur":52, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.TerrainModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957780773, "dur":73, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.TerrainPhysicsModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957781091, "dur":78, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.UmbraModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957781471, "dur":88, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.UnityWebRequestWWWModule.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957781936, "dur":50, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.VectorGraphics.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957782319, "dur":78, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.InternalAPIEngineBridge.003.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957782519, "dur":72, "ph":"X", "name": "EmitFirstTimeEnqueue",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.Mathematics.dll" }}
+,{ "pid":12345, "tid":0, "ts":1687975957778074, "dur":6752, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957784828, "dur":29127, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957814143, "dur":5151, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1687975957778906, "dur":6012, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957784921, "dur":1068, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957785989, "dur":813, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957786803, "dur":4582, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957791386, "dur":133, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/config" }}
+,{ "pid":12345, "tid":1, "ts":1687975957791520, "dur":249, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957791834, "dur":117, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957791971, "dur":71, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.0\\machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1687975957791959, "dur":84, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/4.0/machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792044, "dur":105, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792155, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\2.0\\machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792154, "dur":67, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/2.0/machine.config" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792221, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792295, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\EmbedRuntime\\MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792294, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/EmbedRuntime/MonoPosixHelper.dll" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792353, "dur":246, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957792613, "dur":635, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957793258, "dur":115, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957793373, "dur":230, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/System.Configuration.dll" }}
+,{ "pid":12345, "tid":1, "ts":1687975957793606, "dur":115, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957793728, "dur":283, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957794011, "dur":198, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.Mathematics.dll" }}
+,{ "pid":12345, "tid":1, "ts":1687975957794387, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957794460, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957794533, "dur":770, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957795311, "dur":404, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957795733, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957795909, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957796070, "dur":666, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1687975957796740, "dur":17099, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957778785, "dur":6070, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957784865, "dur":928, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957785793, "dur":858, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957786652, "dur":4694, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957791357, "dur":75, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\mconfig\\config.xml" }}
+,{ "pid":12345, "tid":2, "ts":1687975957791347, "dur":86, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/mconfig/config.xml" }}
+,{ "pid":12345, "tid":2, "ts":1687975957791434, "dur":272, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957791755, "dur":245, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792010, "dur":163, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/4.0/DefaultWsdlHelpGenerator.aspx" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792173, "dur":239, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792453, "dur":68, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792529, "dur":61, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792600, "dur":168, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792775, "dur":123, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957792908, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793026, "dur":98, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793134, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793262, "dur":105, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793367, "dur":57, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/System.ComponentModel.Composition.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793444, "dur":94, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793545, "dur":158, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793704, "dur":81, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.Burst.Unsafe.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793788, "dur":125, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957793914, "dur":139, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.2D.PixelPerfect.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794058, "dur":87, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794146, "dur":54, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.2D.SpriteShape.Runtime.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794204, "dur":72, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794284, "dur":165, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794449, "dur":78, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.InternalAPIEngineBridge.001.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794530, "dur":296, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794913, "dur":53, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794912, "dur":55, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.UnityWebRequestModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957794967, "dur":118, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795294, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795388, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795469, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795531, "dur":79, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795691, "dur":90, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795689, "dur":93, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.JSONSerializeModule.dll" }}
+,{ "pid":12345, "tid":2, "ts":1687975957795783, "dur":89, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957796101, "dur":189, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957796300, "dur":104, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957796427, "dur":135, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957796613, "dur":100, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1687975957796718, "dur":17142, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957778868, "dur":6014, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957784885, "dur":1336, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957786221, "dur":5118, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791357, "dur":175, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791340, "dur":194, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/UnityCrashHandler64.exe" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791609, "dur":80, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.5\\web.config" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791608, "dur":82, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/4.5/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791691, "dur":126, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791865, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791926, "dur":149, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.0\\web.config" }}
+,{ "pid":12345, "tid":3, "ts":1687975957791925, "dur":151, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/4.0/web.config" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792077, "dur":130, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792281, "dur":85, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792371, "dur":95, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Temp\\StagingArea\\WindowsPlayer.exe" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792371, "dur":96, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab.exe" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792467, "dur":192, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792668, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957792752, "dur":305, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793064, "dur":106, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793177, "dur":101, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793285, "dur":111, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793396, "dur":100, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Mono.Security.dll" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793500, "dur":111, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793618, "dur":85, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957793725, "dur":734, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957794473, "dur":81, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957794633, "dur":74, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957794721, "dur":81, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957794886, "dur":57, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957794951, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795028, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795110, "dur":62, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795297, "dur":95, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795424, "dur":350, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795774, "dur":116, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.SpriteShapeModule.dll" }}
+,{ "pid":12345, "tid":3, "ts":1687975957795893, "dur":260, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957796248, "dur":75, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957796349, "dur":50, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/UnityPlayer.dll" }}
+,{ "pid":12345, "tid":3, "ts":1687975957796399, "dur":109, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957796522, "dur":79, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1687975957796721, "dur":17133, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957778952, "dur":5975, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957784927, "dur":770, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957785697, "dur":810, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957786507, "dur":4820, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957791435, "dur":89, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":4, "ts":1687975957791722, "dur":143, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Cell Lab\\Library\\Bee\\PlayerScriptAssemblies\\Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":4, "ts":1687975957791898, "dur":82, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"ProjectSettings\\BurstAotSettings_StandaloneWindows.json" }}
+,{ "pid":12345, "tid":4, "ts":1687975957791981, "dur":217, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Users\\lazar\\Desktop\\Unity Projects\\Cell-Lab-Remake\\Cell Lab\\Library\\PackageCache\\com.unity.burst@1.8.7\\.Runtime\\bcl.exe" }}
+,{ "pid":12345, "tid":4, "ts":1687975957791335, "dur":864, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"GenerateNativePluginsForAssemblies Library/Bee/artifacts/WinPlayerBuildProgram/AsyncPluginsFromLinker" }}
+,{ "pid":12345, "tid":4, "ts":1687975957792200, "dur":234, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1687975957792967, "dur":16842, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\Bee\\artifacts\\WinPlayerBuildProgram\\AsyncPluginsFromLinker\\x86_64\\lib_burst_generated.dll" }}
+,{ "pid":12345, "tid":4, "ts":1687975957792966, "dur":16845, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Plugins/x86_64/lib_burst_generated.dll" }}
+,{ "pid":12345, "tid":4, "ts":1687975957811090, "dur":2725, "ph":"X", "name": "CopyFiles",  "args": { "detail":"C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Plugins/x86_64/lib_burst_generated.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957778845, "dur":6027, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957784876, "dur":1213, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957786090, "dur":5235, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791353, "dur":51, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791422, "dur":115, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791537, "dur":50, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/app.info" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791628, "dur":102, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791742, "dur":121, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\etc\\mono\\4.5\\machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791734, "dur":130, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/4.5/machine.config" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791865, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957791979, "dur":52, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792071, "dur":63, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792175, "dur":54, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792249, "dur":84, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/2.0/Browsers/Compat.browser" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792334, "dur":177, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792522, "dur":91, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792621, "dur":209, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792831, "dur":134, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/System.ServiceModel.Internals.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957792969, "dur":953, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957793923, "dur":191, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/System.EnterpriseServices.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794119, "dur":55, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794175, "dur":110, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.Collections.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794373, "dur":293, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794675, "dur":84, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794856, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957794920, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795013, "dur":60, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795083, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795213, "dur":73, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795337, "dur":58, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795482, "dur":53, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795600, "dur":110, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795740, "dur":80, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795829, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957795888, "dur":170, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.IMGUIModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957796114, "dur":67, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957796191, "dur":302, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957796493, "dur":138, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.AndroidJNIModule.dll" }}
+,{ "pid":12345, "tid":5, "ts":1687975957796681, "dur":84, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1687975957796770, "dur":17127, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957778775, "dur":6070, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957784849, "dur":6469, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957791353, "dur":259, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957791619, "dur":300, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":6, "ts":1687975957791919, "dur":173, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792144, "dur":59, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/etc/mono/2.0/settings.map" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792204, "dur":151, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792365, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\win64_player_nondevelopment_mono\\MonoBleedingEdge\\EmbedRuntime\\mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792364, "dur":68, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/MonoBleedingEdge/EmbedRuntime/mono-2.0-bdwgc.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792432, "dur":92, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792543, "dur":286, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792839, "dur":93, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957792940, "dur":515, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957793456, "dur":137, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/System.IO.Compression.FileSystem.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957793597, "dur":394, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957793991, "dur":235, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/Unity.VisualScripting.Antlr3.Runtime.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957794230, "dur":1194, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795431, "dur":71, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795508, "dur":59, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795667, "dur":52, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"C:\\Program Files\\Unity\\Hub\\Editor\\2022.3.3f1\\Editor\\Data\\PlaybackEngines\\WindowsStandaloneSupport\\Variations\\mono\\Managed\\UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795666, "dur":54, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.LocalizationModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795810, "dur":126, "ph":"X", "name": "EmitNodeUpToDate",  "args": { "detail":"CopyFiles C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows x64/Cell Lab_Data/Managed/UnityEngine.ImageConversionModule.dll" }}
+,{ "pid":12345, "tid":6, "ts":1687975957795981, "dur":89, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957796076, "dur":139, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957796223, "dur":164, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957796409, "dur":113, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957796530, "dur":162, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1687975957796707, "dur":17206, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1687975957823727, "dur":1199, "ph":"X", "name": "ProfilerWriteOutput" }
 ,
