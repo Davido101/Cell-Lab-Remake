@@ -13,10 +13,10 @@ public class Cell : MonoBehaviour
     public Substrate substrate;
     public Type cellType = typeof(Cell);
     public Vector2 position = Vector2.zero;
-    public Vector2 velocity = new Vector2(0.15f,0.15f);
+    public Vector2 velocity = Vector2.zero;
     public Vector2 force = Vector2.zero;
     public float mass = 2.16f;
-    public float radius = Mathf.Sqrt(2.16f/4000);
+    public float radius = Mathf.Sqrt(2.16f/16000);
     public bool dead = false;
     const int opacity = 1;
     public Color color = Color.white;

@@ -14,12 +14,15 @@ public class Substrate : MonoBehaviour
     public float moveSpeed = 3.5f;
     Vector3 originalPos;
     public List<Cell> cells = new List<Cell>();
+    public List<Food> foods = new List<Food>();
     public GameObject defaultCell;
+    public GameObject defaultFood;
     public float radius = 1;
     public float zoom = 1;
     public float temperature = 1;
     public Camera camera;
-    public TMP_Text zoomAmount;
+    public TMP_Text zoomUI;
+    public RNG rng = new RNG();
 
     void Start()
     {
@@ -30,6 +33,7 @@ public class Substrate : MonoBehaviour
         AdjustSpeed();
         SpawnCell(typeof(Phagocyte), 0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
         SpawnCell(typeof(Phagocyte), -0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
+        SpawnFoodLump(0, 0, 500, 0.05f);
     }
 
     public void update()
@@ -65,6 +69,11 @@ public class Substrate : MonoBehaviour
         {
             cell.fixedupdate(deltaT);
         }
+
+        foreach (Food food in foods)
+        {
+            food.fixedupdate();
+        }
     }
 
     void AdjustSpeed()
@@ -72,21 +81,60 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    void SpawnCell(Type cellType, float x, float y, Color color)
+    Cell SpawnCell(Type cellType, float x, float y, Color color)
     {
-        GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
+        GameObject cellObject = Instantiate(defaultCell, new Vector3(x * radius, y * radius, 0), new Quaternion());
         Cell cell = cellObject.AddComponent(cellType) as Cell;
         cell.position = new Vector2(x * radius, y * radius);
+        cell.velocity = new Vector2(0.07f, 0.07f);
         cell.color = color;
         cell.substrate = this;
         cells.Add(cell);
+        return cell;
+    }
+
+    Food SpawnFood(float x, float y)
+    {
+        return SpawnFood(x, y, 1.2f, 0);
+    }
+
+    Food SpawnFood(float x, float y, float size, float coating)
+    {
+        GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
+        Food food = foodObject.AddComponent<Food>();
+        food.position = new Vector2(x * radius, y * radius);
+        food.size = size;
+        food.coating = coating;
+        food.substrate = this;
+        food.fixedupdate();
+        // I will later on implement something like in the original game's source code where you can pass down a deltaT of 0 to initialize the object
+        // Here I just want the radius to set immediately. I could do it manually but I don't want to rewrite code where I don't have to
+        foods.Add(food);
+        return food;
+    }
+
+    void SpawnFoodLump(float x, float y, int foodCount, float lumpSize)
+    {
+        SpawnFoodLump(x, y, foodCount, lumpSize, 1.2f, 0);
+    }
+
+    void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize, float coating)
+    {
+        Debug.Log(foodCount);
+        for (int i = 0; i < foodCount; i++)
+        {
+            Debug.Log(i);
+            float foodX = x + rng.Gaussian() * lumpSize;
+            float foodY = y + rng.Gaussian() * lumpSize;
+            if (x * x + y * y < radius * radius)
+                SpawnFood(foodX, foodY, foodSize, coating);
+        }
     }
 
     void UpdateCamera()
     {
         float maxZoom = maxScale * radius;
 
-        // Zoom
         float scrolling = Input.GetAxis("Mouse ScrollWheel");
         if (scrolling != 0)
         {
@@ -96,8 +144,8 @@ public class Substrate : MonoBehaviour
         }
         float zoomLerping = 1 - Mathf.Pow(1 - zoomSnap, Time.deltaTime);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, zoom, zoomLerping);
+        //zoomUI.text = $"x{Mathf.Floor((1.25f / zoom) * 50)}";
 
-        // Move
         if (Input.GetMouseButtonDown(1))
         {
             originalPos = camera.ScreenToWorldPoint(Input.mousePosition);
@@ -117,6 +165,5 @@ public class Substrate : MonoBehaviour
         float bottomDiff = Mathf.Max(-bottomLeft.y - maxZoom, 0);
         float topDiff = Mathf.Max(topRight.y - maxZoom, 0);
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
-        zoomAmount.text = $"x{Math.Floor((1.25f / camera.orthographicSize) * 50)}";
     }
 }

@@ -7,7 +7,7 @@ public class Game : MonoBehaviour
 {
     public Substrate substrate;
     public Camera camera;
-    
+
     void Start()
     {
         camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
