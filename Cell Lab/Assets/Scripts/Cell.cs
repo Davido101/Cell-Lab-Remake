@@ -13,8 +13,10 @@ public class Cell : MonoBehaviour
     public Substrate substrate;
     public Type cellType = typeof(Cell);
     public Vector2 position = Vector2.zero;
+    public Vector2 lastPosition = Vector2.zero;
     public Vector2 velocity = Vector2.zero;
     public Vector2 force = Vector2.zero;
+    public float moveDuration = 0;
     public float mass = 2.16f;
     public float radius = Mathf.Sqrt(2.16f/16000);
     public bool dead = false;
@@ -31,6 +33,11 @@ public class Cell : MonoBehaviour
 
     public void update()
     {
+        moveDuration += Time.deltaTime;
+        float lerping = Mathf.Min(moveDuration / Time.fixedDeltaTime, 1);
+        float x = Mathf.Lerp(lastPosition.x, position.x, lerping);
+        float y = Mathf.Lerp(lastPosition.y, position.y, lerping);
+        cellObject.transform.position = new Vector3(x, y, 0);
         cellObject.transform.localScale = new Vector3(radius, radius, 1);
     }
 
@@ -48,10 +55,11 @@ public class Cell : MonoBehaviour
 
     public void UpdatePos(float deltaT)
     {
+        lastPosition = position;
         velocity += force / mass * deltaT;
         position += velocity * deltaT;
-        SetPos(position);
         force = Vector2.zero;
+        moveDuration = 0;
     }
 
     public Boolean KillIfOutsideSubstrate()
@@ -79,11 +87,6 @@ public class Cell : MonoBehaviour
     public Vector2 ReactionForce(Vector2 pos, float collision)
     {
         return -pos / pos.magnitude * Mathf.Max(collision, 0) * springConst;
-    }
-
-    public void SetPos(Vector2 pos)
-    {
-        this.gameObject.transform.position = new Vector3(pos.x, pos.y, 0);
     }
 
     public void Kill()

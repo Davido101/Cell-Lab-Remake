@@ -108,8 +108,6 @@ public class Substrate : MonoBehaviour
         food.coating = coating;
         food.substrate = this;
         food.fixedupdate();
-        // I will later on implement something like in the original game's source code where you can pass down a deltaT of 0 to initialize the object
-        // Here I just want the radius to set immediately. I could do it manually but I don't want to rewrite code where I don't have to
         foods.Add(food);
         return food;
     }
