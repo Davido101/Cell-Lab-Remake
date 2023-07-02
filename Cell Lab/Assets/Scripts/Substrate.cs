@@ -84,6 +84,7 @@ public class Substrate : MonoBehaviour
     Cell SpawnCell(Type cellType, float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x * radius, y * radius, 0), new Quaternion());
+        cellObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
         Cell cell = cellObject.AddComponent(cellType) as Cell;
         cell.position = new Vector2(x * radius, y * radius);
         cell.velocity = new Vector2(0.07f, 0.07f);
@@ -144,7 +145,7 @@ public class Substrate : MonoBehaviour
         }
         float zoomLerping = 1 - Mathf.Pow(1 - zoomSnap, Time.deltaTime);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, zoom, zoomLerping);
-        //zoomUI.text = $"x{Mathf.Floor((1.25f / zoom) * 50)}";
+        zoomUI.text = $"x{Mathf.Floor((1.25f / zoom) * 50)}";
 
         if (Input.GetMouseButtonDown(1))
         {

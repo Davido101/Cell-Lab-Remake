@@ -18,7 +18,7 @@ public class Cell : MonoBehaviour
     public float mass = 2.16f;
     public float radius = Mathf.Sqrt(2.16f/16000);
     public bool dead = false;
-    const int opacity = 1;
+    const float opacity = 0.8f;
     public Color color = Color.white;
     
     void Start()

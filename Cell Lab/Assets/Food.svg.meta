@@ -18,8 +18,8 @@ ScriptedImporter:
   viewportOptions: 0
   preserveViewport: 0
   advancedMode: 0
-  predefinedResolutionIndex: 1
-  targetResolution: 1080
+  predefinedResolutionIndex: 0
+  targetResolution: 2160
   resolutionMultiplier: 1
   stepDistance: 10
   samplingStepDistance: 100
@@ -39,16 +39,16 @@ ScriptedImporter:
   spriteData:
     TessellationDetail: 0
     SpriteRect:
-      name: 
+      name: FoodSprite
       originalName: 
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       alignment: 0
       border: {x: 0, y: 0, z: 0, w: 0}
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 0
-        height: 0
+        width: 200
+        height: 200
       spriteID: 334d3f0ef96c96f4db9b1b165a8a44d1
     PhysicsOutlines: []
