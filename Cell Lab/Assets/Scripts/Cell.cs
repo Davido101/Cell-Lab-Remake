@@ -126,4 +126,3 @@ public class Cell : MonoBehaviour
         Destroy(gameObject);
     }
 }
-

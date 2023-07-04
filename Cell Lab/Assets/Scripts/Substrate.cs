@@ -1,20 +1,22 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UIElements;
+using Unity.Jobs;
+using Unity.Collections;
 
 public class Substrate : MonoBehaviour
 {
-    const float maxScale = 1.25f;
+    public NativeList<JobHandle> threads;
+    public int maxThreads = 1;
+
+    public float maxScale = 1.25f;
     public float zoom = 1;
     public float zoomSpeed = 3.5f;
     public float zoomSnap = 0.99f;
     public float moveSpeed = 3.5f;
-    Vector3 originalPos;
+    public Vector3 originalPos;
 
     public List<Cell> cells = new List<Cell>();
     public List<Food> foods = new List<Food>();
@@ -45,7 +47,7 @@ public class Substrate : MonoBehaviour
         AdjustSpeed();
         //Cell cell = SpawnCell(typeof(Phagocyte), 0f, 0f, new Color(0.7019f, 1f, 0.2235f));
         //cell.velocity = new Vector2(0.05f, 0);
-        SpawnFoodLump(0, 0, 10000, 2.3f);
+        SpawnFoodLump(0, 0, 5000, 1.6f);
         Debug.Log(cells.Count);
     }
 
@@ -56,6 +58,17 @@ public class Substrate : MonoBehaviour
         foreach (Cell cell in cells)
         {
             cell.update();
+        }
+    }
+
+    public struct Interaction : IJob
+    {
+        public Cell cell1;
+        public Cell cell2;
+
+        public void Execute()
+        {
+            cell1.React(cell2);
         }
     }
 
@@ -71,7 +84,7 @@ public class Substrate : MonoBehaviour
                 continue;
             }
 
-            int gridID = toGridID(cell);
+            int gridID = ToGridID(cell);
             cell.gridID = gridID;
             if (interactionGrid.ContainsKey(gridID))
             {
@@ -84,6 +97,7 @@ public class Substrate : MonoBehaviour
             }
         }
 
+        threads = new NativeList<JobHandle>(Allocator.Temp);
         foreach (Cell cell in deadCells)
         {
             cells.Remove(cell);
@@ -92,9 +106,11 @@ public class Substrate : MonoBehaviour
 
         foreach (Cell cell in cells)
         {
-            if (cell.optimizedInteractions) optimizedInteractions(cell);
-            else interactions(cell);
+            if (cell.optimizedInteractions) OptimizedInteractions(cell);
+            else Interactions(cell);
         }
+        JobHandle.CompleteAll(threads);
+        threads.Clear();
 
         float deltaT = temperature / Time.timeScale / 50;
         foreach (Cell cell in cells)
@@ -144,12 +160,7 @@ public class Substrate : MonoBehaviour
         //return food;
     }
 
-    void SpawnFoodLump(float x, float y, int foodCount, float lumpSize)
-    {
-        SpawnFoodLump(x, y, foodCount, lumpSize, 1.2f, 0);
-    }
-
-    public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize, float coating)
+    public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize = 1.2f, float coating = 0)
     {
         for (int i = 0; i < foodCount; i++)
         {
@@ -196,46 +207,63 @@ public class Substrate : MonoBehaviour
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
     }
 
-    public int toGridID(Cell cell)
+    public int ToGridID(Cell cell)
     {
-        return toGridID(cell.position.x, cell.position.y);
+        return ToGridID(cell.position.x, cell.position.y);
     }
 
-    public int toGridID(float x, float y) {
-        return toGridID(Mathf.FloorToInt((x + radius) / interactionSquareWidth), Mathf.FloorToInt((y + radius) / interactionSquareWidth));
+    public int ToGridID(float x, float y) {
+        return ToGridID(Mathf.FloorToInt((x + radius) / interactionSquareWidth), Mathf.FloorToInt((y + radius) / interactionSquareWidth));
     }
-    public int toGridID(int x, int y) {
+    public int ToGridID(int x, int y) {
         return x + y * interactionGridLength;
     }
 
-    public (int, int) toGridXY(int gridID)
+    public (int, int) ToGridXY(int gridID)
     {
         return (gridID % interactionGridLength, gridID / interactionGridLength);
     }
 
-    public void optimizedInteractions(Cell cell1) {
-        (int gridX, int gridY) = toGridXY(cell1.gridID);
+    public void OptimizedInteractions(Cell cell1) {
+        (int gridX, int gridY) = ToGridXY(cell1.gridID);
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
-                int gridID = toGridID(gridX + x, gridY + y);
+                int gridID = ToGridID(gridX + x, gridY + y);
                 if (interactionGrid.ContainsKey(gridID) && interactionGrid[gridID].cells.Count > 0)
                 {
                     foreach (Cell cell2 in interactionGrid[gridID].cells)
                     {
-                        if (!cell1.Equals(cell2)) cell1.React(cell2);
+                        Interact(cell1, cell2);
                     }
                 }
             }
         }
     }
 
-    public void interactions(Cell cell1)
+    public void Interactions(Cell cell1)
     {
         foreach (Cell cell2 in cells)
         {
-            if (!cell1.Equals(cell2)) cell1.React(cell2);
+            Interact(cell1, cell2);
         }
+    }
+
+    public bool Interact(Cell _cell1, Cell _cell2)
+    {
+        if (_cell1.Equals(_cell2)) return false;
+        if (maxThreads == 1) _cell1.React(_cell2);
+        else
+        {
+            if (threads.Length >= maxThreads)
+            {
+                threads[0].Complete();
+                threads.RemoveAt(0);
+            }
+
+            threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
+        }
+        return true;
     }
 }
