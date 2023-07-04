@@ -452,7 +452,7 @@ MonoBehaviour:
   foods: []
   defaultCell: {fileID: -3888481672020999207, guid: a49a75bfad6bdad4ca8a3026578c3390, type: 3}
   defaultFood: {fileID: -3888481672020999207, guid: 0ca6a5a1ee6705f4284a052992cde5ad, type: 3}
-  radius: 1
+  radius: 10
   zoom: 1
   temperature: 1
   camera: {fileID: 0}

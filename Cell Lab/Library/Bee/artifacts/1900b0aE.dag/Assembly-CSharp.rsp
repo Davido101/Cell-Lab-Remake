@@ -384,6 +384,7 @@
 "Assets/Scripts/Cells/Phagocyte.cs"
 "Assets/Scripts/Food.cs"
 "Assets/Scripts/Game.cs"
+"Assets/Scripts/GridCell.cs"
 "Assets/Scripts/RNG.cs"
 "Assets/Scripts/Substrate.cs"
 -langversion:9.0

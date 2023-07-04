@@ -8,8 +8,11 @@ using UnityEngine.UIElements;
 
 public class Cell : MonoBehaviour
 {
+    public bool optimizedInteractions = true;
+
+    public int gridID;
+
     public float springConst = 200;
-    public GameObject cellObject;
     public Substrate substrate;
     public Type cellType = typeof(Cell);
     public Vector2 position = Vector2.zero;
@@ -25,27 +28,48 @@ public class Cell : MonoBehaviour
     
     void Start()
     {
-        cellObject = this.gameObject;
-        cellObject.transform.localScale = new Vector3(radius, radius, 1);
+        setup();
+    }
+
+    public void setup()
+    {
+        if (KillIfOutsideSubstrate()) return;
+        gameObject.transform.localScale = new Vector3(radius, radius, 1);
         color.a = opacity;
-        cellObject.GetComponent<SpriteRenderer>().color = color;
+        gameObject.GetComponent<SpriteRenderer>().color = color;
     }
 
     public void update()
     {
+        handleGraphics();
+    }
+
+    public void handleGraphics()
+    {
+        if (dead)
+        {
+            GetComponent<Renderer>().enabled = false;
+            return;
+        }
+
         moveDuration += Time.deltaTime;
         float lerping = Mathf.Min(moveDuration / Time.fixedDeltaTime, 1);
         float x = Mathf.Lerp(lastPosition.x, position.x, lerping);
         float y = Mathf.Lerp(lastPosition.y, position.y, lerping);
-        cellObject.transform.position = new Vector3(x, y, 0);
-        cellObject.transform.localScale = new Vector3(radius, radius, 1);
+        gameObject.transform.position = new Vector3(x, y, 0);
+        gameObject.transform.localScale = new Vector3(radius, radius, 1);
     }
 
     public void fixedupdate(float deltaT)
     {
-        if (KillIfOutsideSubstrate()) return;
+        handlePhysics(deltaT);
+    }
+
+    public void handlePhysics(float deltaT)
+    {
         force += SubstrateReactionForce();
         UpdatePos(deltaT);
+        if (KillIfOutsideSubstrate()) return;
     }
 
     public void React(Cell cell)
@@ -74,19 +98,22 @@ public class Cell : MonoBehaviour
 
     public Vector2 SubstrateReactionForce()
     {
-        return this.ReactionForce(position, position.magnitude + radius - substrate.radius);
+        return ReactionForce(position, position.magnitude + radius - substrate.radius);
     }
 
     public Vector2 ReactionForce(Cell cell)
     {
-        Vector2 relativePos = cell.position - this.position;
-        float collision = this.radius + cell.radius - relativePos.magnitude;
-        return this.ReactionForce(relativePos, collision);
+        // manual implementation is somehow noticeably faster
+        Vector2 relativePos = new Vector2(cell.position.x - position.x, cell.position.y - position.y);
+        if (relativePos.sqrMagnitude >= Mathf.Pow(radius + cell.radius, 2)) return Vector2.zero;
+        float collision = radius + cell.radius - relativePos.magnitude;
+        return ReactionForce(relativePos, collision);
     }
 
     public Vector2 ReactionForce(Vector2 pos, float collision)
     {
-        return -pos / pos.magnitude * Mathf.Max(collision, 0) * springConst;
+        if (collision <= 0) return Vector2.zero;
+        return -pos.normalized * collision * springConst;
     }
 
     public void Kill()
@@ -96,7 +123,7 @@ public class Cell : MonoBehaviour
 
     public void Destroy()
     {
-        Destroy(this.gameObject);
+        Destroy(gameObject);
     }
 }
 

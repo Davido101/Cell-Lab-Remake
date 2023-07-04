@@ -5,63 +5,95 @@ using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UIElements;
 
 public class Substrate : MonoBehaviour
 {
     const float maxScale = 1.25f;
+    public float zoom = 1;
     public float zoomSpeed = 3.5f;
     public float zoomSnap = 0.99f;
     public float moveSpeed = 3.5f;
     Vector3 originalPos;
+
     public List<Cell> cells = new List<Cell>();
     public List<Food> foods = new List<Food>();
     public GameObject defaultCell;
     public GameObject defaultFood;
+
+    public Dictionary<int, GridCell> interactionGrid;
+    public float interactionSquareWidth = 0.1f;
+    public int interactionGridLength;
+    
     public float radius = 1;
-    public float zoom = 1;
     public float temperature = 1;
+
     public Camera camera;
     public TMP_Text zoomUI;
     public RNG rng = new RNG();
 
     void Start()
     {
-        this.transform.localScale = new Vector3(radius, radius, 1);
+        transform.localScale = new Vector3(radius, radius, 1);
         camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
         zoom = maxScale * radius;
         camera.orthographicSize = zoom;
+
+
+        interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
+
         AdjustSpeed();
-        SpawnCell(typeof(Phagocyte), 0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
-        SpawnCell(typeof(Phagocyte), -0.5f, -0.5f, new Color(0.7019f, 1f, 0.2235f));
-        SpawnFoodLump(0, 0, 500, 0.05f);
+        //Cell cell = SpawnCell(typeof(Phagocyte), 0f, 0f, new Color(0.7019f, 1f, 0.2235f));
+        //cell.velocity = new Vector2(0.05f, 0);
+        SpawnFoodLump(0, 0, 10000, 2.3f);
+        Debug.Log(cells.Count);
     }
 
     public void update()
     {
         UpdateCamera();
         AdjustSpeed();
-        List<Cell> deadCells = new List<Cell>();
         foreach (Cell cell in cells)
         {
             cell.update();
-            if (cell.dead)
-                deadCells.Add(cell);
-        }
-        foreach (Cell cell in deadCells)
-        {
-            cells.Remove(cell);
-            cell.Destroy();
         }
     }
 
     public void fixedupdate()
     {
-        for (int i = 0; i < cells.Count; i++)
+        List<Cell> deadCells = new List<Cell>();
+        interactionGrid = new Dictionary<int, GridCell>();
+        foreach (Cell cell in cells)
         {
-            for (int j = 0; j < cells.Count; j++)
+            if (cell.dead)
             {
-                if (i != j && !cells[i].dead && !cells[j].dead) cells[i].React(cells[j]);
+                deadCells.Add(cell);
+                continue;
             }
+
+            int gridID = toGridID(cell);
+            cell.gridID = gridID;
+            if (interactionGrid.ContainsKey(gridID))
+            {
+                interactionGrid[gridID].cells.Add(cell);
+            }
+            else
+            {
+                interactionGrid[gridID] = new GridCell();
+                interactionGrid[gridID].cells.Add(cell);
+            }
+        }
+
+        foreach (Cell cell in deadCells)
+        {
+            cells.Remove(cell);
+            cell.Destroy();
+        }
+
+        foreach (Cell cell in cells)
+        {
+            if (cell.optimizedInteractions) optimizedInteractions(cell);
+            else interactions(cell);
         }
 
         float deltaT = temperature / Time.timeScale / 50;
@@ -76,31 +108,31 @@ public class Substrate : MonoBehaviour
         }
     }
 
-    void AdjustSpeed()
+    public void AdjustSpeed()
     {
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    Cell SpawnCell(Type cellType, float x, float y, Color color)
+    public Cell SpawnCell(Type cellType, float x, float y, Color color)
     {
-        GameObject cellObject = Instantiate(defaultCell, new Vector3(x * radius, y * radius, 0), new Quaternion());
+        GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         cellObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
         Cell cell = cellObject.AddComponent(cellType) as Cell;
-        cell.position = new Vector2(x * radius, y * radius);
-        cell.velocity = new Vector2(0.07f, 0.07f);
+        cell.position = new Vector2(x, y);
         cell.color = color;
         cell.substrate = this;
         cells.Add(cell);
         return cell;
     }
 
-    Food SpawnFood(float x, float y)
+    public Cell SpawnFood(float x, float y)
     {
         return SpawnFood(x, y, 1.2f, 0);
     }
 
-    Food SpawnFood(float x, float y, float size, float coating)
+    public Cell SpawnFood(float x, float y, float size, float coating)
     {
+        return SpawnCell(typeof(Phagocyte), x, y, new Color(0.7019f, 1f, 0.2235f));
         GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
         Food food = foodObject.AddComponent<Food>();
         food.position = new Vector2(x * radius, y * radius);
@@ -109,7 +141,7 @@ public class Substrate : MonoBehaviour
         food.substrate = this;
         food.fixedupdate();
         foods.Add(food);
-        return food;
+        //return food;
     }
 
     void SpawnFoodLump(float x, float y, int foodCount, float lumpSize)
@@ -117,12 +149,10 @@ public class Substrate : MonoBehaviour
         SpawnFoodLump(x, y, foodCount, lumpSize, 1.2f, 0);
     }
 
-    void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize, float coating)
+    public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize, float coating)
     {
-        Debug.Log(foodCount);
         for (int i = 0; i < foodCount; i++)
         {
-            Debug.Log(i);
             float foodX = x + rng.Gaussian() * lumpSize;
             float foodY = y + rng.Gaussian() * lumpSize;
             if (x * x + y * y < radius * radius)
@@ -130,7 +160,7 @@ public class Substrate : MonoBehaviour
         }
     }
 
-    void UpdateCamera()
+    public void UpdateCamera()
     {
         float maxZoom = maxScale * radius;
 
@@ -164,5 +194,48 @@ public class Substrate : MonoBehaviour
         float bottomDiff = Mathf.Max(-bottomLeft.y - maxZoom, 0);
         float topDiff = Mathf.Max(topRight.y - maxZoom, 0);
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
+    }
+
+    public int toGridID(Cell cell)
+    {
+        return toGridID(cell.position.x, cell.position.y);
+    }
+
+    public int toGridID(float x, float y) {
+        return toGridID(Mathf.FloorToInt((x + radius) / interactionSquareWidth), Mathf.FloorToInt((y + radius) / interactionSquareWidth));
+    }
+    public int toGridID(int x, int y) {
+        return x + y * interactionGridLength;
+    }
+
+    public (int, int) toGridXY(int gridID)
+    {
+        return (gridID % interactionGridLength, gridID / interactionGridLength);
+    }
+
+    public void optimizedInteractions(Cell cell1) {
+        (int gridX, int gridY) = toGridXY(cell1.gridID);
+        for (int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                int gridID = toGridID(gridX + x, gridY + y);
+                if (interactionGrid.ContainsKey(gridID) && interactionGrid[gridID].cells.Count > 0)
+                {
+                    foreach (Cell cell2 in interactionGrid[gridID].cells)
+                    {
+                        if (!cell1.Equals(cell2)) cell1.React(cell2);
+                    }
+                }
+            }
+        }
+    }
+
+    public void interactions(Cell cell1)
+    {
+        foreach (Cell cell2 in cells)
+        {
+            if (!cell1.Equals(cell2)) cell1.React(cell2);
+        }
     }
 }
