@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
+using Unity.VectorGraphics;
+using Unity.VectorGraphics.Editor;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -28,10 +30,21 @@ public class Cell : MonoBehaviour
     public bool dead = false;
     const float opacity = 0.8f;
     public Color color = Color.white;
-    
+    public Sprite sprite;
+
+    void Awake()
+    {
+        sprite = LoadSvgResource("Cells/cell");
+    }
+
     void Start()
     {
         setup();
+    }
+
+    internal Sprite LoadSvgResource(string resourcePath)
+    {
+        return Resources.Load<GameObject>(resourcePath).GetComponent<SpriteRenderer>().sprite;
     }
 
     public void setup()

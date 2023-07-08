@@ -147,8 +147,10 @@ public class Substrate : MonoBehaviour
     public Cell SpawnCell(Type cellType, float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
-        cellObject.GetComponent<SpriteRenderer>().sortingOrder = 1;
+        SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
+        renderer.sortingOrder = 1;
         Cell cell = cellObject.AddComponent(cellType) as Cell;
+        renderer.sprite = cell.sprite;
         cell.position = new Vector2(x, y);
         cell.color = color;
         cell.substrate = this;

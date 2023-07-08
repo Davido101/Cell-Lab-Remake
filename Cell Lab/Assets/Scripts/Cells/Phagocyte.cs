@@ -6,6 +6,7 @@ public class Phagocyte : Cell
 {
     void Awake()
     {
+        sprite = LoadSvgResource("Cells/cell");
         reactsToFood = true;
     }
 }
