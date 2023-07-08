@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class Phagocyte : Cell
 {
-    
+    void Awake()
+    {
+        reactsToFood = true;
+    }
 }

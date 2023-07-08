@@ -445,8 +445,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07444cdf1b83d56489bf976169a0dabd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxThreads: 2
-  maxScale: 1.25
+  maxThreads: 1
+  maxScale: 2.25
   zoom: 1
   zoomSpeed: 3.5
   zoomSnap: 0.99
@@ -458,7 +458,7 @@ MonoBehaviour:
   defaultFood: {fileID: -3888481672020999207, guid: 0ca6a5a1ee6705f4284a052992cde5ad, type: 3}
   interactionSquareWidth: 0.1
   interactionGridLength: -1
-  radius: 10
+  radius: 1
   temperature: 1
   camera: {fileID: 0}
   zoomUI: {fileID: 1987298371}

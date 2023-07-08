@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using TMPro;
 using Unity.Jobs;
@@ -9,9 +8,9 @@ using Unity.Collections;
 public class Substrate : MonoBehaviour
 {
     public NativeList<JobHandle> threads;
-    public int maxThreads = 1;
+    public int maxThreads = 1; // For now the game crashes if this is set any higher
 
-    public float maxScale = 1.25f;
+    public float maxScale = 2.25f;
     public float zoom = 1;
     public float zoomSpeed = 3.5f;
     public float zoomSnap = 0.99f;
@@ -45,10 +44,9 @@ public class Substrate : MonoBehaviour
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
 
         AdjustSpeed();
-        //Cell cell = SpawnCell(typeof(Phagocyte), 0f, 0f, new Color(0.7019f, 1f, 0.2235f));
-        //cell.velocity = new Vector2(0.05f, 0);
-        SpawnFoodLump(0, 0, 5000, 1.6f);
-        Debug.Log(cells.Count);
+        Cell cell = SpawnCell(typeof(Phagocyte), 0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
+        cell.velocity = new Vector2(-0.05f, -0.05f);
+        SpawnFoodLump(0, 0, 100, 0.1f);
     }
 
     public void update()
@@ -58,17 +56,6 @@ public class Substrate : MonoBehaviour
         foreach (Cell cell in cells)
         {
             cell.update();
-        }
-    }
-
-    public struct Interaction : IJob
-    {
-        public Cell cell1;
-        public Cell cell2;
-
-        public void Execute()
-        {
-            cell1.React(cell2);
         }
     }
 
@@ -97,30 +84,58 @@ public class Substrate : MonoBehaviour
             }
         }
 
-        threads = new NativeList<JobHandle>(Allocator.Temp);
+        List<Food> eatenFood = new List<Food>();
+        foreach (Food food in foods)
+        {
+            if (food.eaten)
+            {
+                eatenFood.Add(food);
+                continue;
+            }
+
+            int gridID = ToGridID(food);
+            food.gridID = gridID;
+            if (interactionGrid.ContainsKey(gridID))
+            {
+                interactionGrid[gridID].foods.Add(food);
+            }
+            else
+            {
+                interactionGrid[gridID] = new GridCell();
+                interactionGrid[gridID].foods.Add(food);
+            }
+        }
+
         foreach (Cell cell in deadCells)
         {
             cells.Remove(cell);
             cell.Destroy();
         }
 
-        foreach (Cell cell in cells)
+        foreach (Food food in eatenFood)
         {
-            if (cell.optimizedInteractions) OptimizedInteractions(cell);
-            else Interactions(cell);
+            foods.Remove(food);
+            food.Destroy();
         }
-        JobHandle.CompleteAll(threads);
-        threads.Clear();
 
-        float deltaT = temperature / Time.timeScale / 50;
+        float dt = temperature / Time.timeScale / 50;
+        //threads = new NativeList<JobHandle>(Allocator.Temp);
         foreach (Cell cell in cells)
         {
-            cell.fixedupdate(deltaT);
+            if (cell.optimizedInteractions) OptimizedInteractions(cell, dt);
+            else Interactions(cell, dt);
+        }
+        //JobHandle.CompleteAll(threads);
+        //threads.Clear();
+
+        foreach (Cell cell in cells)
+        {
+            cell.fixedupdate(dt);
         }
 
         foreach (Food food in foods)
         {
-            food.fixedupdate();
+            food.fixedupdate(dt);
         }
     }
 
@@ -141,23 +156,22 @@ public class Substrate : MonoBehaviour
         return cell;
     }
 
-    public Cell SpawnFood(float x, float y)
+    public Food SpawnFood(float x, float y)
     {
         return SpawnFood(x, y, 1.2f, 0);
     }
 
-    public Cell SpawnFood(float x, float y, float size, float coating)
+    public Food SpawnFood(float x, float y, float size, float coating)
     {
-        return SpawnCell(typeof(Phagocyte), x, y, new Color(0.7019f, 1f, 0.2235f));
         GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
         Food food = foodObject.AddComponent<Food>();
         food.position = new Vector2(x * radius, y * radius);
         food.size = size;
         food.coating = coating;
         food.substrate = this;
-        food.fixedupdate();
+        food.fixedupdate(0);
         foods.Add(food);
-        //return food;
+        return food;
     }
 
     public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize = 1.2f, float coating = 0)
@@ -166,7 +180,7 @@ public class Substrate : MonoBehaviour
         {
             float foodX = x + rng.Gaussian() * lumpSize;
             float foodY = y + rng.Gaussian() * lumpSize;
-            if (x * x + y * y < radius * radius)
+            if (foodX * foodX + foodY * foodY < radius * radius)
                 SpawnFood(foodX, foodY, foodSize, coating);
         }
     }
@@ -212,6 +226,11 @@ public class Substrate : MonoBehaviour
         return ToGridID(cell.position.x, cell.position.y);
     }
 
+    public int ToGridID(Food food)
+    {
+        return ToGridID(food.position.x, food.position.y);
+    }
+
     public int ToGridID(float x, float y) {
         return ToGridID(Mathf.FloorToInt((x + radius) / interactionSquareWidth), Mathf.FloorToInt((y + radius) / interactionSquareWidth));
     }
@@ -224,45 +243,84 @@ public class Substrate : MonoBehaviour
         return (gridID % interactionGridLength, gridID / interactionGridLength);
     }
 
-    public void OptimizedInteractions(Cell cell1) {
+    public void OptimizedInteractions(Cell cell1, float dt) {
         (int gridX, int gridY) = ToGridXY(cell1.gridID);
         for (int x = -1; x <= 1; x++)
         {
             for (int y = -1; y <= 1; y++)
             {
                 int gridID = ToGridID(gridX + x, gridY + y);
-                if (interactionGrid.ContainsKey(gridID) && interactionGrid[gridID].cells.Count > 0)
+                if (interactionGrid.ContainsKey(gridID))
                 {
                     foreach (Cell cell2 in interactionGrid[gridID].cells)
                     {
-                        Interact(cell1, cell2);
+                        Interact(cell1, cell2, dt);
+                    }
+
+                    foreach (Food food in interactionGrid[gridID].foods)
+                    {
+                        Interact(cell1, food, dt);
                     }
                 }
             }
         }
     }
 
-    public void Interactions(Cell cell1)
+    public void Interactions(Cell cell1, float dt)
     {
         foreach (Cell cell2 in cells)
         {
-            Interact(cell1, cell2);
+            Interact(cell1, cell2, dt);
+        }
+
+        foreach (Food food in foods)
+        {
+            Interact(cell1, food, dt);
         }
     }
 
-    public bool Interact(Cell _cell1, Cell _cell2)
+    public bool Interact(Cell cell1, Cell cell2, float dt)
     {
-        if (_cell1.Equals(_cell2)) return false;
-        if (maxThreads == 1) _cell1.React(_cell2);
+        if (cell1.Equals(cell2)) return false;
+        if (maxThreads == 1) cell1.React(cell2, dt);
         else
         {
-            if (threads.Length >= maxThreads)
+            while (threads.Length >= maxThreads)
             {
-                threads[0].Complete();
-                threads.RemoveAt(0);
+                for (int i = 0; i < threads.Length; i++)
+                {
+                    if (threads[i].IsCompleted)
+                    {
+                        threads.RemoveAt(i);
+                        i--;
+                    }
+                }
             }
 
-            threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
+            //threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
+        }
+        return true;
+    }
+
+    public bool Interact(Cell cell, Food food, float dt)
+    {
+        if (!cell.reactsToFood) return false;
+        if (maxThreads == 1) cell.React(food, dt);
+        else
+        {
+            while (threads.Length >= maxThreads)
+            {
+                for (int i = 0; i < threads.Length; i++)
+                {
+                    if (threads[i].IsCompleted)
+                    {
+                        threads.RemoveAt(i);
+                        i--;
+                    }
+                }
+            }
+
+            //threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
         }
         return true;
     }
