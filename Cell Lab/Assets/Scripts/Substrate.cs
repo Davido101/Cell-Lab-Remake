@@ -29,14 +29,14 @@ public class Substrate : MonoBehaviour
     public float radius = 1;
     public float temperature = 1;
 
-    public Camera camera;
+    public new Camera camera;
     public TMP_Text zoomUI;
     public RNG rng = new RNG();
 
     void Start()
     {
         transform.localScale = new Vector3(radius, radius, 1);
-        camera = (Camera)GameObject.FindObjectOfType(typeof(Camera));
+        camera = (Camera)FindObjectOfType(typeof(Camera));
         zoom = maxScale * radius;
         camera.orthographicSize = zoom;
 
@@ -44,9 +44,7 @@ public class Substrate : MonoBehaviour
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
 
         AdjustSpeed();
-        Cell cell = SpawnCell(typeof(Phagocyte), 0.5f, 0.5f, new Color(0.7019f, 1f, 0.2235f));
-        cell.velocity = new Vector2(-0.05f, -0.05f);
-        SpawnFoodLump(0, 0, 100, 0.1f);
+        SpawnCell(typeof(Flagellocyte), -0.5f, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public void update()
@@ -259,6 +257,7 @@ public class Substrate : MonoBehaviour
                         Interact(cell1, cell2, dt);
                     }
 
+                    if (!cell1.reactsToFood) continue;
                     foreach (Food food in interactionGrid[gridID].foods)
                     {
                         Interact(cell1, food, dt);
@@ -275,6 +274,7 @@ public class Substrate : MonoBehaviour
             Interact(cell1, cell2, dt);
         }
 
+        if (!cell1.reactsToFood) return;
         foreach (Food food in foods)
         {
             Interact(cell1, food, dt);

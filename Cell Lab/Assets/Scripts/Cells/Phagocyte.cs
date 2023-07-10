@@ -1,12 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class Phagocyte : Cell
 {
     void Awake()
     {
-        sprite = LoadSvgResource("Cells/cell");
+        type = typeof(Phagocyte);
+        sprite = LoadSvgResource("Cells/phagocyte");
         reactsToFood = true;
     }
 }

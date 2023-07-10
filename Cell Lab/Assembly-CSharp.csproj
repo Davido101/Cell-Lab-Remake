@@ -60,6 +60,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\Scripts\Substrate.cs" />
+    <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />

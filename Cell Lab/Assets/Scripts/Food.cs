@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Food : MonoBehaviour
@@ -25,6 +23,7 @@ public class Food : MonoBehaviour
 
     public float Eat(float amount)
     {
+        if (eaten) return 0;
         float totalEaten = Mathf.Min(size, amount);
         size -= totalEaten;
         if (size <= 0)

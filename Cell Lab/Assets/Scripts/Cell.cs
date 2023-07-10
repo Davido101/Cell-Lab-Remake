@@ -1,12 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
-using Unity.VectorGraphics;
-using Unity.VectorGraphics.Editor;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Cell : MonoBehaviour
 {
@@ -16,18 +9,25 @@ public class Cell : MonoBehaviour
     public int gridID;
 
     public float springConst = 200;
+
     public Substrate substrate;
-    public Type cellType = typeof(Cell);
+
+    public Type type = typeof(Cell);
+
     public Vector2 position = Vector2.zero;
     public Vector2 lastPosition = Vector2.zero;
     public Vector2 velocity = Vector2.zero;
     public Vector2 force = Vector2.zero;
+    public float angle = 0;
     public float moveDuration = 0;
+
     public float mass = 2.16f;
     public float radius = Mathf.Sqrt(2.16f/16000);
     public float radiusChangeSpeed = 1;
+
     public float consumptionRate = 1;
     public bool dead = false;
+
     const float opacity = 0.8f;
     public Color color = Color.white;
     public Sprite sprite;
@@ -37,35 +37,34 @@ public class Cell : MonoBehaviour
         sprite = LoadSvgResource("Cells/cell");
     }
 
-    void Start()
-    {
-        setup();
-    }
-
     internal Sprite LoadSvgResource(string resourcePath)
     {
         return Resources.Load<GameObject>(resourcePath).GetComponent<SpriteRenderer>().sprite;
     }
 
-    public void setup()
+    void Start()
     {
-        if (KillIfOutsideSubstrate()) return;
-        gameObject.transform.localScale = new Vector3(radius, radius, 1);
-        color.a = opacity;
-        gameObject.GetComponent<SpriteRenderer>().color = color;
+        if (!setup()) return; // I know this is useless but I just want to make it clear how this function should be modified
     }
 
-    public void update()
+    public virtual bool setup()
+    {
+        if (KillIfOutsideSubstrate()) return false;
+        if (!handleGraphics()) return false;
+        return true;
+    }
+
+    public virtual void update()
     {
         handleGraphics();
     }
 
-    public void handleGraphics()
+    public virtual bool handleGraphics()
     {
         if (dead)
         {
             GetComponent<Renderer>().enabled = false;
-            return;
+            return false;
         }
 
         moveDuration += Time.deltaTime;
@@ -76,27 +75,31 @@ public class Cell : MonoBehaviour
         radius += (mass / radius / 16000 - radius) * radiusChangeSpeed * Time.deltaTime;
         gameObject.transform.position = new Vector3(x, y, 0);
         gameObject.transform.localScale = new Vector3(radius, radius, 1);
+        gameObject.transform.eulerAngles = Vector3.forward * angle;
+        color.a = opacity;
+        gameObject.GetComponent<SpriteRenderer>().color = color;
+        return true;
     }
 
-    public void fixedupdate(float dt)
+    public virtual void fixedupdate(float dt)
     {
         handlePhysics(dt);
     }
 
-    public void handlePhysics(float dt)
+    public virtual void handlePhysics(float dt)
     {
         force += SubstrateReactionForce();
         UpdatePos(dt);
         if (KillIfOutsideSubstrate()) return;
     }
 
-    public void React(Cell cell, float dt)
+    public virtual void React(Cell cell, float dt)
     {
         if (dead || cell.dead) return;
         force += ReactionForce(cell);
     }
 
-    public void React(Food food, float dt)
+    public virtual void React(Food food, float dt)
     {
         if (dead || food.eaten) return;
         (Vector2 relativePos, float collision) = CalculateCollision(position, food.position, radius, food.radius);
@@ -107,7 +110,7 @@ public class Cell : MonoBehaviour
         }
     }
 
-    public void UpdatePos(float dt)
+    public virtual void UpdatePos(float dt)
     {
         lastPosition = position;
         velocity += force / mass * dt;
@@ -116,7 +119,7 @@ public class Cell : MonoBehaviour
         moveDuration = 0;
     }
 
-    public Boolean KillIfOutsideSubstrate()
+    public virtual bool KillIfOutsideSubstrate()
     {
         if (position.magnitude >= substrate.radius)
         {
@@ -126,24 +129,24 @@ public class Cell : MonoBehaviour
         return false;
     }
 
-    public Vector2 SubstrateReactionForce()
+    public virtual Vector2 SubstrateReactionForce()
     {
         return ReactionForce(position, position.magnitude + radius - substrate.radius);
     }
 
-    public Vector2 ReactionForce(Cell cell)
+    public virtual Vector2 ReactionForce(Cell cell)
     {
         (Vector2 relativePos, float collision) = CalculateCollision(position, cell.position, radius, cell.radius);
         return ReactionForce(relativePos, collision);
     }
 
-    public Vector2 ReactionForce(Vector2 pos, float collision)
+    public virtual Vector2 ReactionForce(Vector2 pos, float collision)
     {
         if (collision <= 0) return Vector2.zero;
         return -pos.normalized * collision * springConst;
     }
 
-    public (Vector2, float) CalculateCollision(Vector2 pos1, Vector2 pos2, float radius1, float radius2)
+    public virtual (Vector2, float) CalculateCollision(Vector2 pos1, Vector2 pos2, float radius1, float radius2)
     {
         // manual implementation is somehow noticeably faster
         Vector2 relativePos = new Vector2(pos2.x - pos1.x, pos2.y - pos1.y);
@@ -152,18 +155,18 @@ public class Cell : MonoBehaviour
         return (relativePos, collision);
     }
 
-    public bool Kill()
+    public virtual bool Kill()
     {
         if (dead) return false;
         return dead = true;
     }
 
-    public void Destroy()
+    public virtual void Destroy()
     {
         Destroy(gameObject);
     }
 
-    public void Grow(float amount)
+    public virtual void Grow(float amount)
     {
         mass += amount;
     }
