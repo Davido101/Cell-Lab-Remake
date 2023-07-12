@@ -62,6 +62,7 @@
     <Compile Include="Assets\Scripts\Substrate.cs" />
     <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
+    <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />

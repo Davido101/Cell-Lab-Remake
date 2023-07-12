@@ -170,4 +170,12 @@ public class Cell : MonoBehaviour
     {
         mass += amount;
     }
+
+    public virtual float Eat(float amount)
+    {
+        float eaten = Mathf.Min(amount, mass);
+        mass -= eaten;
+        if (mass == 0) Kill();
+        return eaten;
+    }
 }

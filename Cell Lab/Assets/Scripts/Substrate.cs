@@ -44,7 +44,8 @@ public class Substrate : MonoBehaviour
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
 
         AdjustSpeed();
-        SpawnCell(typeof(Flagellocyte), -0.5f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell<Flagellocyte>(-0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell<Devorocyte>(0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public void update()
@@ -142,12 +143,12 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    public Cell SpawnCell(Type cellType, float x, float y, Color color)
+    public Cell SpawnCell<cellType>(float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
         renderer.sortingOrder = 1;
-        Cell cell = cellObject.AddComponent(cellType) as Cell;
+        Cell cell = cellObject.AddComponent(typeof(cellType)) as Cell;
         renderer.sprite = cell.sprite;
         cell.position = new Vector2(x, y);
         cell.color = color;
