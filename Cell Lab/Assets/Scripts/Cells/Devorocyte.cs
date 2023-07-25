@@ -15,7 +15,7 @@ public class Devorocyte : Cell
 
     public override void React(Cell cell, float dt)
     {
-        if (dead || cell.dead) return;
+        if (dead || cell.dead || !CollidingWith(cell)) return;
         float eaten = cell.Eat(devoringRate * dt);
         Grow(eaten);
         force += ReactionForce(cell);

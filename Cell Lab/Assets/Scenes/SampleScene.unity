@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 48713872047d4b04f8ae7f68f69dc30a, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -460,6 +460,7 @@ MonoBehaviour:
   interactionGridLength: -1
   radius: 1
   temperature: 1
+  dynamicFriction: 5
   camera: {fileID: 0}
   zoomUI: {fileID: 1987298371}
 --- !u!1 &1654017356

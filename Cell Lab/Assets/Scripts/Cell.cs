@@ -86,11 +86,13 @@ public class Cell : MonoBehaviour
         handlePhysics(dt);
     }
 
-    public virtual void handlePhysics(float dt)
+    public virtual bool handlePhysics(float dt)
     {
         force += SubstrateReactionForce();
+        force += DynamicFrictionForce();
         UpdatePos(dt);
-        if (KillIfOutsideSubstrate()) return;
+        if (KillIfOutsideSubstrate()) return false;
+        return true;
     }
 
     public virtual void React(Cell cell, float dt)
@@ -129,6 +131,23 @@ public class Cell : MonoBehaviour
         return false;
     }
 
+    public virtual bool CollidingWith(Cell cell)
+    {
+        float dx = position.x - cell.position.x;
+        float dy = position.y - cell.position.y;
+        float total_radius = radius + cell.radius;
+        return dx * dx + dy * dy <= total_radius * total_radius;
+    }
+
+    public virtual (Vector2, float) CalculateCollision(Vector2 pos1, Vector2 pos2, float radius1, float radius2)
+    {
+        // manual implementation is somehow noticeably faster
+        Vector2 relativePos = new Vector2(pos2.x - pos1.x, pos2.y - pos1.y);
+        if (relativePos.sqrMagnitude >= Mathf.Pow(radius1 + radius2, 2)) return (Vector2.zero, 0);
+        float collision = radius1 + radius2 - relativePos.magnitude;
+        return (relativePos, collision);
+    }
+
     public virtual Vector2 SubstrateReactionForce()
     {
         return ReactionForce(position, position.magnitude + radius - substrate.radius);
@@ -146,13 +165,9 @@ public class Cell : MonoBehaviour
         return -pos.normalized * collision * springConst;
     }
 
-    public virtual (Vector2, float) CalculateCollision(Vector2 pos1, Vector2 pos2, float radius1, float radius2)
+    public virtual Vector2 DynamicFrictionForce()
     {
-        // manual implementation is somehow noticeably faster
-        Vector2 relativePos = new Vector2(pos2.x - pos1.x, pos2.y - pos1.y);
-        if (relativePos.sqrMagnitude >= Mathf.Pow(radius1 + radius2, 2)) return (Vector2.zero, 0);
-        float collision = radius1 + radius2 - relativePos.magnitude;
-        return (relativePos, collision);
+        return -velocity * substrate.dynamicFriction;
     }
 
     public virtual bool Kill()

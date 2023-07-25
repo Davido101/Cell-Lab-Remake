@@ -28,6 +28,7 @@ public class Substrate : MonoBehaviour
     
     public float radius = 1;
     public float temperature = 1;
+    public float dynamicFriction = 5;
 
     public new Camera camera;
     public TMP_Text zoomUI;
