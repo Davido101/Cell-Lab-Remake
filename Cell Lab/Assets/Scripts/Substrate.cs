@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.Jobs;
 using Unity.Collections;
+using UnityEditor.U2D.Aseprite;
 
 public class Substrate : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class Substrate : MonoBehaviour
     public float moveSpeed = 3.5f;
     public Vector3 originalPos;
 
+    public List<Type> cellTypes = new List<Type> { typeof(Phagocyte), typeof(Flagellocyte), typeof(Devorocyte) };
+    public Type cellType = typeof(Phagocyte);
     public List<Cell> cells = new List<Cell>();
     public List<Food> foods = new List<Food>();
     public GameObject defaultCell;
@@ -45,8 +48,8 @@ public class Substrate : MonoBehaviour
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
 
         AdjustSpeed();
-        SpawnCell<Flagellocyte>(-0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
-        SpawnCell<Devorocyte>(0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Flagellocyte), -0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Devorocyte), 0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public void update()
@@ -144,16 +147,16 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    public Cell SpawnCell<cellType>(float x, float y, Color color)
+    public Cell SpawnCell(Type cellType, float x, float y, Color color)
     {
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
         SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
-        renderer.sortingOrder = 1;
-        Cell cell = cellObject.AddComponent(typeof(cellType)) as Cell;
+        Cell cell = cellObject.AddComponent(cellType) as Cell;
         renderer.sprite = cell.sprite;
         cell.position = new Vector2(x, y);
         cell.color = color;
         cell.substrate = this;
+        renderer.sortingOrder = 1;
         cells.Add(cell);
         return cell;
     }
@@ -185,6 +188,12 @@ public class Substrate : MonoBehaviour
             if (foodX * foodX + foodY * foodY < radius * radius)
                 SpawnFood(foodX, foodY, foodSize, coating);
         }
+    }
+
+    public void SpawnCellEvent()
+    {
+        Vector3 mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        SpawnCell(cellType, mousePos.x, mousePos.y, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public void UpdateCamera()
