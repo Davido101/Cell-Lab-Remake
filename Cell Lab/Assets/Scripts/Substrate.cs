@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using Unity.Jobs;
 using Unity.Collections;
-using UnityEditor.U2D.Aseprite;
 
 public class Substrate : MonoBehaviour
 {
@@ -147,18 +146,24 @@ public class Substrate : MonoBehaviour
         Time.timeScale = Mathf.Clamp(temperature, 1, 100);
     }
 
-    public Cell SpawnCell(Type cellType, float x, float y, Color color)
+    public Cell? SpawnCell(Type cellType, float x, float y, Color color)
     {
-        GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
-        SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
-        Cell cell = cellObject.AddComponent(cellType) as Cell;
-        renderer.sprite = cell.sprite;
-        cell.position = new Vector2(x, y);
-        cell.color = color;
-        cell.substrate = this;
-        renderer.sortingOrder = 1;
-        cells.Add(cell);
-        return cell;
+        Vector2 position = new Vector2(x, y);
+        if (position.magnitude >= radius == false)
+        {
+            GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
+            SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
+            Cell cell = cellObject.AddComponent(cellType) as Cell;
+            renderer.sprite = cell.sprite;
+            cell.position = position;
+            cell.lastPosition = new Vector2(x, y);
+            cell.color = color;
+            cell.substrate = this;
+            renderer.sortingOrder = 1;
+            cells.Add(cell);
+            return cell;
+        }
+        return null;
     }
 
     public Food SpawnFood(float x, float y)

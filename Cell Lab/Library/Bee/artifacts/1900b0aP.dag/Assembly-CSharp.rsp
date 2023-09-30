@@ -329,6 +329,7 @@
 "Assets/Scripts/GridCell.cs"
 "Assets/Scripts/RNG.cs"
 "Assets/Scripts/Substrate.cs"
+"Assets/UI/Scripts/UI.cs"
 -langversion:9.0
 
 /deterministic

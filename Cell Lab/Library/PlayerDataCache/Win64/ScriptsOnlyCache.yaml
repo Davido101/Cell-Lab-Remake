@@ -3,6 +3,7 @@ ScriptsOnlyBuild:
     Assembly-CSharp.dll:
     - Game
     - Substrate
+    - UI
     Unity.2D.Animation.Editor.dll:
     - UnityEditor.U2D.Animation.BoneGizmo
     Unity.2D.Animation.Runtime.dll:
@@ -35,6 +36,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
+    - TMPro.TMP_Dropdown
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
@@ -47,14 +49,23 @@ ScriptsOnlyBuild:
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Toggle
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
     - TMPro.KerningTable
     - TMPro.TMP_Character
+    - TMPro.TMP_Dropdown/DropdownEvent
+    - TMPro.TMP_Dropdown/OptionData
+    - TMPro.TMP_Dropdown/OptionDataList
     - TMPro.TMP_FontFeatureTable
     - TMPro.TMP_FontWeightPair
     - TMPro.TMP_GlyphAdjustmentRecord
@@ -66,15 +77,28 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
-  methodsToPreserve: []
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.SpriteState
+    - UnityEngine.UI.Toggle/ToggleEvent
+  methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: UI
+    methodName: OnValueChanged
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -96,27 +120,43 @@ ScriptsOnlyBuild:
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
+      Script: {instanceID: 1634}
+    - Class: 114
       Script: {instanceID: 2358}
     - Class: 114
       Script: {instanceID: 2890}
     - Class: 114
+      Script: {instanceID: 2900}
+    - Class: 114
       Script: {instanceID: 3148}
     - Class: 114
-      Script: {instanceID: 4772}
+      Script: {instanceID: 3490}
     - Class: 114
-      Script: {instanceID: 5094}
+      Script: {instanceID: 4456}
     - Class: 114
-      Script: {instanceID: 6008}
+      Script: {instanceID: 4672}
     - Class: 114
-      Script: {instanceID: 6086}
+      Script: {instanceID: 4774}
     - Class: 114
-      Script: {instanceID: 6722}
+      Script: {instanceID: 5096}
     - Class: 114
-      Script: {instanceID: 6940}
+      Script: {instanceID: 5842}
     - Class: 114
-      Script: {instanceID: 7348}
+      Script: {instanceID: 6010}
     - Class: 114
-      Script: {instanceID: 7528}
+      Script: {instanceID: 6088}
+    - Class: 114
+      Script: {instanceID: 6724}
+    - Class: 114
+      Script: {instanceID: 6942}
+    - Class: 114
+      Script: {instanceID: 7350}
+    - Class: 114
+      Script: {instanceID: 7358}
+    - Class: 114
+      Script: {instanceID: 7530}
+    - Class: 114
+      Script: {instanceID: 8720}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -548,6 +588,12 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
+      Hash: d9ec5e169b3c0066646f0407c9f8b00f
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: UI
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -740,7 +786,7 @@ ScriptsOnlyBuild:
     className: TMP_FontAsset
   - hash:
       serializedVersion: 2
-      Hash: d2b82847477803240e4f339dcd9abee1
+      Hash: 1aebf6dbd31c36061ff9704bc2f2deeb
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Game

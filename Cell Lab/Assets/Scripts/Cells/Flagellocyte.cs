@@ -13,7 +13,7 @@ public class Flagellocyte : Cell
 
     public override void fixedupdate(float dt)
     {
-        force = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * swimForce;
+        force += new Vector2(Mathf.Cos(angle), Mathf.Sin(angle)) * swimForce;
         handlePhysics(dt);
     }
 }
