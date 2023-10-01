@@ -17,7 +17,7 @@ public class Substrate : MonoBehaviour
     public float moveSpeed = 3.5f;
     public Vector3 originalPos;
 
-    public List<Type> cellTypes = new List<Type> { typeof(Phagocyte), typeof(Flagellocyte), typeof(Devorocyte) };
+    public List<Type> cellTypes = new List<Type> { typeof(Phagocyte), typeof(Flagellocyte), typeof(Devorocyte), typeof(Photocyte) };
     public Type cellType = typeof(Phagocyte);
     public List<Cell> cells = new List<Cell>();
     public List<Food> foods = new List<Food>();
@@ -31,6 +31,9 @@ public class Substrate : MonoBehaviour
     public float radius = 1;
     public float temperature = 1;
     public float dynamicFriction = 5;
+    public float lightAmount = 1;
+    public float lightRange = 1;
+    public float lightAngle = 0;
 
     public new Camera camera;
     public TMP_Text zoomUI;
@@ -149,21 +152,18 @@ public class Substrate : MonoBehaviour
     public Cell? SpawnCell(Type cellType, float x, float y, Color color)
     {
         Vector2 position = new Vector2(x, y);
-        if (position.magnitude >= radius == false)
-        {
-            GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
-            SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
-            Cell cell = cellObject.AddComponent(cellType) as Cell;
-            renderer.sprite = cell.sprite;
-            cell.position = position;
-            cell.lastPosition = new Vector2(x, y);
-            cell.color = color;
-            cell.substrate = this;
-            renderer.sortingOrder = 1;
-            cells.Add(cell);
-            return cell;
-        }
-        return null;
+        if (position.sqrMagnitude >= radius * radius) return null;
+        GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
+        SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
+        Cell cell = cellObject.AddComponent(cellType) as Cell;
+        renderer.sprite = cell.sprite;
+        cell.position = position;
+        cell.lastPosition = position;
+        cell.color = color;
+        cell.substrate = this;
+        renderer.sortingOrder = 1;
+        cells.Add(cell);
+        return cell;
     }
 
     public Food SpawnFood(float x, float y)
@@ -173,6 +173,7 @@ public class Substrate : MonoBehaviour
 
     public Food SpawnFood(float x, float y, float size, float coating)
     {
+
         GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
         Food food = foodObject.AddComponent<Food>();
         food.position = new Vector2(x * radius, y * radius);
@@ -341,5 +342,12 @@ public class Substrate : MonoBehaviour
             //threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
         }
         return true;
+    }
+
+    public float LightAmountAt(float x, float y)
+    {
+        float weightedPos = (Mathf.Cos(lightAngle) * x + Mathf.Sin(lightAngle) * y) / (radius * 2);
+        float weightedDist = 1 + (1 / lightRange - 1) * (1 - Mathf.Sqrt(x * x + y * y) / (radius * 2));
+        return Mathf.Max(0, ((1 - lightRange) * weightedPos + lightRange) / (weightedDist * weightedDist)) * lightAmount;
     }
 }

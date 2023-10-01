@@ -22,6 +22,8 @@ public class Cell : MonoBehaviour
     public float moveDuration = 0;
 
     public float mass = 2.16f;
+    public float minMass = 0.73f;
+    public float maxMass = 3.6f;
     public float radius = Mathf.Sqrt(2.16f/16000);
     public float radiusChangeSpeed = 1;
 
@@ -184,13 +186,14 @@ public class Cell : MonoBehaviour
     public virtual void Grow(float amount)
     {
         mass += amount;
+        if (mass > maxMass) mass = maxMass;
     }
 
     public virtual float Eat(float amount)
     {
         float eaten = Mathf.Min(amount, mass);
         mass -= eaten;
-        if (mass == 0) Kill();
+        if (mass < minMass) Kill();
         return eaten;
     }
 }

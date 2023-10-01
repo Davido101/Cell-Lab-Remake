@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.U2D;
+using System.Collections.Concurrent;
 
 public class Devorocyte : Cell
 {
@@ -15,9 +12,14 @@ public class Devorocyte : Cell
 
     public override void React(Cell cell, float dt)
     {
+        Consume(cell, dt);
+        force += ReactionForce(cell);
+    }
+
+    public void Consume(Cell cell, float dt)
+    {
         if (dead || cell.dead || !CollidingWith(cell)) return;
         float eaten = cell.Eat(devoringRate * dt);
         Grow(eaten);
-        force += ReactionForce(cell);
     }
 }

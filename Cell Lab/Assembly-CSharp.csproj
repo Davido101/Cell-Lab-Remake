@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\UI\Scripts\UI.cs" />
+    <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
   </ItemGroup>
   <ItemGroup>

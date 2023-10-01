@@ -1801,6 +1801,9 @@ MonoBehaviour:
   radius: 1
   temperature: 1
   dynamicFriction: 5
+  lightAmount: 1
+  lightRange: 1
+  lightAngle: 0
   camera: {fileID: 0}
   zoomUI: {fileID: 1987298371}
 --- !u!1 &1654017356

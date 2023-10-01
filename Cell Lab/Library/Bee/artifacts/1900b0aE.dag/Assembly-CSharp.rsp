@@ -384,6 +384,7 @@
 "Assets/Scripts/Cells/Devorocyte.cs"
 "Assets/Scripts/Cells/Flagellocyte.cs"
 "Assets/Scripts/Cells/Phagocyte.cs"
+"Assets/Scripts/Cells/Photocyte.cs"
 "Assets/Scripts/Food.cs"
 "Assets/Scripts/Game.cs"
 "Assets/Scripts/GridCell.cs"
