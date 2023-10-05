@@ -17,7 +17,7 @@ public class Substrate : MonoBehaviour
     public float moveSpeed = 3.5f;
     public Vector3 originalPos;
 
-    public List<Type> cellTypes = new List<Type> { typeof(Phagocyte), typeof(Flagellocyte), typeof(Devorocyte), typeof(Photocyte) };
+    public List<CellInfo> cellTypes;
     public Type cellType = typeof(Phagocyte);
     public List<Cell> cells = new List<Cell>();
     public List<Food> foods = new List<Food>();
@@ -38,9 +38,17 @@ public class Substrate : MonoBehaviour
     public new Camera camera;
     public TMP_Text zoomUI;
     public RNG rng = new RNG();
+    public bool updateCamera = true;
 
     void Start()
     {
+        cellTypes = new List<CellInfo>() {
+             new CellInfo(typeof(Phagocyte), LoadIcon("Cells/phagocyte")),
+             new CellInfo(typeof(Flagellocyte), LoadIcon("Cells/flagellocyte")),
+             new CellInfo(typeof(Devorocyte), LoadIcon("Cells/devorocyte")),
+             new CellInfo(typeof(Photocyte), LoadIcon("Cells/photocyte")),
+        };
+
         transform.localScale = new Vector3(radius, radius, 1);
         camera = (Camera)FindObjectOfType(typeof(Camera));
         zoom = maxScale * radius;
@@ -54,9 +62,15 @@ public class Substrate : MonoBehaviour
         SpawnCell(typeof(Devorocyte), 0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
+    public Sprite LoadIcon(string resourcePath)
+    {
+        return Resources.Load<GameObject>(resourcePath).GetComponent<SpriteRenderer>().sprite;
+    }
+
     public void update()
     {
-        UpdateCamera();
+        if (updateCamera)
+            UpdateCamera();
         AdjustSpeed();
         foreach (Cell cell in cells)
         {

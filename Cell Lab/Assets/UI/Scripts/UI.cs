@@ -3,45 +3,58 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class UI : MonoBehaviour
 {
-    public TMP_Dropdown cellSpawn;
+    public Button cellSpawn;
     public Substrate substrate;
+    public GameObject dropdownPrefab;
+    public Dropdown dropdown;
+    public GameObject uiCanvas;
     List<string> cellTypesStr = new List<string>();
+    List<Sprite> cellTypesIcon = new List<Sprite>();
     EventSystem eventSystem;
 
     void Start()
     {
         eventSystem = this.GetComponent<EventSystem>();
+        dropdown = Instantiate(dropdownPrefab, uiCanvas.transform).GetComponent<Dropdown>();
+        dropdown.trigger = cellSpawn;
+        dropdown.closeOnSelect = true;
+        dropdown.useSvgs = true;
+        dropdown.SetTitle("Select Cell Type");
 
-        foreach (Type cellType in substrate.cellTypes)
+        foreach (CellInfo cellInfo in substrate.cellTypes)
         {
-            cellTypesStr.Add(cellType.ToString());
+            cellTypesStr.Add(cellInfo.cellType.ToString());
+            cellTypesIcon.Add(cellInfo.cellSprite);
         }
 
-        cellSpawn.ClearOptions();
-        cellSpawn.AddOptions(cellTypesStr);
+        Debug.Log(cellTypesStr.Count);
+        Debug.Log(cellTypesIcon.Count);
+
+        dropdown.ClearOptions();
+        dropdown.AddOptions(cellTypesStr, cellTypesIcon);
     }
 
     void Update()
     {
         if (Input.GetMouseButtonDown(0) && !eventSystem.IsPointerOverGameObject())
         {
+            SetCellType();
             substrate.SpawnCellEvent();
         }
     }
 
-    public void OnValueChanged()
+    public void SetCellType()
     {
-        string value = cellTypesStr[cellSpawn.value];
-
-        foreach (Type cellType in substrate.cellTypes)
+        foreach (CellInfo cellInfo in substrate.cellTypes)
         {
-            if (cellType.ToString() == value)
+            if (cellInfo.cellType.ToString() == dropdown.selectedOption)
             {
-                substrate.cellType = cellType;
+                substrate.cellType = cellInfo.cellType;
             }
         }
     }
