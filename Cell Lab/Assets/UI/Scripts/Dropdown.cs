@@ -22,7 +22,7 @@ public class Dropdown : MonoBehaviour
     public bool active = false;
     public bool closeOnSelect = false;
     public bool useSvgs = false;
-    // Start is called before the first frame update
+    
     void Start()
     {
         if (trigger != null)

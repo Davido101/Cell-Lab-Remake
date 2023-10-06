@@ -13,8 +13,8 @@ public class UI : MonoBehaviour
     public GameObject dropdownPrefab;
     public Dropdown dropdown;
     public GameObject uiCanvas;
-    List<string> cellTypesStr = new List<string>();
-    List<Sprite> cellTypesIcon = new List<Sprite>();
+    List<string> cellTypeNames = new List<string>();
+    List<Sprite> cellTypeIcons = new List<Sprite>();
     EventSystem eventSystem;
 
     void Start()
@@ -28,15 +28,12 @@ public class UI : MonoBehaviour
 
         foreach (CellInfo cellInfo in substrate.cellTypes)
         {
-            cellTypesStr.Add(cellInfo.cellType.ToString());
-            cellTypesIcon.Add(cellInfo.cellSprite);
+            cellTypeNames.Add(cellInfo.cellType.ToString());
+            cellTypeIcons.Add(cellInfo.cellSprite);
         }
 
-        Debug.Log(cellTypesStr.Count);
-        Debug.Log(cellTypesIcon.Count);
-
         dropdown.ClearOptions();
-        dropdown.AddOptions(cellTypesStr, cellTypesIcon);
+        dropdown.AddOptions(cellTypeNames, cellTypeIcons);
     }
 
     void Update()
