@@ -46,7 +46,7 @@ public class Cell : MonoBehaviour
 
     void Start()
     {
-        if (!setup()) return; // I know this is useless but I just want to make it clear how this function should be modified
+        if (!setup()) return;
     }
 
     public virtual bool setup()
