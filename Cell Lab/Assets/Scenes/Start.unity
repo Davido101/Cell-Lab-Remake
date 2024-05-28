@@ -861,7 +861,6 @@ MonoBehaviour:
   - Challenges
   - Settings
   - About
-  - Test
 --- !u!1 &1444531484
 GameObject:
   m_ObjectHideFlags: 0
