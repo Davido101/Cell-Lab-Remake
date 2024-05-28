@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
+    <Compile Include="Assets\UI\Scripts\TabList.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
