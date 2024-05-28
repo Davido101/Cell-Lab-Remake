@@ -321,15 +321,22 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.3f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Scripts/Cell.cs"
+"Assets/Scripts/CellInfo.cs"
 "Assets/Scripts/Cells/Devorocyte.cs"
 "Assets/Scripts/Cells/Flagellocyte.cs"
 "Assets/Scripts/Cells/Phagocyte.cs"
+"Assets/Scripts/Cells/Photocyte.cs"
 "Assets/Scripts/Food.cs"
 "Assets/Scripts/Game.cs"
 "Assets/Scripts/GridCell.cs"
 "Assets/Scripts/RNG.cs"
 "Assets/Scripts/Substrate.cs"
+"Assets/UI/Scripts/ClickDetector.cs"
+"Assets/UI/Scripts/Dropdown.cs"
+"Assets/UI/Scripts/HorizontalList.cs"
+"Assets/UI/Scripts/MenuUI.cs"
 "Assets/UI/Scripts/UI.cs"
+"Assets/UI/Scripts/UITools.cs"
 -langversion:9.0
 
 /deterministic

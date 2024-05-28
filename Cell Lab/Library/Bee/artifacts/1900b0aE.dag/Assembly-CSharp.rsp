@@ -391,10 +391,12 @@
 "Assets/Scripts/GridCell.cs"
 "Assets/Scripts/RNG.cs"
 "Assets/Scripts/Substrate.cs"
+"Assets/UI/Scripts/ClickDetector.cs"
 "Assets/UI/Scripts/Dropdown.cs"
 "Assets/UI/Scripts/HorizontalList.cs"
 "Assets/UI/Scripts/MenuUI.cs"
 "Assets/UI/Scripts/UI.cs"
+"Assets/UI/Scripts/UITools.cs"
 -langversion:9.0
 
 /deterministic

@@ -1,5 +1,3 @@
-using UnityEditor.UI;
-
 public class Photocyte : Cell
 {
     public float photosynthesisRate = 1;

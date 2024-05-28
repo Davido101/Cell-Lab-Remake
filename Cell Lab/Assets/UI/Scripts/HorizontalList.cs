@@ -10,6 +10,7 @@ public class HorizontalList : MonoBehaviour
     public GameObject horizontalListElement;
     public float optionOffset;
     public float selectionOffset;
+    public float glideSpeed;
     public GameObject list;
     GameObject selection;
     RectTransform rectSelection;
@@ -38,10 +39,10 @@ public class HorizontalList : MonoBehaviour
             Vector2 optionSize = UITools.GetRenderedValues(selectedText, selectedText.text);
             if (rectSelection.sizeDelta.x < 0)
                 rectSelection.sizeDelta = new Vector2(0, rectSelection.sizeDelta.y);
-            rectSelection.sizeDelta = Vector2.Lerp(rectSelection.sizeDelta, new Vector2(optionSize.x + selectionOffset, selection.transform.localScale.y), Time.deltaTime * 4);
+            rectSelection.sizeDelta = Vector2.Lerp(rectSelection.sizeDelta, new Vector2(optionSize.x + selectionOffset, selection.transform.localScale.y), Time.deltaTime * glideSpeed);
         
             RectTransform listRect = list.GetComponent<RectTransform>();
-            listRect.anchoredPosition = Vector2.Lerp(listRect.anchoredPosition, new Vector2(-selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y), Time.deltaTime * 4);
+            listRect.anchoredPosition = Vector2.Lerp(listRect.anchoredPosition, new Vector2(-selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y), Time.deltaTime * glideSpeed);
 
             foreach (GameObject option in options)
             {
@@ -73,12 +74,14 @@ public class HorizontalList : MonoBehaviour
         options.Add(optionObject);
     }
 
-    public void AddOptions(List<string> options)
+    public void AddOptions(List<string> optionList, int defaultOption = 0)
     {
-        for (int i = 0; i < options.Count; i++)
+        for (int i = 0; i < optionList.Count; i++)
         {
-            AddOption(options[i]);
+            AddOption(optionList[i]);
         }
+        selectedOptionGameObject = options[defaultOption];
+        selectedOption = selectedOptionGameObject.GetComponent<TMP_Text>().text;
     }
 
     public void ClearOptions()

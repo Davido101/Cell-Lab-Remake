@@ -1,7 +1,11 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ClickDetector
+    - Dropdown
     - Game
+    - HorizontalList
+    - MenuUI
     - Substrate
     - UI
     Unity.2D.Animation.Editor.dll:
@@ -36,12 +40,13 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     Unity.TextMeshPro.dll:
-    - TMPro.TMP_Dropdown
     - TMPro.TMP_FontAsset
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshProUGUI
+    Unity.VectorGraphics.dll:
+    - Unity.VectorGraphics.SVGImage
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -52,20 +57,16 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
     - UnityEngine.UI.Image
-    - UnityEngine.UI.Mask
+    - UnityEngine.UI.RectMask2D
     - UnityEngine.UI.ScrollRect
-    - UnityEngine.UI.Scrollbar
-    - UnityEngine.UI.Toggle
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
     - TMPro.FontAssetCreationSettings
     - TMPro.KerningTable
     - TMPro.TMP_Character
-    - TMPro.TMP_Dropdown/DropdownEvent
-    - TMPro.TMP_Dropdown/OptionData
-    - TMPro.TMP_Dropdown/OptionDataList
     - TMPro.TMP_FontFeatureTable
     - TMPro.TMP_FontWeightPair
     - TMPro.TMP_GlyphAdjustmentRecord
@@ -77,9 +78,8 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
-    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
-    - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -92,13 +92,8 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
     - UnityEngine.UI.ScrollRect/ScrollRectEvent
-    - UnityEngine.UI.Scrollbar/ScrollEvent
     - UnityEngine.UI.SpriteState
-    - UnityEngine.UI.Toggle/ToggleEvent
-  methodsToPreserve:
-  - assembly: Assembly-CSharp
-    fullTypeName: UI
-    methodName: OnValueChanged
+  methodsToPreserve: []
   sceneClasses:
     Assets/Scenes/SampleScene.unity:
     - Class: 1
@@ -113,50 +108,42 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 48
       Script: {instanceID: 0}
-    - Class: 49
-      Script: {instanceID: 0}
     - Class: 81
       Script: {instanceID: 0}
     - Class: 104
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 1634}
+      Script: {instanceID: 1584}
     - Class: 114
-      Script: {instanceID: 2358}
+      Script: {instanceID: 1586}
     - Class: 114
-      Script: {instanceID: 2890}
+      Script: {instanceID: 1638}
     - Class: 114
-      Script: {instanceID: 2900}
+      Script: {instanceID: 2894}
     - Class: 114
-      Script: {instanceID: 3148}
+      Script: {instanceID: 3152}
     - Class: 114
-      Script: {instanceID: 3490}
+      Script: {instanceID: 3702}
     - Class: 114
-      Script: {instanceID: 4456}
+      Script: {instanceID: 4680}
     - Class: 114
-      Script: {instanceID: 4672}
+      Script: {instanceID: 4758}
     - Class: 114
-      Script: {instanceID: 4774}
+      Script: {instanceID: 5590}
     - Class: 114
-      Script: {instanceID: 5096}
+      Script: {instanceID: 6024}
     - Class: 114
-      Script: {instanceID: 5842}
+      Script: {instanceID: 6102}
     - Class: 114
-      Script: {instanceID: 6010}
+      Script: {instanceID: 6558}
     - Class: 114
-      Script: {instanceID: 6088}
+      Script: {instanceID: 6738}
     - Class: 114
-      Script: {instanceID: 6724}
+      Script: {instanceID: 6956}
     - Class: 114
-      Script: {instanceID: 6942}
+      Script: {instanceID: 7364}
     - Class: 114
-      Script: {instanceID: 7350}
-    - Class: 114
-      Script: {instanceID: 7358}
-    - Class: 114
-      Script: {instanceID: 7530}
-    - Class: 114
-      Script: {instanceID: 8720}
+      Script: {instanceID: 7544}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -177,7 +164,82 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 258
       Script: {instanceID: 0}
+    Assets/Scenes/Start.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 49
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 1638}
+    - Class: 114
+      Script: {instanceID: 2362}
+    - Class: 114
+      Script: {instanceID: 2894}
+    - Class: 114
+      Script: {instanceID: 3152}
+    - Class: 114
+      Script: {instanceID: 4306}
+    - Class: 114
+      Script: {instanceID: 4782}
+    - Class: 114
+      Script: {instanceID: 5104}
+    - Class: 114
+      Script: {instanceID: 5710}
+    - Class: 114
+      Script: {instanceID: 6024}
+    - Class: 114
+      Script: {instanceID: 6738}
+    - Class: 114
+      Script: {instanceID: 6956}
+    - Class: 114
+      Script: {instanceID: 7364}
+    - Class: 114
+      Script: {instanceID: 9040}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 212
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
   scriptHashData:
+  - hash:
+      serializedVersion: 2
+      Hash: 1acffdc47de1ca014dae3d384c3d1086
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: ScrollRect
+  - hash:
+      serializedVersion: 2
+      Hash: 0b7995e6c59201aa9b4ad6a0aecb4621
+    assemblyName: UnityEngine.UI
+    namespaceName: UnityEngine.UI
+    className: Button
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -438,12 +500,6 @@ ScriptsOnlyBuild:
     className: Bone
   - hash:
       serializedVersion: 2
-      Hash: 0b7995e6c59201aa9b4ad6a0aecb4621
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: Button
-  - hash:
-      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -472,6 +528,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTransformParentChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: ec413f86d7d8e7b80a1724518ff5a8ed
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Dropdown
   - hash:
       serializedVersion: 2
       Hash: 0249933f35dcc970b31eaae0159aebf9
@@ -552,6 +614,12 @@ ScriptsOnlyBuild:
     className: ActivationTrack
   - hash:
       serializedVersion: 2
+      Hash: fd3a49701c41e3d1bbccf54870b78364
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: HorizontalList
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
@@ -588,7 +656,7 @@ ScriptsOnlyBuild:
     className: SignalReceiver
   - hash:
       serializedVersion: 2
-      Hash: d9ec5e169b3c0066646f0407c9f8b00f
+      Hash: aa97ecaf9c96dae6a8df48f2d452ff19
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UI
@@ -672,6 +740,12 @@ ScriptsOnlyBuild:
     className: BufferManager
   - hash:
       serializedVersion: 2
+      Hash: afac1c9eef80efcdfb1cf8ecc0c94f09
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: Photocyte
+  - hash:
+      serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
     assemblyName: Unity.Timeline
     namespaceName: UnityEngine.Timeline
@@ -706,6 +780,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core
     namespaceName: Unity.VisualScripting
     className: UnityOnTransformChildrenChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: 751e5bae2a317288c2ab58d66687092b
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ClickDetector
   - hash:
       serializedVersion: 2
       Hash: 751e5bae2a317288c2ab58d66687092b
@@ -918,7 +998,7 @@ ScriptsOnlyBuild:
     className: SpriteShapeController
   - hash:
       serializedVersion: 2
-      Hash: 89c036553a5a52a257c5881b165ab7d0
+      Hash: 4273eb1599d5f8b8240cf229efb162da
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Substrate
@@ -978,7 +1058,7 @@ ScriptsOnlyBuild:
     className: RuleTile
   - hash:
       serializedVersion: 2
-      Hash: d5fb82fb30c36661de22732987dac58a
+      Hash: e7f33d55c59f085a3fe48c9dbf301550
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Phagocyte
@@ -1032,7 +1112,7 @@ ScriptsOnlyBuild:
     className: UnityOnScrollRectValueChangedMessageListener
   - hash:
       serializedVersion: 2
-      Hash: d5fb82fb30c36661de22732987dac58a
+      Hash: e7f33d55c59f085a3fe48c9dbf301550
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Cell
@@ -1098,13 +1178,7 @@ ScriptsOnlyBuild:
     className: ControlTrack
   - hash:
       serializedVersion: 2
-      Hash: 1acffdc47de1ca014dae3d384c3d1086
-    assemblyName: UnityEngine.UI
-    namespaceName: UnityEngine.UI
-    className: ScrollRect
-  - hash:
-      serializedVersion: 2
-      Hash: d5fb82fb30c36661de22732987dac58a
+      Hash: e7f33d55c59f085a3fe48c9dbf301550
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Devorocyte
@@ -1120,6 +1194,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.2D.Animation.Runtime
     namespaceName: UnityEngine.U2D.Animation
     className: SpriteLibraryAsset
+  - hash:
+      serializedVersion: 2
+      Hash: ef343a2fb695f87e88b437f3eb2aa8fb
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: MenuUI
   - hash:
       serializedVersion: 2
       Hash: 3324a70611b197df9927d1019ae24ce4
@@ -1176,7 +1256,7 @@ ScriptsOnlyBuild:
     className: SpriteSkinComposite
   - hash:
       serializedVersion: 2
-      Hash: 5c43c02581a04182c8379d7e2e302f79
+      Hash: 73523c6aff95c46ab254949d91610f7e
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: Flagellocyte
@@ -1218,6 +1298,7 @@ ScriptsOnlyBuild:
     className: UnityOnSliderValueChangedMessageListener
   platform: 19
   scenePathNames:
+  - Assets/Scenes/Start.unity
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/lazar/Desktop/Unity Projects/Cell-Lab-Remake/Builds/Windows
+  playerPath: C:/Users/lazar/Desktop/CellLab/Cell-Lab-Remake/Builds/Experimental/Windows
     x64/Cell Lab.exe

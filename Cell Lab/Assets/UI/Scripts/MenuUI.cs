@@ -5,10 +5,10 @@ using UnityEngine;
 public class MenuUI : MonoBehaviour
 {
     public HorizontalList horizontalList;
-    public List<string> tabs = new List<string>() { "Challenges", "Experiments", "Gene Bank", "Settings", "About" };
+    public List<string> tabs = new List<string>() { "Gene Bank", "Experiments", "Challenges", "Settings", "About" };
     void Start()
     {
-        horizontalList.AddOptions(tabs);
+        horizontalList.AddOptions(tabs, 2);
     }
 
     void Update()
