@@ -78,6 +78,7 @@
     <Compile Include="Assets\UI\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
