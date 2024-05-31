@@ -16,6 +16,7 @@ public class HorizontalList : MonoBehaviour
     RectTransform rectSelection;
     List<GameObject> options = new List<GameObject>();
     public string selectedOption;
+    public bool staticBar;
     GameObject selectedOptionGameObject;
 
     void Start()
@@ -39,10 +40,18 @@ public class HorizontalList : MonoBehaviour
             Vector2 optionSize = UITools.GetRenderedValues(selectedText, selectedText.text);
             if (rectSelection.sizeDelta.x < 0)
                 rectSelection.sizeDelta = new Vector2(0, rectSelection.sizeDelta.y);
-            rectSelection.sizeDelta = Vector2.Lerp(rectSelection.sizeDelta, new Vector2(optionSize.x + selectionOffset, selection.transform.localScale.y), Time.deltaTime * glideSpeed);
-        
+            rectSelection.sizeDelta = Vector2.Lerp(rectSelection.sizeDelta, new Vector2(optionSize.x + selectionOffset, rectSelection.sizeDelta.y), Time.deltaTime * glideSpeed);
+            
             RectTransform listRect = list.GetComponent<RectTransform>();
-            listRect.anchoredPosition = Vector2.Lerp(listRect.anchoredPosition, new Vector2(-selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y), Time.deltaTime * glideSpeed);
+            if (!staticBar)
+            {
+                listRect.anchoredPosition = Vector2.Lerp(listRect.anchoredPosition, new Vector2(-selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y), Time.deltaTime * glideSpeed);
+            }
+            else
+            {
+                rectSelection.anchoredPosition = Vector2.Lerp(rectSelection.anchoredPosition, new Vector2(selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x + listRect.anchoredPosition.x, rectSelection.anchoredPosition.y), Time.deltaTime * glideSpeed);
+                listRect.anchoredPosition = -((options[0].GetComponent<RectTransform>().anchoredPosition + options.Last().GetComponent<RectTransform>().anchoredPosition) / 2);
+            }
 
             foreach (GameObject option in options)
             {
