@@ -17,6 +17,7 @@ public class VerticalList : MonoBehaviour
 
     [Header("Prefabs")]
     public GameObject elementPrefab;
+    public GameObject headingPrefab;
 
     [Header("Properties")]
     public GameObject content;
@@ -27,7 +28,12 @@ public class VerticalList : MonoBehaviour
     // AddElement for ElementType.Heading
     public void AddElement(ElementType type, string id, string heading)
     {
-
+        GameObject element = Instantiate(headingPrefab, content.transform);
+        ClickDetector clickDetector = element.GetComponent<ClickDetector>();
+        clickDetector.returnText = false;
+        clickDetector.callback = ElementClicked;
+        element.transform.GetChild(0).GetComponent<TMP_Text>().text = heading;
+        elements.Add(element, id);
     }
 
     // AddElement for ElementType.DropdownProperty

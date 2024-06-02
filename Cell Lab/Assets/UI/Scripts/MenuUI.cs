@@ -20,6 +20,14 @@ public class MenuUI : MonoBehaviour
         { "algae", new Challenge("1: Algae", "Challenge not completed. Difficulty: Undergrad\nUnlocks gene Phagocyte and further challenges.") }
     };
 
+    [Header("Settings")]
+    public VerticalList settingsVerticalList;
+    public Dictionary<string, Section> sections = new Dictionary<string, Section>()
+    {
+        { "general", new Section("General") }
+    };
+    
+
     public struct Challenge
     {
         public Challenge(string title, string desc)
@@ -32,14 +40,54 @@ public class MenuUI : MonoBehaviour
         public string description;
     }
 
+    public struct Element
+    {
+        public Element(object element, VerticalList.ElementType elementType)
+        {
+            this.element = element;
+            this.elementType = elementType;
+        }
+
+        object element;
+        VerticalList.ElementType elementType;
+    }
+
+    public struct Section
+    {
+        public Section(string heading, List<Element> elements = null)
+        {
+            this.heading = heading;
+            this.elements = elements;
+        }
+
+        public string heading;
+        public List<Element> elements;
+    }
+
     void Start()
     {
         horizontalList.AddOptions(tabs, 2);
         tabList.SetTab("Challenges");
+        
+        // Initialize Challenges tab
         challengesVerticalList.clickedCallback = ChallengeSelected;
         foreach (KeyValuePair<string, Challenge> challenge in challenges)
         {
             challengesVerticalList.AddElement(VerticalList.ElementType.Element, challenge.Key, challenge.Value.heading, challenge.Value.description);
+        }
+
+        // Initialize Settings tab
+        settingsVerticalList.clickedCallback = SettingSelected;
+        foreach (KeyValuePair<string, Section> section in sections)
+        {
+            settingsVerticalList.AddElement(VerticalList.ElementType.Heading, section.Key, section.Value.heading);
+            if (section.Value.elements != null)
+            {
+                foreach (Element element in section.Value.elements)
+                {
+                    // TO DO: initalize every element in section
+                }
+            }
         }
     }
 
@@ -52,6 +100,11 @@ public class MenuUI : MonoBehaviour
     {
         // Change to Challenge Scene or load in Game Scene
         // with the Challenge Save from the game's source code
-        Debug.Log("Selected: " + id);
+        Debug.Log("Challenge Selected: " + id);
+    }
+
+    void SettingSelected(string id)
+    {
+        Debug.Log("Setting Selected: " + id);
     }
 }
