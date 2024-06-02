@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuUI : MonoBehaviour
 {
@@ -9,8 +10,9 @@ public class MenuUI : MonoBehaviour
     public TabList tabList;
     public List<string> tabs = new List<string>() { "Gene Bank", "Experiments", "Challenges", "Settings", "About" };
 
-    // To Do:
-    // - Add colors to title and description
+    [Header("Experiments Tab")]
+    public VerticalList experimentsVerticalList;
+
     [Header("Challenge Tab")]
     public VerticalList challengesVerticalList;
     public Dictionary<string, Challenge> challenges = new Dictionary<string, Challenge>()
@@ -68,7 +70,11 @@ public class MenuUI : MonoBehaviour
     {
         horizontalList.AddOptions(tabs, 2);
         tabList.SetTab("Challenges");
-        
+
+        // Initialize Experiments tab
+        experimentsVerticalList.clickedCallback = ExperimentSelected;
+        experimentsVerticalList.AddElement(VerticalList.ElementType.Element, "new_plate", "<color=#FFA000>New Plate</color>", "Right-click for advanced settings");
+
         // Initialize Challenges tab
         challengesVerticalList.clickedCallback = ChallengeSelected;
         foreach (KeyValuePair<string, Challenge> challenge in challenges)
@@ -94,6 +100,14 @@ public class MenuUI : MonoBehaviour
     void Update()
     {
         tabList.SetTab(horizontalList.selectedOption);
+    }
+
+    void ExperimentSelected(string id)
+    {
+        if (id == "new_plate")
+        {
+            SceneManager.LoadScene(1);
+        }
     }
 
     void ChallengeSelected(string id)
