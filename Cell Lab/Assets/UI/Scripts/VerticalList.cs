@@ -18,6 +18,7 @@ public class VerticalList : MonoBehaviour
     [Header("Prefabs")]
     public GameObject elementPrefab;
     public GameObject headingPrefab;
+    public GameObject togglePrefab;
 
     [Header("Properties")]
     public GameObject content;
@@ -62,7 +63,7 @@ public class VerticalList : MonoBehaviour
 
     void ElementClicked(GameObject obj, string name)
     {
-        if (name != "Element")
+        if (name != "Heading(Clone)")
             obj = obj.transform.parent.gameObject;
         if (elements.ContainsKey(obj))
             clickedCallback.Invoke(elements[obj]);
