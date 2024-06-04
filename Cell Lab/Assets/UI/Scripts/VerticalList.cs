@@ -19,11 +19,13 @@ public class VerticalList : MonoBehaviour
     public GameObject elementPrefab;
     public GameObject headingPrefab;
     public GameObject togglePrefab;
+    public GameObject dropdownPrefab;
 
     [Header("Properties")]
     public GameObject content;
     public Action<string, ClickedEventData> clickedCallback;
     Dictionary<GameObject, string> elements = new Dictionary<GameObject, string>();
+    List<DropdownProperty> dropdowns = new List<DropdownProperty>();
     
     public struct ClickedEventData
     {
@@ -92,18 +94,23 @@ public class VerticalList : MonoBehaviour
     }
 
     // AddElement for ElementType.DropdownProperty
-    public void AddElement(ElementType type, string id, string heading, string description, string defaultValue)
+    public void AddElement(ElementType type, string id, string heading, string description, string defaultValue, List<string> options)
     {
-        //GameObject element = Instantiate(togglePrefab, content.transform);
-        //ClickDetector clickDetector = element.GetComponent<ClickDetector>();
-        //clickDetector.returnText = false;
-        //clickDetector.callback = ElementClicked;
-        //ToggleProperty toggleProperty = element.GetComponent<ToggleProperty>();
-        //toggleProperty.SetState(defaultValue);
-        //element.transform.GetChild(0).GetComponent<TMP_Text>().text = heading;
-        //element.transform.GetChild(1).GetComponent<TMP_Text>().text = description;
-        //element.name = id;
-        //elements.Add(element, id);
+        GameObject element = Instantiate(dropdownPrefab, content.transform);
+        ClickDetector clickdetector = element.GetComponent<ClickDetector>();
+        clickdetector.returnText = false;
+        clickdetector.callback = ElementClicked;
+
+        DropdownProperty dropdownProperty = element.GetComponent<DropdownProperty>();
+        dropdownProperty.Initialize(heading, defaultValue);
+        dropdownProperty.AddOptions(options);
+        dropdowns.Add(dropdownProperty);
+        
+        element.transform.GetChild(0).GetComponent<TMP_Text>().text = heading;
+        element.transform.GetChild(1).GetComponent<TMP_Text>().text = description;
+        element.transform.GetChild(2).GetComponent<TMP_Text>().text = defaultValue;
+        element.name = id;
+        elements.Add(element, id);
     }
 
     // AddElement for ElementType.ToggleProperty
@@ -113,8 +120,10 @@ public class VerticalList : MonoBehaviour
         ClickDetector clickDetector = element.GetComponent<ClickDetector>();
         clickDetector.returnText = false;
         clickDetector.callback = ElementClicked;
+        
         ToggleProperty toggleProperty = element.GetComponent<ToggleProperty>();
         toggleProperty.SetState(defaultValue);
+        
         element.transform.GetChild(0).GetComponent<TMP_Text>().text = heading;
         element.transform.GetChild(1).GetComponent<TMP_Text>().text = description;
         element.name = id;
@@ -140,10 +149,17 @@ public class VerticalList : MonoBehaviour
         {
             ClickedEventData eventData;
             ToggleProperty toggleProperty = obj.GetComponent<ToggleProperty>();
+            DropdownProperty dropdownProperty = obj.GetComponent<DropdownProperty>();
             if (toggleProperty != null)
             {
                 toggleProperty.Toggle();
                 eventData = new ClickedEventData(toggleProperty.toggleState, obj);
+            }
+            else if (dropdownProperty != null)
+            {
+                DisableDropdowns();
+                dropdownProperty.EnableDropdown();
+                eventData = new ClickedEventData(dropdownProperty.value, obj);
             }
             else
             {
@@ -158,6 +174,14 @@ public class VerticalList : MonoBehaviour
                 }
             }
             clickedCallback.Invoke(elements[obj], eventData);
+        }
+    }
+
+    void DisableDropdowns()
+    {
+        foreach (DropdownProperty dropdown in dropdowns)
+        {
+            dropdown.DisableDropdown();
         }
     }
 }

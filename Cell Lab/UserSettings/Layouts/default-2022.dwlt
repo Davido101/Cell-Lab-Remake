@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Game
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 118
+  controlID: 85
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -216,8 +216,8 @@ MonoBehaviour:
     y: 0
     width: 350
     height: 640
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 201, y: 221}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 13}
   m_Panes:
   - {fileID: 13}
@@ -269,8 +269,8 @@ MonoBehaviour:
     y: 0
     width: 422
     height: 939
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 276, y: 71}
+  m_MaxSize: {x: 4001, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -321,7 +321,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/UI/Prefabs
+    - Assets
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -329,16 +329,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UI/Prefabs
+  - Assets
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lazar\Desktop\CellLab\Cell-Lab-Remake\Cell Lab
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: e4650000
-    m_LastClickedID: 26084
-    m_ExpandedIDs: 0000000078630000826300008863000000ca9a3bffffff7f
+    m_SelectedIDs: ce630000
+    m_LastClickedID: 25550
+    m_ExpandedIDs: 00000000ce630000e863000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -366,7 +366,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000078630000
+    m_ExpandedIDs: 00000000ce630000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -459,9 +459,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 86f3feff
+      m_SelectedIDs: 9c620000
       m_LastClickedID: 0
-      m_ExpandedIDs: 64fcfeff0e0affffd40ffffffe10ffff1211ffff8212ffff8812ffff9012ffff9612ffffba12ffffbc12fffffa12ffff5a16ffff9416ffff2c18ffff9c18ffff8e1bffff3e1cffffb21dffff9024fffff828ffff6829ffff4e2fffffaa39ffffbe39ffffbe47ffffd247ffff8451ffff8651ffff0252ffff1652ffffb061ffffc461ffff7c66ffff9066ffffb066ffffc466ffffe466fffff866ffffbe6cffffd26cffff8077ffff9477ffff787bffff8c7bffffba83ffffce83ffffda88ffffee88ffff5e95ffff4699ffff5a99ffff9ea3ffffb2a3ffffd8afffffecafffff94b2ffffa8b2ffff58b7ffff6cb7ffff1ac1ffff2ec1ffffcef3ffffe0f3fffff4fafffffafafffffcfaffff0afbffff1afbffff086200001a620000226200006c62000076620000188e00002a8e0000328e00007c8e0000
+      m_ExpandedIDs: bcadffffb2daffffb8daffffbadaffffd8daffff56e0ffff82e4ffff98e4ffff62f5ffff90f6ffff9af8ffffb0f8ffffccfaffff12fbffff18fbffff1afbffff1e620000266200007062000016660000266600003a660000b0660000b86600000e67000052670000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -854,9 +854,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 4780.433, y: 1032.4185, z: 3.8284762}
+    m_Target: {x: 1599.3448, y: 1131.2817, z: -25.382652}
     speed: 2
-    m_Value: {x: 4780.433, y: 1032.4185, z: 3.8284762}
+    m_Value: {x: 1588.3352, y: 1093.8871, z: -24.257006}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -906,9 +906,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 578.75146
+    m_Target: 2613.9775
     speed: 2
-    m_Value: 578.75146
+    m_Value: 2501.4138
   m_Ortho:
     m_Target: 1
     speed: 2

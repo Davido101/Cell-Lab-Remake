@@ -1,8 +1,7 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using TMPro;
 using Unity.VectorGraphics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,6 +21,7 @@ public class Dropdown : MonoBehaviour
     public bool active = false;
     public bool closeOnSelect = false;
     public bool useSvgs = false;
+    public Action<string> callback;
     
     void Start()
     {
@@ -123,6 +123,14 @@ public class Dropdown : MonoBehaviour
         }
     }
 
+    public void AddOptions(List<string> names)
+    {
+        for (int i = 0; i < names.Count; i++)
+        {
+            AddOption(names[i]);
+        }
+    }
+
     public void ClearOptions()
     {
         foreach (GameObject obj in options)
@@ -141,5 +149,6 @@ public class Dropdown : MonoBehaviour
         value = buttonIndex;
         if (closeOnSelect)
             Disable();
+        callback.Invoke(selectedOption);
     }
 }
