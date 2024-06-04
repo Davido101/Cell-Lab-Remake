@@ -26,7 +26,13 @@ public class MenuUI : MonoBehaviour
     public VerticalList settingsVerticalList;
     public Dictionary<string, Section> sections = new Dictionary<string, Section>()
     {
-        { "general", new Section("General") }
+        { "general", new Section("General", new List<Element>
+            {
+                new Element(VerticalList.ElementType.ToggleProperty, "ask_tab_leave", new ToggleProperty("Ask before leaving lab", "Show a prompt before leaving the lab.", true)),
+                new Element(VerticalList.ElementType.ToggleProperty, "ask_reload", new ToggleProperty("Ask before sterilize and reload", "Show a prompt before sterilizing and reloading.", false)),
+                new Element(VerticalList.ElementType.ToggleProperty, "show_cell_type", new ToggleProperty("Show cell type", "When enabled, this will indicate cell type abbreviations next to mode settings in the genome editor.", false))
+            })
+        }
     };
     
 
@@ -42,16 +48,39 @@ public class MenuUI : MonoBehaviour
         public string description;
     }
 
-    public struct Element
+    public struct ToggleProperty
     {
-        public Element(object element, VerticalList.ElementType elementType)
+        public ToggleProperty(string heading, string description)
         {
-            this.element = element;
-            this.elementType = elementType;
+            this.heading = heading;
+            this.description = description;
+            this.defaultValue = false;
         }
 
-        object element;
-        VerticalList.ElementType elementType;
+        public ToggleProperty(string heading, string description, bool defaultValue)
+        {
+            this.heading = heading;
+            this.description = description;
+            this.defaultValue = defaultValue;
+        }
+
+        public string heading;
+        public string description;
+        public bool defaultValue;
+    }
+
+    public struct Element
+    {
+        public Element(VerticalList.ElementType type, string id, object element)
+        {
+            this.element = element;
+            this.id = id;
+            this.type = type;
+        }
+
+        public object element;
+        public string id;
+        public VerticalList.ElementType type;
     }
 
     public struct Section
@@ -91,7 +120,11 @@ public class MenuUI : MonoBehaviour
             {
                 foreach (Element element in section.Value.elements)
                 {
-                    // TO DO: initalize every element in section
+                    if (element.type == VerticalList.ElementType.ToggleProperty)
+                    {
+                        ToggleProperty toggleProperty = (ToggleProperty)element.element;
+                        settingsVerticalList.AddElement(VerticalList.ElementType.ToggleProperty, element.id, toggleProperty.heading, toggleProperty.description, toggleProperty.defaultValue);
+                    }
                 }
             }
         }
@@ -102,7 +135,7 @@ public class MenuUI : MonoBehaviour
         tabList.SetTab(horizontalList.selectedOption);
     }
 
-    void ExperimentSelected(string id)
+    void ExperimentSelected(string id, VerticalList.ClickedEventData eventData)
     {
         if (id == "new_plate")
         {
@@ -110,15 +143,15 @@ public class MenuUI : MonoBehaviour
         }
     }
 
-    void ChallengeSelected(string id)
+    void ChallengeSelected(string id, VerticalList.ClickedEventData eventData)
     {
         // Change to Challenge Scene or load in Game Scene
         // with the Challenge Save from the game's source code
         Debug.Log("Challenge Selected: " + id);
     }
 
-    void SettingSelected(string id)
+    void SettingSelected(string id, VerticalList.ClickedEventData eventData)
     {
-        Debug.Log("Setting Selected: " + id);
+        Debug.Log("Setting Selected: " + id + ", of type: " + eventData.type);
     }
 }

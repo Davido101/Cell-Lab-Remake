@@ -11,8 +11,8 @@ public class ClickDetector : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         if (returnText)
-            callback.Invoke(eventData.pointerCurrentRaycast.gameObject, eventData.pointerCurrentRaycast.gameObject.GetComponent<TMP_Text>().text);
+            callback.Invoke(gameObject, GetComponent<TMP_Text>().text);
         else
-            callback.Invoke(eventData.pointerCurrentRaycast.gameObject, eventData.pointerCurrentRaycast.gameObject.name);
+            callback.Invoke(gameObject, gameObject.name);
     }
 }
