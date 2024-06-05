@@ -6,14 +6,13 @@ public class Element : MonoBehaviour
 {
     RectTransform rectTransform;
     RectTransform fillRect;
-    int frameCount;
+    public int childId;
 
     // Start is called before the first frame update
     void Start()
     {
         rectTransform = GetComponent<RectTransform>();
-        fillRect = transform.GetChild(1).GetChild(1).GetComponent<RectTransform>();
-        frameCount = 0;
+        fillRect = transform.GetChild(childId).GetChild(1).GetComponent<RectTransform>();
     }
 
     // Update is called once per frame

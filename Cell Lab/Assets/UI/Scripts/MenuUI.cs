@@ -28,6 +28,9 @@ public class MenuUI : MonoBehaviour
     {
         { "general", new Section("General", new List<Element>
             {
+                new Element(VerticalList.ElementType.DropdownProperty, "language", new DropdownProperty("Language", "The language of the UI", new List<string>(){
+                    "English"
+                })),
                 new Element(VerticalList.ElementType.ToggleProperty, "ask_tab_leave", new ToggleProperty("Ask before leaving lab", "Show a prompt before leaving the lab.", true)),
                 new Element(VerticalList.ElementType.ToggleProperty, "ask_reload", new ToggleProperty("Ask before sterilize and reload", "Show a prompt before sterilizing and reloading.", false)),
                 new Element(VerticalList.ElementType.ToggleProperty, "show_cell_type", new ToggleProperty("Show cell type", "When enabled, this will indicate cell type abbreviations next to mode settings in the genome editor.", false))
@@ -67,6 +70,30 @@ public class MenuUI : MonoBehaviour
         public string heading;
         public string description;
         public bool defaultValue;
+    }
+
+    public struct DropdownProperty
+    {
+        public DropdownProperty(string heading, string description, List<string> options)
+        {
+            this.heading = heading;
+            this.description = description;
+            this.options = options;
+            this.defaultValue = this.options[0];
+        }
+
+        public DropdownProperty(string heading, string description, string defaultValue, List<string> options)
+        {
+            this.heading = heading;
+            this.description = description;
+            this.defaultValue = defaultValue;
+            this.options = options;
+        }
+
+        public string heading;
+        public string description;
+        public string defaultValue;
+        public List<string> options;
     }
 
     public struct Element
@@ -125,6 +152,11 @@ public class MenuUI : MonoBehaviour
                         ToggleProperty toggleProperty = (ToggleProperty)element.element;
                         settingsVerticalList.AddElement(VerticalList.ElementType.ToggleProperty, element.id, toggleProperty.heading, toggleProperty.description, toggleProperty.defaultValue);
                     }
+                    else if (element.type == VerticalList.ElementType.DropdownProperty)
+                    {
+                        DropdownProperty dropdownProperty = (DropdownProperty)element.element;
+                        settingsVerticalList.AddElement(VerticalList.ElementType.DropdownProperty, element.id, dropdownProperty.heading, dropdownProperty.description, dropdownProperty.defaultValue, dropdownProperty.options);
+                    }
                 }
             }
         }
@@ -152,6 +184,13 @@ public class MenuUI : MonoBehaviour
 
     void SettingSelected(string id, VerticalList.ClickedEventData eventData)
     {
-        Debug.Log("Setting Selected: " + id + ", of type: " + eventData.type);
+        if (eventData.selectedOption)
+        {
+            Debug.Log("Dropdown Option Selected: " + eventData.value + ", of Dropdown: " + id);
+        }
+        else
+        {
+            Debug.Log("Setting Selected: " + id + ", of type: " + eventData.type);
+        }
     }
 }

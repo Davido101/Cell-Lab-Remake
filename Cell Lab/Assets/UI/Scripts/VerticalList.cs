@@ -33,6 +33,16 @@ public class VerticalList : MonoBehaviour
         {
             this.value = value;
             this.toggle = false;
+            this.selectedOption = false;
+            this.obj = obj;
+            this.type = ElementType.DropdownProperty;
+        }
+
+        public ClickedEventData(string value, bool selectedOption, GameObject obj)
+        {
+            this.value = value;
+            this.toggle = false;
+            this.selectedOption = selectedOption;
             this.obj = obj;
             this.type = ElementType.DropdownProperty;
         }
@@ -41,6 +51,7 @@ public class VerticalList : MonoBehaviour
         {
             this.value = "";
             this.toggle = toggle;
+            this.selectedOption = true;
             this.obj = obj;
             this.type = ElementType.ToggleProperty;
         }
@@ -49,12 +60,14 @@ public class VerticalList : MonoBehaviour
         {
             this.value = "";
             this.toggle = false;
+            this.selectedOption = false;
             this.obj = obj;
             this.type = type;
         }
 
         public string value;
         public bool toggle;
+        public bool selectedOption;
         public GameObject obj;
         public ElementType type;
     }
@@ -97,6 +110,8 @@ public class VerticalList : MonoBehaviour
     public void AddElement(ElementType type, string id, string heading, string description, string defaultValue, List<string> options)
     {
         GameObject element = Instantiate(dropdownPrefab, content.transform);
+        element.GetComponent<Element>().childId = 2;
+
         ClickDetector clickdetector = element.GetComponent<ClickDetector>();
         clickdetector.returnText = false;
         clickdetector.callback = ElementClicked;
@@ -104,11 +119,12 @@ public class VerticalList : MonoBehaviour
         DropdownProperty dropdownProperty = element.GetComponent<DropdownProperty>();
         dropdownProperty.Initialize(heading, defaultValue);
         dropdownProperty.AddOptions(options);
+        dropdownProperty.callback = DropdownClicked;
         dropdowns.Add(dropdownProperty);
         
         element.transform.GetChild(0).GetComponent<TMP_Text>().text = heading;
-        element.transform.GetChild(1).GetComponent<TMP_Text>().text = description;
-        element.transform.GetChild(2).GetComponent<TMP_Text>().text = defaultValue;
+        element.transform.GetChild(1).GetComponent<TMP_Text>().text = defaultValue;
+        element.transform.GetChild(2).GetComponent<TMP_Text>().text = description;
         element.name = id;
         elements.Add(element, id);
     }
@@ -175,6 +191,11 @@ public class VerticalList : MonoBehaviour
             }
             clickedCallback.Invoke(elements[obj], eventData);
         }
+    }
+
+    void DropdownClicked(GameObject obj, string option)
+    {
+        clickedCallback.Invoke(elements[obj], new ClickedEventData(option, true, obj));
     }
 
     void DisableDropdowns()

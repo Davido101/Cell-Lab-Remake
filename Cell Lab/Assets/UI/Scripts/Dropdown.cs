@@ -34,7 +34,7 @@ public class Dropdown : MonoBehaviour
 
     public void Disable()
     {
-        transform.GetComponent<Image>().color -= new Color(0, 0, 0, 255);
+        transform.GetComponent<Image>().color = new Color(0.35f, 0.35f, 0.35f, 0);
         transform.GetChild(0).gameObject.SetActive(false);
         titleObject.gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
@@ -44,7 +44,7 @@ public class Dropdown : MonoBehaviour
 
     public void Enable()
     {
-        transform.GetComponent<Image>().color += new Color(0, 0, 0, 255);
+        transform.GetComponent<Image>().color = new Color(0.35f, 0.35f, 0.35f, 1);
         transform.GetChild(0).gameObject.SetActive(true);
         titleObject.gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
@@ -93,17 +93,35 @@ public class Dropdown : MonoBehaviour
         {
             optionObject = Instantiate(svgOption, content.transform);
             Transform image = optionObject.transform.GetChild(2);
-            image.gameObject.GetComponent<SVGImage>().sprite = icon;
-            RectTransform rectTransform = image.GetComponent<RectTransform>();
-            rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+            if (icon)
+            {
+                image.gameObject.GetComponent<SVGImage>().sprite = icon;
+                RectTransform rectTransform = image.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+            }
+            else
+            {
+                RectTransform rectTransform = optionObject.transform.GetChild(1).GetComponent<RectTransform>();
+                rectTransform.localPosition = new Vector2(-37.5f, rectTransform.localPosition.y);
+                image.gameObject.SetActive(false);
+            }
         }
         else
         {
             optionObject = Instantiate(option, content.transform);
             Transform image = optionObject.transform.GetChild(2);
-            image.gameObject.GetComponent<Image>().sprite = icon;
-            RectTransform rectTransform = image.GetComponent<RectTransform>();
-            rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+            if (icon)
+            {
+                image.gameObject.GetComponent<Image>().sprite = icon;
+                RectTransform rectTransform = image.GetComponent<RectTransform>();
+                rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+            }
+            else
+            {
+                RectTransform rectTransform = optionObject.transform.GetChild(1).GetComponent<RectTransform>();
+                rectTransform.localPosition = new Vector2(-37.5f, rectTransform.localPosition.y);
+                image.gameObject.SetActive(false);
+            }
         }
         optionObject.transform.localPosition -= new Vector3(0, optionY, 0);
         optionObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = optionName;
@@ -149,6 +167,7 @@ public class Dropdown : MonoBehaviour
         value = buttonIndex;
         if (closeOnSelect)
             Disable();
-        callback.Invoke(selectedOption);
+        if (callback != null)
+            callback.Invoke(selectedOption);
     }
 }

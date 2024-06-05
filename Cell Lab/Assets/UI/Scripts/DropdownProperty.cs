@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -8,6 +9,7 @@ public class DropdownProperty : MonoBehaviour
     public string value;
     public TMP_Text option;
     public GameObject dropdownPrefab;
+    public Action<GameObject, string> callback;
 
     Dropdown dropdown;
 
@@ -15,7 +17,7 @@ public class DropdownProperty : MonoBehaviour
     {
         SetValue(defaultValue);
 
-        dropdown = Instantiate(dropdownPrefab, this.transform).GetComponent<Dropdown>();
+        dropdown = Instantiate(dropdownPrefab, GetComponentInParent<Canvas>().transform).GetComponent<Dropdown>();
         dropdown.closeOnSelect = true;
         dropdown.SetTitle(title);
         dropdown.ClearOptions();
@@ -52,9 +54,11 @@ public class DropdownProperty : MonoBehaviour
         dropdown.Toggle();
     }
 
-    public void DropdownClicked(string option)
+    void DropdownClicked(string option)
     {
         value = option;
+        if (callback != null)
+            callback.Invoke(gameObject, value);
     }
 
     private void Update()
