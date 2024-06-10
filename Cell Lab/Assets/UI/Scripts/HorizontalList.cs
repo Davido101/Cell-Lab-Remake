@@ -62,6 +62,23 @@ public class HorizontalList : MonoBehaviour
         }
     }
 
+    public void ResetPosition()
+    {
+        if (options.Count != 0)
+        {
+            RectTransform listRect = list.GetComponent<RectTransform>();
+            if (!staticBar)
+            {
+                listRect.anchoredPosition = new Vector2(-selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y);
+            }
+            else
+            {
+                rectSelection.anchoredPosition = new Vector2(selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x + listRect.anchoredPosition.x, rectSelection.anchoredPosition.y);
+                listRect.anchoredPosition = -((options[0].GetComponent<RectTransform>().anchoredPosition + options.Last().GetComponent<RectTransform>().anchoredPosition) / 2);
+            }
+        }
+    }
+
     public void AddOption(string option)
     {
         GameObject optionObject = Instantiate(horizontalListElement, list.transform);

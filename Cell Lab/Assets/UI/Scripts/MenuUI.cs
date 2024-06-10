@@ -126,6 +126,7 @@ public class MenuUI : MonoBehaviour
     {
         horizontalList.AddOptions(tabs, 2);
         tabList.SetTab("Challenges");
+        StartCoroutine(LateStart());
 
         // Initialize Experiments tab
         experimentsVerticalList.clickedCallback = ExperimentSelected;
@@ -160,6 +161,13 @@ public class MenuUI : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator LateStart()
+    {
+        yield return new WaitForSeconds(0.01f);
+        tabList.ResetPosition();
+        horizontalList.ResetPosition();
     }
 
     void Update()

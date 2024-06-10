@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class UI : MonoBehaviour
 {
@@ -54,5 +55,10 @@ public class UI : MonoBehaviour
                 substrate.cellType = cellInfo.cellType;
             }
         }
+    }
+
+    public void ExitPlate()
+    {
+        SceneManager.LoadScene(0);
     }
 }

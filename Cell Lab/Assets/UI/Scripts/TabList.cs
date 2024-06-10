@@ -31,6 +31,15 @@ public class TabList : MonoBehaviour
         }
     }
 
+    public void ResetPosition()
+    {
+        if (currentTab != "")
+        {
+            RectTransform listRect = tabs.GetComponent<RectTransform>();
+            listRect.anchoredPosition = new Vector2(-currentTabGameObject.GetComponent<RectTransform>().anchoredPosition.x, listRect.anchoredPosition.y);
+        }
+    }
+
     public void SetTab(string tab)
     {
         foreach (GameObject obj in tabList)
