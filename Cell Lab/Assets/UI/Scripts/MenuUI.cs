@@ -9,6 +9,8 @@ public class MenuUI : MonoBehaviour
     public HorizontalList horizontalList;
     public TabList tabList;
     public List<string> tabs = new List<string>() { "Gene Bank", "Experiments", "Challenges", "Settings", "About" };
+    public Audio buttonClick;
+    public Audio buttonClick2;
 
     [Header("Experiments Tab")]
     public VerticalList experimentsVerticalList;
@@ -124,15 +126,18 @@ public class MenuUI : MonoBehaviour
 
     void Start()
     {
+        horizontalList.clickAudio= buttonClick;
         horizontalList.AddOptions(tabs, 2);
         tabList.SetTab("Challenges");
         StartCoroutine(LateStart());
 
         // Initialize Experiments tab
+        experimentsVerticalList.clickAudio = buttonClick2;
         experimentsVerticalList.clickedCallback = ExperimentSelected;
         experimentsVerticalList.AddElement(VerticalList.ElementType.Element, "new_plate", "<color=#FFA000>New Plate</color>", "Right-click for advanced settings");
 
         // Initialize Challenges tab
+        challengesVerticalList.clickAudio = buttonClick2;
         challengesVerticalList.clickedCallback = ChallengeSelected;
         foreach (KeyValuePair<string, Challenge> challenge in challenges)
         {
@@ -179,6 +184,8 @@ public class MenuUI : MonoBehaviour
     {
         if (id == "new_plate")
         {
+            if (buttonClick2.audioSource.isPlaying)
+                buttonClick2.SceneUpdate(true);
             SceneManager.LoadScene(1);
         }
     }

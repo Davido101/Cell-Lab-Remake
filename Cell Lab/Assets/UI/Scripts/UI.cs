@@ -14,6 +14,7 @@ public class UI : MonoBehaviour
     public GameObject dropdownPrefab;
     public Dropdown dropdown;
     public GameObject uiCanvas;
+    public Audio buttonClick2;
     List<string> cellTypeNames = new List<string>();
     List<Sprite> cellTypeIcons = new List<Sprite>();
     EventSystem eventSystem;
@@ -59,6 +60,8 @@ public class UI : MonoBehaviour
 
     public void ExitPlate()
     {
+        buttonClick2.PlayAudio();
+        buttonClick2.SceneUpdate(true);
         SceneManager.LoadScene(0);
     }
 }

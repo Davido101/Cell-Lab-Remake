@@ -24,6 +24,8 @@ public class VerticalList : MonoBehaviour
     [Header("Properties")]
     public GameObject content;
     public Action<string, ClickedEventData> clickedCallback;
+    public AudioSource clickSound;
+    public Audio clickAudio;
     Dictionary<GameObject, string> elements = new Dictionary<GameObject, string>();
     List<DropdownProperty> dropdowns = new List<DropdownProperty>();
     
@@ -188,6 +190,14 @@ public class VerticalList : MonoBehaviour
                 {
                     eventData = new ClickedEventData(ElementType.Heading, obj);
                 }
+            }
+            if (clickSound)
+            {
+                clickSound.Play();
+            }
+            if (clickAudio)
+            {
+                clickAudio.PlayAudio();
             }
             clickedCallback.Invoke(elements[obj], eventData);
         }

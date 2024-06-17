@@ -18,6 +18,8 @@ public class HorizontalList : MonoBehaviour
     public string selectedOption;
     public bool staticBar;
     GameObject selectedOptionGameObject;
+    public AudioSource clickSound;
+    public Audio clickAudio;
 
     void Start()
     {
@@ -125,5 +127,13 @@ public class HorizontalList : MonoBehaviour
     {
         selectedOption = option;
         selectedOptionGameObject = optionObject;
+        if (clickSound)
+        {
+            clickSound.Play();
+        }
+        if (clickAudio)
+        {
+            clickAudio.PlayAudio();
+        }
     }
 }
