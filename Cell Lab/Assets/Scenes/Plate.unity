@@ -1383,10 +1383,11 @@ MonoBehaviour:
   dynamicFriction: 5
   lightAmount: 1
   lightRange: 1
-  lightAngle: 0
+  lightAngle: 90
   camera: {fileID: 0}
   zoomUI: {fileID: 1987298371}
   updateCamera: 1
+  substrateShader: {fileID: 0}
 --- !u!1 &2086728347
 GameObject:
   m_ObjectHideFlags: 0
