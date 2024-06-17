@@ -48,19 +48,22 @@ Shader "Converted/Template"
             static const float EWH = 0.001*scale;
             const float blobScale;
             const float speed;
+            
             uint hash(uint x, uint seed)
             {
                 const uint m = 1540483477u;
                 uint hash = seed;
+                // process input
                 uint k = x;
                 k *= m;
-                k ^= k>>24;
+                k ^= k >> 24;
                 k *= m;
                 hash *= m;
                 hash ^= k;
-                hash ^= hash>>13;
+                // some final mixing
+                hash ^= hash >> 13;
                 hash *= m;
-                hash ^= hash>>15;
+                hash ^= hash >> 15;
                 return hash;
             }
 
@@ -68,33 +71,37 @@ Shader "Converted/Template"
             {
                 const uint m = 1540483477u;
                 uint hash = seed;
+                // process first vector element
                 uint k = x.x;
                 k *= m;
-                k ^= k>>24;
+                k ^= k >> 24;
                 k *= m;
                 hash *= m;
                 hash ^= k;
+                // process second vector element
                 k = x.y;
                 k *= m;
-                k ^= k>>24;
+                k ^= k >> 24;
                 k *= m;
                 hash *= m;
                 hash ^= k;
+                // process third vector element
                 k = x.z;
                 k *= m;
-                k ^= k>>24;
+                k ^= k >> 24;
                 k *= m;
                 hash *= m;
                 hash ^= k;
-                hash ^= hash>>13;
+                // some final mixing
+                hash ^= hash >> 13;
                 hash *= m;
-                hash ^= hash>>15;
+                hash ^= hash >> 15;
                 return hash;
             }
 
             float3 gradientDirection(uint hash)
             {
-                switch (int(hash)&15) {
+                switch (int(hash) & 15) { // look at the last four bits to pick a gradient direction
                 case 0:
                 return float3(1, 1, 0);
                 case 1:
@@ -173,7 +180,7 @@ Shader "Converted/Template"
                 float noise1 = perlinNoise(float3(noisepos/blobScale, _Time.y*speed), uint(0));
                 float noise2 = perlinNoise(float3(noisepos/blobScale, _Time.y*speed), uint(1));
                 float pl = noise1+noise2;
-                if (ds>NR*NR&&srr<1.)
+                if (ds > NR*NR && srr < 1)
                 {
                     if (pl>0.5)
                     {

@@ -43,7 +43,7 @@ Shader "Unlit/FoodShader"
                 float4 fragColor;
                 float2 fragCoord = i.uv * 200;
                 
-                float2 p = fragCoord-(200, 200)/2;
+                float2 p = fragCoord - (200, 200) / 2;
                 float ds = dot(p, p);
 
                 if (ds > FR)
@@ -53,6 +53,7 @@ Shader "Unlit/FoodShader"
 
                 // Gamma Correction
                 fragColor.rgb = pow(fragColor.rgb, 2.2);
+
                 return fragColor;
             }
             ENDCG

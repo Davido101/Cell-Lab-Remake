@@ -2,7 +2,7 @@ Shader "Unlit/CellShader"
 {
     Properties
     {
-        col ("Color", Color) = (0.439, 1., 0.086, 0.5)
+        col ("Color", Color) = (0.439, 1, 0.086, 0.5)
         CR ("Cell Radius", float) = 100
         scale ("Scale", float) = 5000
     }
@@ -40,7 +40,7 @@ Shader "Unlit/CellShader"
 
             fixed4 col;
             float scale;
-            static const float NR = 0.005*scale;
+            static const float NR = 0.005 * scale;
             static const float EW = 0.002 * scale;
             float CR;
             float4 frag (v2f i) : SV_Target
@@ -50,12 +50,12 @@ Shader "Unlit/CellShader"
                 float2 p = fragCoord-(200, 200)/2;
                 float ds = dot(p, p);
                 float srr = ds/((CR-EW)*(CR-EW));
-                if (ds>CR*CR)
+                if (ds > CR*CR)
                 {
                     // discard
                     return 0;
                 }
-                if (ds>NR*NR&&srr<1.)
+                if (ds > NR*NR && srr < 1)
                 {
                     // cell
                     fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
