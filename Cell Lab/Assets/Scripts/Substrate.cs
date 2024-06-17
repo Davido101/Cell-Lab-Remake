@@ -40,6 +40,8 @@ public class Substrate : MonoBehaviour
     public RNG rng = new RNG();
     public bool updateCamera = true;
 
+    public Material substrateShader;
+
     void Start()
     {
         cellTypes = new List<CellInfo>() {
@@ -49,13 +51,15 @@ public class Substrate : MonoBehaviour
              new CellInfo(typeof(Photocyte), LoadIcon("Cells/photocyte")),
         };
 
-        transform.localScale = new Vector3(radius, radius, 1);
+        transform.localScale = new Vector3(radius * 2.04f, radius * 2.04f, 1);
         camera = (Camera)FindObjectOfType(typeof(Camera));
         zoom = maxScale * radius;
         camera.orthographicSize = zoom;
 
 
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
+
+        substrateShader = GetComponent<SpriteRenderer>().material;
 
         AdjustSpeed();
         SpawnCell(typeof(Flagellocyte), -0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
@@ -71,6 +75,7 @@ public class Substrate : MonoBehaviour
     {
         if (updateCamera)
             UpdateCamera();
+        UpdateLight();
         AdjustSpeed();
         foreach (Cell cell in cells)
         {
@@ -250,6 +255,14 @@ public class Substrate : MonoBehaviour
         float bottomDiff = Mathf.Max(-bottomLeft.y - maxZoom, 0);
         float topDiff = Mathf.Max(topRight.y - maxZoom, 0);
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
+    }
+
+    public void UpdateLight()
+    {
+        substrateShader.SetFloat("amount", lightAmount);
+        substrateShader.SetFloat("lrange", lightRange);
+        substrateShader.SetFloat("dirX", MathF.Cos(lightAngle * Mathf.Deg2Rad));
+        substrateShader.SetFloat("dirY", MathF.Sin(lightAngle * Mathf.Deg2Rad));
     }
 
     public int ToGridID(Cell cell)
