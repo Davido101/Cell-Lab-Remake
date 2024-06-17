@@ -1,4 +1,4 @@
-Shader "Converted/Template"
+Shader "Unlit/PhotocyteShader"
 {
     Properties
     {
