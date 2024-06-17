@@ -626,6 +626,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7871556540511652807, guid: 44ceac47d6d6aae4190fac0e06ef1981, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: -3888481672020999207, guid: 44ceac47d6d6aae4190fac0e06ef1981, type: 3}
       propertyPath: m_Name
       value: Substrate
@@ -1234,5 +1238,5 @@ SceneRoots:
   - {fileID: 519420032}
   - {fileID: 1338386989}
   - {fileID: 982744656}
-  - {fileID: 1137999492}
   - {fileID: 1654017359}
+  - {fileID: 1137999492}
