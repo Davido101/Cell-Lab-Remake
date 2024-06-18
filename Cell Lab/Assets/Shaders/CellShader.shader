@@ -47,15 +47,15 @@ Shader "Unlit/CellShader"
             {
                 float4 fragColor;
                 float2 fragCoord = i.uv * 200;
-                float2 p = fragCoord-(200, 200)/2;
+                float2 p = fragCoord - (200, 200) / 2;
                 float ds = dot(p, p);
-                float srr = ds/((CR-EW)*(CR-EW));
-                if (ds > CR*CR)
+                float srr = ds / ((CR - EW) * (CR - EW));
+                if (ds > CR * CR)
                 {
                     // discard
                     return 0;
                 }
-                if (ds > NR*NR && srr < 1)
+                if (ds > NR * NR && srr < 1)
                 {
                     // cell
                     fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
