@@ -2,12 +2,13 @@ Shader "Unlit/SubstrateShader"
 {
     Properties
     {
-        bgcolor ("Background Color", Color) = (0.8509804,0.8509804,0.99215686,1)
+        bgcol ("Background Color", Color) = (0.8509804,0.8509804,0.99215686,1)
+        lightcol ("Light Color", Color) = (0.5,0.35,0.25,1)
         radius ("Radius", float) = 100
-        dirX ("DirectionX", float) = 0
-        dirY ("DirectionY", float) = 1
+        dirX ("DirectionX", float) = 1
+        dirY ("DirectionY", float) = 0
         amount ("Light Amount", float) = 2
-        lrange ("Light Range", float) = 0.2
+        lrange ("Light Range", float) = 0.5
     }
     SubShader
     {
@@ -33,11 +34,11 @@ Shader "Unlit/SubstrateShader"
                 float4 vertex : SV_POSITION;
             };
 
-            float4 bgcolor;
+            float4 bgcol;
+            float4 lightcol;
             const float radius;
-            const float dirX;
-            const float dirY;
-            static float2 dir = float2(dirX, dirY);
+            float dirX;
+            float dirY;
             const float amount;
             const float lrange;
             const float res;
@@ -55,7 +56,7 @@ Shader "Unlit/SubstrateShader"
                 float4 fragColor;
                 float2 fragCoord = i.uv * 202;
 
-                fragColor = bgcolor;
+                fragColor = bgcol;
                 float2 p = fragCoord - (202, 202) / 2;
                 p /= radius;
                 float ds = dot(p, p);
@@ -68,10 +69,11 @@ Shader "Unlit/SubstrateShader"
                         fragColor = float4(0, 0, 0, 1);
                     }
                     else {
+                        float2 dir = float2(dirX, dirY);
                         ds = 1 + (1 - lrange) * (1 - ds) / lrange;
                         float py = dot(dir, p);
                         float l = amount * max ((py * (1 - lrange) + lrange) / (ds * ds), 0);
-                        fragColor = bgcolor + float4(l * 0.5, l * 0.35, l * 0.25, 1);
+                        fragColor = bgcol + float4(l * lightcol.rgb, 1);
                     }
                 }
 

@@ -63,6 +63,7 @@ public class Substrate : MonoBehaviour
         interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
 
         substrateShader = GetComponent<SpriteRenderer>().material;
+        lightAngle = Mathf.PI / 2;
 
         lightRange = 0.2f;
         AdjustSpeed();

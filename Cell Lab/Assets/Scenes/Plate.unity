@@ -1383,7 +1383,7 @@ MonoBehaviour:
   dynamicFriction: 5
   lightAmount: 1
   lightRange: 1
-  lightAngle: 90
+  lightAngle: 0
   camera: {fileID: 0}
   zoomUI: {fileID: 1987298371}
   updateCamera: 1
