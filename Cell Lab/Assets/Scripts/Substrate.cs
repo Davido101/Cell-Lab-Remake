@@ -42,7 +42,7 @@ public class Substrate : MonoBehaviour
 
     public Material substrateShader;
 
-    void Start()
+    private void Awake()
     {
         cellTypes = new List<CellInfo>() {
              new CellInfo(typeof(Phagocyte), LoadIcon("Cells/phagocyte")),
@@ -50,7 +50,10 @@ public class Substrate : MonoBehaviour
              new CellInfo(typeof(Devorocyte), LoadIcon("Cells/devorocyte")),
              new CellInfo(typeof(Photocyte), LoadIcon("Cells/photocyte")),
         };
+    }
 
+    void Start()
+    {
         transform.localScale = new Vector3(radius * 2.04f, radius * 2.04f, 1);
         camera = (Camera)FindObjectOfType(typeof(Camera));
         zoom = maxScale * radius;
