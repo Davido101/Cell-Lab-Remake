@@ -32,16 +32,16 @@ public class Cell : MonoBehaviour
 
     const float opacity = 0.8f;
     public Color color = Color.white;
-    public Sprite sprite;
+    public Material shader;
 
     void Awake()
     {
-        sprite = LoadSvgResource("Cells/cell");
+        shader = LoadShader("Cells/Materials/PhagocyteMaterial");
     }
 
-    internal Sprite LoadSvgResource(string resourcePath)
+    internal Material LoadShader(string shaderPath)
     {
-        return Resources.Load<GameObject>(resourcePath).GetComponent<SpriteRenderer>().sprite;
+        return Resources.Load<Material>(shaderPath);
     }
 
     void Start()
@@ -65,7 +65,7 @@ public class Cell : MonoBehaviour
     {
         if (dead)
         {
-            GetComponent<Renderer>().enabled = false;
+            transform.GetChild(0).GetComponent<Renderer>().enabled = false;
             return false;
         }
 
@@ -76,10 +76,11 @@ public class Cell : MonoBehaviour
 
         radius += (mass / radius / 16000 - radius) * radiusChangeSpeed * Time.deltaTime;
         gameObject.transform.position = new Vector3(x, y, 0);
-        gameObject.transform.localScale = new Vector3(radius, radius, 1);
+        gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1);
         gameObject.transform.eulerAngles = Vector3.forward * angle;
         color.a = opacity;
-        gameObject.GetComponent<SpriteRenderer>().color = color;
+
+        shader.SetColor("col", color);
         return true;
     }
 

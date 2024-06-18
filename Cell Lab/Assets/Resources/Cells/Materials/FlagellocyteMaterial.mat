@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CellMaterial
-  m_Shader: {fileID: 4800000, guid: aaf59c247cbaf7f4db0be2632867538c, type: 3}
+  m_Name: FlagellocyteMaterial
+  m_Shader: {fileID: 4800000, guid: 38abbd0b8f180504e9adbbf40c0fbb59, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -23,10 +23,6 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - _AlphaTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -66,15 +62,13 @@ Material:
     m_Ints: []
     m_Floats:
     - CR: 100
-    - EW: 10
-    - NR: 25
-    - PixelSnap: 0
+    - END: 0.7
+    - R: 0.1
+    - TAIL_R: 400
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EnableExternalAlpha: 0
-    - _GammaCorrect: 1
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -82,20 +76,17 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Resolution: 200
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
     - _ZWrite: 1
+    - res: 560
     - scale: 5000
+    - speed: 10
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _Mouse: {r: 0.5, g: 0.5, b: 0.5, a: 0.5}
-    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - col: {r: 0.48180008, g: 1, b: 0.15566027, a: 0.78431374}
-    - cola: {r: 0.43899998, g: 1, b: 0.08599999, a: 100}
-    - colaf: {r: 0.43899998, g: 1, b: 0.08599999, a: 100}
+    - bgcol: {r: 0.8509804, g: 0.8509804, b: 0.99215686, a: 1}
+    - col: {r: 0.43899995, g: 1, b: 0.08599996, a: 0.78431374}
   m_BuildTextureStacks: []

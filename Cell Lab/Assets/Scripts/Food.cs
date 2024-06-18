@@ -13,7 +13,7 @@ public class Food : MonoBehaviour
 
     private void Start()
     {
-        gameObject.transform.localScale = new Vector3(radius, radius, 1);
+        gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1);
     }
 
     public void fixedupdate(float dt)

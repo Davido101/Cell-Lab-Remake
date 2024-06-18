@@ -5,7 +5,7 @@ public class Photocyte : Cell
     void Awake()
     {
         type = typeof(Photocyte);
-        sprite = LoadSvgResource("Cells/photocyte");
+        shader = LoadShader("Cells/Materials/PhotocyteMaterial");
     }
 
     public override void fixedupdate(float dt)

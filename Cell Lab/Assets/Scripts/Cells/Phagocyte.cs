@@ -3,7 +3,7 @@ public class Phagocyte : Cell
     void Awake()
     {
         type = typeof(Phagocyte);
-        sprite = LoadSvgResource("Cells/phagocyte");
+        shader = LoadShader("Cells/Materials/PhagocyteMaterial");
         reactsToFood = true;
     }
 }

@@ -85,17 +85,17 @@
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\Shaders\PhotocyteShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\PhotocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\Shaders\FoodShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\FoodShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
-    <None Include="Assets\Shaders\DevorocyteShader.shader" />
-    <None Include="Assets\Shaders\FlagellocyteShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\DevorocyteShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\FlagellocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
@@ -103,8 +103,8 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
-    <None Include="Assets\Shaders\CellShader.shader" />
-    <None Include="Assets\Shaders\SubstrateShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\PhagocyteShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\SubstrateShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />

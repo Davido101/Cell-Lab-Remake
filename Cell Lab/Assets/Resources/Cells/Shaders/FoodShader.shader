@@ -1,10 +1,9 @@
-Shader "Unlit/CellShader"
+Shader "Unlit/FoodShader"
 {
     Properties
     {
-        col ("Color", Color) = (0.439, 1, 0.086, 0.5)
-        CR ("Cell Radius", float) = 100
-        scale ("Scale", float) = 5000
+        col ("Color", Color) = (0.6, 0.4, 0.2, 1)
+        FR ("Food Radius", float) = 350
     }
     SubShader
     {
@@ -30,6 +29,7 @@ Shader "Unlit/CellShader"
                 float4 vertex : SV_POSITION;
             };
 
+
             v2f vert (appdata v)
             {
                 v2f o;
@@ -38,35 +38,23 @@ Shader "Unlit/CellShader"
                 return o;
             }
 
-            fixed4 col;
-            float scale;
-            static const float NR = 0.005 * scale;
-            static const float EW = 0.002 * scale;
-            float CR;
-            float4 frag (v2f i) : SV_Target
+            const float FR;
+            const float4 col;
+
+            fixed4 frag (v2f i) : SV_Target
             {
                 float4 fragColor;
                 float2 fragCoord = i.uv * 200;
+                
                 float2 p = fragCoord - (200, 200) / 2;
                 float ds = dot(p, p);
-                float srr = ds / ((CR - EW) * (CR - EW));
-                if (ds > CR * CR)
-                {
-                    // discard
+
+                if (ds > FR)
                     return 0;
-                }
-                if (ds > NR * NR && srr < 1)
-                {
-                    // cell
-                    fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
-                }
-                else
-                {
-                    // wall or nucleus
-                    fragColor = float4(0.5*col.rgb, 1);
-                }
-                
-                // Gamma correction
+
+                fragColor = lerp(col, float4(1, 1, 1, 1), 0.43);
+
+                // Gamma Correction
                 fragColor.rgb = pow(fragColor.rgb, 2.2);
 
                 return fragColor;

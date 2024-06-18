@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using UnityEngine;
 
 public class Devorocyte : Cell
 {
@@ -6,8 +7,9 @@ public class Devorocyte : Cell
 
     private void Awake()
     {
+        transform.GetChild(0).localScale = new Vector3(1.45f, 1.45f, 1.45f);
         type = typeof(Devorocyte);
-        sprite = LoadSvgResource("Cells/devorocyte");
+        shader = LoadShader("Cells/Materials/DevorocyteMaterial");
     }
 
     public override void React(Cell cell, float dt)

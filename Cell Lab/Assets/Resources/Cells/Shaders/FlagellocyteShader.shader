@@ -59,10 +59,10 @@ Shader "Unlit/FlagellocyteShader"
                 if (d < CR - EW * 0.5)
                     return fragColor;
                     
-                float ww = (TAIL_R - p.x) * 0.1 * (d - CR) / CR;
-                float my = sin(-_Time.y * speed + p.x * 0.04) * ww;
-                float k = 4 * cos(-_Time.y * speed + p.x * 0.04) * ww;
-                float w = (1 - p.x / (TAIL_R*END)) * 0.3 * (1 + 0.5 * k * k / 100 / 100) * 100;
+                float ww = (TAIL_R + p.x) * 0.1 * (d - CR) / CR;
+                float my = sin(-_Time.y * speed - p.x * 0.04) * ww;
+                float k = 4 * cos(-_Time.y * speed - p.x * 0.04) * ww;
+                float w = (1 + p.x / (TAIL_R*END)) * 0.3 * (1 + 0.5 * k * k / 100 / 100) * 100;
                 if (d - CR < R * CR && 1 > (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R))
                     w += 100 * (R - R * sqrt(1 - (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R)));
                     
@@ -83,7 +83,7 @@ Shader "Unlit/FlagellocyteShader"
                 fragColor = 0;
                 float2 p = fragCoord - (560, 560) / 2;
                 float ds = dot(p, p);
-                float angle = atan2(p.y, p.x);
+                float angle = atan2(-p.y, -p.x);
                 if (ds > CR * CR && abs(angle) < 1)
                 {
                     fragColor = tail(p);

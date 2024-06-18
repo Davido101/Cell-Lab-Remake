@@ -1,8 +1,10 @@
-Shader "Unlit/FoodShader"
+Shader "Unlit/PhagocyteShader"
 {
     Properties
     {
-        FR ("Food Radius", float) = 350
+        col ("Color", Color) = (0.439, 1, 0.086, 0.5)
+        CR ("Cell Radius", float) = 100
+        scale ("Scale", float) = 5000
     }
     SubShader
     {
@@ -28,8 +30,6 @@ Shader "Unlit/FoodShader"
                 float4 vertex : SV_POSITION;
             };
 
-            float FR;
-
             v2f vert (appdata v)
             {
                 v2f o;
@@ -38,20 +38,35 @@ Shader "Unlit/FoodShader"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            fixed4 col;
+            float scale;
+            static const float NR = 0.005 * scale;
+            static const float EW = 0.002 * scale;
+            float CR;
+            float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor;
                 float2 fragCoord = i.uv * 200;
-                
                 float2 p = fragCoord - (200, 200) / 2;
                 float ds = dot(p, p);
-
-                if (ds > FR)
+                float srr = ds / ((CR - EW) * (CR - EW));
+                if (ds > CR * CR)
+                {
+                    // discard
                     return 0;
-
-                fragColor = lerp(float4(0.6, 0.4, 0.2, 1), float4(1, 1, 1, 1), 0.43);
-
-                // Gamma Correction
+                }
+                if (ds > NR * NR && srr < 1)
+                {
+                    // cell
+                    fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
+                }
+                else
+                {
+                    // wall or nucleus
+                    fragColor = float4(0.5*col.rgb, 1);
+                }
+                
+                // Gamma correction
                 fragColor.rgb = pow(fragColor.rgb, 2.2);
 
                 return fragColor;

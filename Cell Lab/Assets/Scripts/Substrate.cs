@@ -65,8 +65,9 @@ public class Substrate : MonoBehaviour
         substrateShader = GetComponent<SpriteRenderer>().material;
 
         AdjustSpeed();
-        SpawnCell(typeof(Flagellocyte), -0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Flagellocyte), -0.1f, 0, new Color(1, 1f, 0.2235f));
         SpawnCell(typeof(Devorocyte), 0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnFoodLump(0, 0, 100, 1);
     }
 
     public Sprite LoadIcon(string resourcePath)
@@ -176,9 +177,10 @@ public class Substrate : MonoBehaviour
         Vector2 position = new Vector2(x, y);
         if (position.sqrMagnitude >= radius * radius) return null;
         GameObject cellObject = Instantiate(defaultCell, new Vector3(x, y, 0), new Quaternion());
-        SpriteRenderer renderer = cellObject.GetComponent<SpriteRenderer>();
+        SpriteRenderer renderer = cellObject.transform.GetChild(0).GetComponent<SpriteRenderer>();
         Cell cell = cellObject.AddComponent(cellType) as Cell;
-        renderer.sprite = cell.sprite;
+        renderer.material = cell.shader;
+        cell.shader = renderer.material;
         cell.position = position;
         cell.lastPosition = position;
         cell.color = color;
@@ -262,7 +264,7 @@ public class Substrate : MonoBehaviour
 
     public void UpdateLight()
     {
-        substrateShader.SetFloat("amount", lightAmount);
+        substrateShader.SetFloat("amount", lightAmount * 2); // temporary fix to light bug (remove when fixed)
         substrateShader.SetFloat("lrange", lightRange);
         substrateShader.SetFloat("dirX", MathF.Cos(lightAngle * Mathf.Deg2Rad));
         substrateShader.SetFloat("dirY", MathF.Sin(lightAngle * Mathf.Deg2Rad));
