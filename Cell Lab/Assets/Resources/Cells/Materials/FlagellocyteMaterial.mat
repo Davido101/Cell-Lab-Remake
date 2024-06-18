@@ -88,5 +88,5 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - bgcol: {r: 0.8509804, g: 0.8509804, b: 0.99215686, a: 1}
-    - col: {r: 0.43899995, g: 1, b: 0.08599996, a: 0.78431374}
+    - col: {r: 0.7019, g: 1, b: 0.2235, a: 0.8}
   m_BuildTextureStacks: []

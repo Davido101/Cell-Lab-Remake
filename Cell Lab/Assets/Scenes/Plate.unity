@@ -1374,8 +1374,8 @@ MonoBehaviour:
   originalPos: {x: 0, y: 0, z: 0}
   cells: []
   foods: []
-  defaultCell: {fileID: -3888481672020999207, guid: a49a75bfad6bdad4ca8a3026578c3390, type: 3}
-  defaultFood: {fileID: -3888481672020999207, guid: 0ca6a5a1ee6705f4284a052992cde5ad, type: 3}
+  defaultCell: {fileID: 3734325881046997790, guid: f87f7f90f65388540880a748bc3a42e0, type: 3}
+  defaultFood: {fileID: 7051042544434427751, guid: 12bb1affe6e9cb54aab5c60aebfe636d, type: 3}
   interactionSquareWidth: 0.1
   interactionGridLength: -1
   radius: 1
@@ -1521,9 +1521,9 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 2052181049}
   - {fileID: 982744656}
   - {fileID: 1654017359}
   - {fileID: 1137999492}
   - {fileID: 1899333660}
   - {fileID: 2086728349}
-  - {fileID: 2052181049}
