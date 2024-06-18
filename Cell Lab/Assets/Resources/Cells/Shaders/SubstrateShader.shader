@@ -33,7 +33,7 @@ Shader "Unlit/SubstrateShader"
                 float4 vertex : SV_POSITION;
             };
 
-            const float4 bgcolor;
+            float4 bgcolor;
             const float radius;
             const float dirX;
             const float dirY;

@@ -40,7 +40,7 @@ Shader "Unlit/PhotocyteShader"
                 return o;
             }
 
-            const float4 col;
+            float4 col;
             const float CR;
             const float scale;
             static const float NR = 0.005*scale;

@@ -38,8 +38,8 @@ Shader "Unlit/FoodShader"
                 return o;
             }
 
+            float4 col;
             const float FR;
-            const float4 col;
 
             fixed4 frag (v2f i) : SV_Target
             {

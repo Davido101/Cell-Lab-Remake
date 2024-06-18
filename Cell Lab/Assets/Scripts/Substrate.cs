@@ -64,10 +64,10 @@ public class Substrate : MonoBehaviour
 
         substrateShader = GetComponent<SpriteRenderer>().material;
 
+        lightRange = 0.2f;
         AdjustSpeed();
-        SpawnCell(typeof(Flagellocyte), -0.1f, 0, new Color(1, 1f, 0.2235f));
-        SpawnCell(typeof(Devorocyte), 0.1f, 0, new Color(0.7019f, 1f, 0.2235f));
-        SpawnFoodLump(0, 0, 100, 1);
+        Cell flagellocyte = SpawnCell(typeof(Flagellocyte), -0.9f, 0, new Color(0.7019f, 1f, 0.2235f));
+        flagellocyte.angle = Mathf.PI;
     }
 
     public Sprite LoadIcon(string resourcePath)
@@ -266,8 +266,8 @@ public class Substrate : MonoBehaviour
     {
         substrateShader.SetFloat("amount", lightAmount * 2); // temporary fix to light bug (remove when fixed)
         substrateShader.SetFloat("lrange", lightRange);
-        substrateShader.SetFloat("dirX", MathF.Cos(lightAngle * Mathf.Deg2Rad));
-        substrateShader.SetFloat("dirY", MathF.Sin(lightAngle * Mathf.Deg2Rad));
+        substrateShader.SetFloat("dirX", MathF.Cos(lightAngle));
+        substrateShader.SetFloat("dirY", MathF.Sin(lightAngle));
     }
 
     public int ToGridID(Cell cell)

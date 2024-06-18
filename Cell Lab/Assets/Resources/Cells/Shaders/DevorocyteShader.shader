@@ -40,7 +40,7 @@ Shader "Unlit/DevorocyteShader"
             }
 
             #define M_PI 3.1415926535897932384626433832795
-            const float4 col;
+            float4 col;
             static const float4 bgcol = ((float4)1);
             const float CR;
             const float scale;

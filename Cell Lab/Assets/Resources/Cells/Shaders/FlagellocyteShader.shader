@@ -42,7 +42,7 @@ Shader "Unlit/FlagellocyteShader"
                 return o;
             }
 
-            const float4 col;
+            float4 col;
             const float CR;
             const float speed;
             const float scale;

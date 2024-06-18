@@ -38,7 +38,7 @@ Shader "Unlit/PhagocyteShader"
                 return o;
             }
 
-            fixed4 col;
+            float4 col;
             float scale;
             static const float NR = 0.005 * scale;
             static const float EW = 0.002 * scale;
