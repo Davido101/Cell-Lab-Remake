@@ -1376,11 +1376,11 @@ MonoBehaviour:
   foods: []
   defaultCell: {fileID: 3734325881046997790, guid: f87f7f90f65388540880a748bc3a42e0, type: 3}
   defaultFood: {fileID: 7051042544434427751, guid: 12bb1affe6e9cb54aab5c60aebfe636d, type: 3}
-  interactionSquareWidth: 0.1
+  interactionSquareWidth: 16
   interactionGridLength: -1
   radius: 500
   temperature: 1
-  dynamicFriction: 5
+  dynamicFriction: 0
   lightAmount: 1
   lightRange: 1
   lightAngle: 0

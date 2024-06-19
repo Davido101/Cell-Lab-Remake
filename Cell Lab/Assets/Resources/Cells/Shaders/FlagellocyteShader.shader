@@ -3,6 +3,7 @@ Shader "Unlit/FlagellocyteShader"
     Properties
     {
         col ("Color", Color) = (0.439, 1, 0.086, 1)
+        age ("Age", float) = 0
         scale ("Scale", float) = 5000
         speed ("Speed", Range(0, 100)) = 1 
         CR ("Cell Radius", float) = 100
@@ -44,6 +45,7 @@ Shader "Unlit/FlagellocyteShader"
             }
 
             float4 col;
+            float age;
             const float CR;
             const float speed;
             const float scale;
@@ -62,8 +64,8 @@ Shader "Unlit/FlagellocyteShader"
                     return fragColor;
                     
                 float ww = (TAIL_R + p.x) * 0.1 * (d - CR) / CR;
-                float my = sin(-_Time.y * speed - p.x * 0.04) * ww;
-                float k = 4 * cos(-_Time.y * speed - p.x * 0.04) * ww;
+                float my = sin(-age * speed - p.x * 0.04) * ww;
+                float k = 4 * cos(-age * speed - p.x * 0.04) * ww;
                 float w = (1 + p.x / (TAIL_R*END)) * 0.3 * (1 + 0.5 * k * k / 100 / 100) * 100;
                 if (d - CR < R * CR && 1 > (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R))
                     w += 100 * (R - R * sqrt(1 - (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R)));

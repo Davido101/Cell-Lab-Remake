@@ -56,7 +56,7 @@ public class Substrate : MonoBehaviour
     {
         transform.localScale = new Vector3(radius * 2.04f, radius * 2.04f, 1);
         camera = (Camera)FindObjectOfType(typeof(Camera));
-        zoom = maxScale * radius;
+        zoom = 1.2f * radius;
         camera.orthographicSize = zoom;
 
 
@@ -67,7 +67,8 @@ public class Substrate : MonoBehaviour
 
         lightRange = 0.2f;
         AdjustSpeed();
-        SpawnCell(typeof(Flagellocyte), 400, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Phagocyte), 50, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public Material LoadShader(string shaderPath)
@@ -241,7 +242,7 @@ public class Substrate : MonoBehaviour
         }
         float zoomLerping = 1 - Mathf.Pow(1 - zoomSnap, Time.deltaTime);
         camera.orthographicSize = Mathf.Lerp(camera.orthographicSize, zoom, zoomLerping);
-        zoomUI.text = $"x{Mathf.Floor((1.25f / zoom) * 50)}";
+        // zoomUI.text = $"x{Mathf.Floor((1.25f / zoom) * 50)}";
 
         if (Input.GetMouseButtonDown(1))
         {

@@ -21,13 +21,14 @@ public class Cell : MonoBehaviour
     public float angle = 0;
     public float moveDuration = 0;
 
-    public float mass = 2.16f;
+    public float mass = 2.88f;
     public float minMass = 0.73f;
     public float maxMass = 3.6f;
-    public float radius = Mathf.Sqrt(2.16f)*8;
+    public float radius = Mathf.Sqrt(2.88f)*8;
     public float radiusChangeSpeed = 1;
 
     public float consumptionRate = 1;
+    public float age = 0;
     public bool dead = false;
 
     const float opacity = 0.8f;
@@ -86,14 +87,17 @@ public class Cell : MonoBehaviour
 
     public virtual void fixedupdate(float dt)
     {
-        handlePhysics(dt);
+        HandlePhysics(dt);
     }
 
-    public virtual bool handlePhysics(float dt)
+    public virtual bool HandlePhysics(float dt)
     {
+        age += dt;
         force += SubstrateReactionForce();
         force += DynamicFrictionForce();
         UpdatePos(dt);
+        force = Vector2.zero;
+        moveDuration = 0;
         if (KillIfOutsideSubstrate()) return false;
         return true;
     }
@@ -120,8 +124,6 @@ public class Cell : MonoBehaviour
         lastPosition = position;
         velocity += force / mass * dt;
         position += velocity * dt;
-        force = Vector2.zero;
-        moveDuration = 0;
     }
 
     public virtual bool KillIfOutsideSubstrate()

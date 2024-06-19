@@ -11,7 +11,7 @@ public class Photocyte : Cell
     public override void fixedupdate(float dt)
     {
         ConsumeLight(dt);
-        handlePhysics(dt);
+        HandlePhysics(dt);
     }
 
     public void ConsumeLight(float dt)
