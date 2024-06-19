@@ -7,14 +7,14 @@ using Unity.Collections;
 
 public class Substrate : MonoBehaviour
 {
-    public NativeList<JobHandle> threads;
-    public int maxThreads = 1; // For now the game crashes if this is set any higher
+    public NativeList<JobHandle> threads; // Currently useless
+    public int maxThreads; // For now the game crashes if this is set higher than 1
 
-    public float maxScale = 2.25f;
-    public float zoom = 1;
-    public float zoomSpeed = 3.5f;
-    public float zoomSnap = 0.99f;
-    public float moveSpeed = 3.5f;
+    public float maxScale;
+    public float zoom;
+    public float zoomSpeed;
+    public float zoomSnap;
+    public float moveSpeed;
     public Vector3 originalPos;
 
     public List<CellInfo> cellTypes;
@@ -25,15 +25,15 @@ public class Substrate : MonoBehaviour
     public GameObject defaultFood;
 
     public Dictionary<int, GridCell> interactionGrid;
-    public float interactionSquareWidth = 0.1f;
+    public float interactionSquareWidth;
     public int interactionGridLength;
     
-    public float radius = 1;
-    public float temperature = 1;
-    public float dynamicFriction = 5;
-    public float lightAmount = 1;
-    public float lightRange = 1;
-    public float lightAngle = 0;
+    public float radius;
+    public float temperature;
+    public float dynamicFriction;
+    public float lightAmount;
+    public float lightRange;
+    public float lightAngle;
 
     public new Camera camera;
     public TMP_Text zoomUI;
@@ -67,8 +67,7 @@ public class Substrate : MonoBehaviour
 
         lightRange = 0.2f;
         AdjustSpeed();
-        //Cell flagellocyte = SpawnCell(typeof(Flagellocyte), -0.9f, 0, new Color(0.7019f, 1f, 0.2235f));
-        //flagellocyte.angle = Mathf.PI;
+        SpawnCell(typeof(Flagellocyte), 400, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public Material LoadShader(string shaderPath)
@@ -80,7 +79,7 @@ public class Substrate : MonoBehaviour
     {
         if (updateCamera)
             UpdateCamera();
-        UpdateLight();
+        UpdateShader();
         AdjustSpeed();
         foreach (Cell cell in cells)
         {
@@ -265,8 +264,9 @@ public class Substrate : MonoBehaviour
         camera.transform.position += new Vector3(leftDiff - rightDiff, bottomDiff - topDiff, 0);
     }
 
-    public void UpdateLight()
+    public void UpdateShader()
     {
+        substrateShader.SetFloat("radius", radius);
         substrateShader.SetFloat("amount", lightAmount * 2); // temporary fix to light bug (remove when fixed)
         substrateShader.SetFloat("lrange", lightRange);
         substrateShader.SetFloat("dirX", MathF.Cos(lightAngle));

@@ -4,7 +4,7 @@ Shader "Unlit/SubstrateShader"
     {
         bgcol ("Background Color", Color) = (0.8509804,0.8509804,0.99215686,1)
         lightcol ("Light Color", Color) = (0.5,0.35,0.25,1)
-        radius ("Radius", float) = 100
+        radius ("Radius", float) = 1000
         dirX ("DirectionX", float) = 1
         dirY ("DirectionY", float) = 0
         amount ("Light Amount", float) = 2
@@ -37,7 +37,7 @@ Shader "Unlit/SubstrateShader"
 
             float4 bgcol;
             float4 lightcol;
-            const float radius;
+            float radius;
             const float scaleConst;
             float dirX;
             float dirY;
@@ -53,12 +53,10 @@ Shader "Unlit/SubstrateShader"
                 return o;
             }
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag (v2f i) : SV_Target
             {
-                float4 fragColor;
                 float2 fragCoord = i.uv * scaleConst;
 
-                fragColor = bgcol;
                 float2 p = fragCoord - (scaleConst, scaleConst) / 2;
                 p /= radius;
                 float ds = dot(p, p);
@@ -66,20 +64,20 @@ Shader "Unlit/SubstrateShader"
                 if (ds > 1.02) {
                     return 0;
                 }
-                else {
+                else
+                {
                     if (ds > 0.999) {
-                        fragColor = float4(0, 0, 0, 1);
+                        return float4(0, 0, 0, 1);
                     }
                     else {
                         float2 dir = float2(dirX, dirY);
                         ds = 1 + (1 - lrange) * (1 - ds) / lrange;
                         float py = dot(dir, p);
                         float l = amount * max ((py * (1 - lrange) + lrange) / (ds * ds), 0);
-                        fragColor = bgcol + float4(l * lightcol.rgb, 1);
+                        return bgcol + float4(l * lightcol.rgb, 1);
                     }
                 }
-
-                return fragColor;
+                return bgcol;
             }
             ENDCG
         }

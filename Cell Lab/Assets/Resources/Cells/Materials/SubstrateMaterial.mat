@@ -81,10 +81,10 @@ Material:
     - dirX: 0
     - dirY: 1
     - lrange: 0.2
-    - radius: 100
+    - radius: 500
     - rangee: 0.2
     - res: 202
-    - scaleConst: 202
+    - scaleConst: 1020
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

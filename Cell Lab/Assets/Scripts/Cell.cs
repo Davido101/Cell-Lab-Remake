@@ -24,7 +24,7 @@ public class Cell : MonoBehaviour
     public float mass = 2.16f;
     public float minMass = 0.73f;
     public float maxMass = 3.6f;
-    public float radius = Mathf.Sqrt(2.16f/16000);
+    public float radius = Mathf.Sqrt(2.16f)*8;
     public float radiusChangeSpeed = 1;
 
     public float consumptionRate = 1;
@@ -74,7 +74,7 @@ public class Cell : MonoBehaviour
         float x = Mathf.Lerp(lastPosition.x, position.x, lerping);
         float y = Mathf.Lerp(lastPosition.y, position.y, lerping);
 
-        radius += (mass / radius / 16000 - radius) * radiusChangeSpeed * Time.deltaTime;
+        radius += (Mathf.Sqrt(mass) * 8 - radius) * radiusChangeSpeed * Time.deltaTime;
         gameObject.transform.position = new Vector3(x, y, 0);
         gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1);
         gameObject.transform.eulerAngles = Vector3.forward * angle * Mathf.Rad2Deg; // unity takes in rotation as degrees
