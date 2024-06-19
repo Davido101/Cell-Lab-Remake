@@ -45,10 +45,10 @@ public class Substrate : MonoBehaviour
     private void Awake()
     {
         cellTypes = new List<CellInfo>() {
-             new CellInfo(typeof(Phagocyte), LoadIcon("Cells/phagocyte")),
-             new CellInfo(typeof(Flagellocyte), LoadIcon("Cells/flagellocyte")),
-             new CellInfo(typeof(Devorocyte), LoadIcon("Cells/devorocyte")),
-             new CellInfo(typeof(Photocyte), LoadIcon("Cells/photocyte")),
+             new CellInfo(typeof(Phagocyte), LoadShader("Cells/Materials/PhagocyteMaterial")),
+             new CellInfo(typeof(Flagellocyte), LoadShader("Cells/Materials/FlagellocyteMaterial")),
+             new CellInfo(typeof(Devorocyte), LoadShader("Cells/Materials/DevorocyteMaterial")),
+             new CellInfo(typeof(Photocyte), LoadShader("Cells/Materials/PhotocyteMaterial")),
         };
     }
 
@@ -71,9 +71,9 @@ public class Substrate : MonoBehaviour
         flagellocyte.angle = Mathf.PI;
     }
 
-    public Sprite LoadIcon(string resourcePath)
+    public Material LoadShader(string shaderPath)
     {
-        return Resources.Load<GameObject>(resourcePath).GetComponent<SpriteRenderer>().sprite;
+        return Resources.Load<Material>(shaderPath);
     }
 
     public void update()
@@ -182,6 +182,8 @@ public class Substrate : MonoBehaviour
         Cell cell = cellObject.AddComponent(cellType) as Cell;
         renderer.material = cell.shader;
         cell.shader = renderer.material;
+        float scaleConst = renderer.material.GetFloat("scaleConst") / 200;
+        cellObject.transform.GetChild(0).localScale = new Vector3(scaleConst, scaleConst, scaleConst);
         cell.position = position;
         cell.lastPosition = position;
         cell.color = color;

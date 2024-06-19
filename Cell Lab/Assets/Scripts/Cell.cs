@@ -77,7 +77,7 @@ public class Cell : MonoBehaviour
         radius += (mass / radius / 16000 - radius) * radiusChangeSpeed * Time.deltaTime;
         gameObject.transform.position = new Vector3(x, y, 0);
         gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1);
-        gameObject.transform.eulerAngles = Vector3.forward * angle;
+        gameObject.transform.eulerAngles = Vector3.forward * angle * Mathf.Rad2Deg; // unity takes in rotation as degrees
         color.a = opacity;
 
         shader.SetColor("col", color);

@@ -7,7 +7,6 @@ public class Devorocyte : Cell
 
     private void Awake()
     {
-        transform.GetChild(0).localScale = new Vector3(1.45f, 1.45f, 1.45f);
         type = typeof(Devorocyte);
         shader = LoadShader("Cells/Materials/DevorocyteMaterial");
     }

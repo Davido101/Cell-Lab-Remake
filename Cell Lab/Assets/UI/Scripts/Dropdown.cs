@@ -97,7 +97,7 @@ public class Dropdown : MonoBehaviour
             {
                 image.gameObject.GetComponent<SVGImage>().sprite = icon;
                 RectTransform rectTransform = image.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+                rectTransform.sizeDelta = new Vector2(icon.rect.size.x / 7, icon.rect.size.y / 7);
             }
             else
             {
@@ -114,7 +114,7 @@ public class Dropdown : MonoBehaviour
             {
                 image.gameObject.GetComponent<Image>().sprite = icon;
                 RectTransform rectTransform = image.GetComponent<RectTransform>();
-                rectTransform.sizeDelta = new Vector3(icon.rect.size.x / 7, icon.rect.size.y / 7);
+                rectTransform.sizeDelta = new Vector2(icon.rect.size.x / 7, icon.rect.size.y / 7);
             }
             else
             {
@@ -122,6 +122,35 @@ public class Dropdown : MonoBehaviour
                 rectTransform.localPosition = new Vector2(-37.5f, rectTransform.localPosition.y);
                 image.gameObject.SetActive(false);
             }
+        }
+        optionObject.transform.localPosition -= new Vector3(0, optionY, 0);
+        optionObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = optionName;
+        options.Add(optionObject);
+        int index = options.Count - 1;
+        optionObject.GetComponent<Button>().onClick.AddListener(() => ButtonClicked(index));
+        optionY += 100;
+        optionCount++;
+        ResizeContent();
+    }
+
+    public void AddOption(string optionName = "Option Name", Material shader = null)
+    {
+        GameObject optionObject = Instantiate(option, content.transform);
+        Transform image = optionObject.transform.GetChild(2);
+        if (shader)
+        {
+            image.gameObject.GetComponent<Image>().material = shader;
+            RectTransform rectTransform = image.GetComponent<RectTransform>();
+            Debug.Log(shader.GetFloat("scaleConst"));
+            float scaleConst = shader.GetFloat("scaleConst") / 200 * rectTransform.sizeDelta.x;
+            rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, rectTransform.localPosition.y, 1000);
+            rectTransform.sizeDelta = new Vector2(scaleConst, scaleConst);
+        }
+        else
+        {
+            RectTransform rectTransform = optionObject.transform.GetChild(1).GetComponent<RectTransform>();
+            rectTransform.localPosition = new Vector2(-37.5f, rectTransform.localPosition.y);
+            image.gameObject.SetActive(false);
         }
         optionObject.transform.localPosition -= new Vector3(0, optionY, 0);
         optionObject.transform.GetChild(1).gameObject.GetComponent<TMP_Text>().text = optionName;
@@ -141,11 +170,19 @@ public class Dropdown : MonoBehaviour
         }
     }
 
+    public void AddOptions(List<string> names, List<Material> shaders)
+    {
+        for (int i = 0; i < names.Count; i++)
+        {
+            AddOption(names[i], shaders[i]);
+        }
+    }
+
     public void AddOptions(List<string> names)
     {
         for (int i = 0; i < names.Count; i++)
         {
-            AddOption(names[i]);
+            AddOption(names[i], (Sprite)null);
         }
     }
 

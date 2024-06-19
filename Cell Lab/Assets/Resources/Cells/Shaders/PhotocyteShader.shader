@@ -7,6 +7,7 @@ Shader "Unlit/PhotocyteShader"
         scale ("scale", float) = 5000
         blobScale ("Blob Scale", float) = 20
         speed ("Speed", float) = 0.1
+        scaleConst ("Scale Constant", float) = 200
     }
     SubShader
     {
@@ -43,6 +44,7 @@ Shader "Unlit/PhotocyteShader"
             float4 col;
             const float CR;
             const float scale;
+            const float scaleConst;
             static const float NR = 0.005*scale;
             static const float EW = 0.002*scale;
             static const float EWH = 0.001*scale;
@@ -166,8 +168,8 @@ Shader "Unlit/PhotocyteShader"
             float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor = 0;
-                float2 fragCoord = i.uv * 200;
-                float2 p = fragCoord-(200, 200)/2;
+                float2 fragCoord = i.uv * scaleConst;
+                float2 p = fragCoord-(scaleConst, scaleConst)/2;
                 float ds = dot(p, p);
                 if (ds>CR*CR)
                 {

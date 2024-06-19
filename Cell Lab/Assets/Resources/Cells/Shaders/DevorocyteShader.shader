@@ -6,6 +6,7 @@ Shader "Unlit/DevorocyteShader"
         scale ("scale", float) = 5000
         CR ("Cell Radius", float) = 100
         N ("N", Float) = 19
+        scaleConst ("Scale Constant", float) = 290
     }
     SubShader
     {
@@ -44,6 +45,7 @@ Shader "Unlit/DevorocyteShader"
             static const float4 bgcol = ((float4)1);
             const float CR;
             const float scale;
+            const float scaleConst;
             static const float NR = 0.005 * scale;
             static const float EW = 0.002 * scale;
             const float N;
@@ -90,9 +92,9 @@ Shader "Unlit/DevorocyteShader"
             float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor = 0;
-                float2 fragCoord = i.uv * 290;
-                float2 p = fragCoord - (290, 290) / 2;
-                float2 tp = fragCoord - (290, 290) / 2;
+                float2 fragCoord = i.uv * scaleConst;
+                float2 p = fragCoord - (scaleConst, scaleConst) / 2;
+                float2 tp = fragCoord - (scaleConst, scaleConst) / 2;
                 float ds = dot(p, p);
                 float srr = ds / ((CR - EW) * (CR - EW));
                 if (ds > CR * CR)

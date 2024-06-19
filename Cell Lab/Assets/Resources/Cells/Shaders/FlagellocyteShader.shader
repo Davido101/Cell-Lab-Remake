@@ -9,6 +9,7 @@ Shader "Unlit/FlagellocyteShader"
         END ("Tail Length", Range(0, 2)) = 0.7
         R ("Radius", float) = 0.1
         TAIL_R ("Tail Radius", float) = 400
+        scaleConst ("Scale Constant", float) = 560
     }
     SubShader
     {
@@ -46,6 +47,7 @@ Shader "Unlit/FlagellocyteShader"
             const float CR;
             const float speed;
             const float scale;
+            const float scaleConst;
             static const float NR = 0.005*scale;
             static const float EW = 0.002*scale;
             const float END;
@@ -79,9 +81,9 @@ Shader "Unlit/FlagellocyteShader"
             float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor = 0;
-                float2 fragCoord = i.uv * 560;
+                float2 fragCoord = i.uv * scaleConst;
                 fragColor = 0;
-                float2 p = fragCoord - (560, 560) / 2;
+                float2 p = fragCoord - (scaleConst, scaleConst) / 2;
                 float ds = dot(p, p);
                 float angle = atan2(-p.y, -p.x);
                 if (ds > CR * CR && abs(angle) < 1)

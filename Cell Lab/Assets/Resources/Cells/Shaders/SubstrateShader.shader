@@ -9,6 +9,7 @@ Shader "Unlit/SubstrateShader"
         dirY ("DirectionY", float) = 0
         amount ("Light Amount", float) = 2
         lrange ("Light Range", float) = 0.5
+        scaleConst ("Scale Constant", float) = 202
     }
     SubShader
     {
@@ -37,6 +38,7 @@ Shader "Unlit/SubstrateShader"
             float4 bgcol;
             float4 lightcol;
             const float radius;
+            const float scaleConst;
             float dirX;
             float dirY;
             const float amount;
@@ -54,10 +56,10 @@ Shader "Unlit/SubstrateShader"
             fixed4 frag (v2f i) : SV_Target
             {
                 float4 fragColor;
-                float2 fragCoord = i.uv * 202;
+                float2 fragCoord = i.uv * scaleConst;
 
                 fragColor = bgcol;
-                float2 p = fragCoord - (202, 202) / 2;
+                float2 p = fragCoord - (scaleConst, scaleConst) / 2;
                 p /= radius;
                 float ds = dot(p, p);
 

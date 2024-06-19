@@ -16,7 +16,7 @@ public class UI : MonoBehaviour
     public GameObject uiCanvas;
     public Audio buttonClick2;
     List<string> cellTypeNames = new List<string>();
-    List<Sprite> cellTypeIcons = new List<Sprite>();
+    List<Material> cellTypeIcons = new List<Material>();
     EventSystem eventSystem;
 
     void Start()
@@ -31,7 +31,7 @@ public class UI : MonoBehaviour
         foreach (CellInfo cellInfo in substrate.cellTypes)
         {
             cellTypeNames.Add(cellInfo.cellType.ToString());
-            cellTypeIcons.Add(cellInfo.cellSprite);
+            cellTypeIcons.Add(cellInfo.cellShader);
         }
 
         dropdown.ClearOptions();

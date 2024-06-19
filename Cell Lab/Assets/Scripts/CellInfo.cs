@@ -7,11 +7,11 @@ using UnityEngine;
 public class CellInfo
 {
     public Type cellType;
-    public Sprite cellSprite;
+    public Material cellShader;
 
-    public CellInfo(Type type, Sprite sprite)
+    public CellInfo(Type type, Material shader)
     {
         cellType = type;
-        cellSprite = sprite;
+        cellShader = shader;
     }
 }

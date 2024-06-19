@@ -7,7 +7,6 @@ public class Flagellocyte : Cell
 
     void Awake()
     {
-        transform.GetChild(0).localScale = new Vector3(2.8f, 2.8f, 2.8f);
         type = typeof(Flagellocyte);
         shader = LoadShader("Cells/Materials/FlagellocyteMaterial");
     }

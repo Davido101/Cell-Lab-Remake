@@ -5,6 +5,7 @@ Shader "Unlit/PhagocyteShader"
         col ("Color", Color) = (0.439, 1, 0.086, 0.5)
         CR ("Cell Radius", float) = 100
         scale ("Scale", float) = 5000
+        scaleConst ("Scale Constant", float) = 200
     }
     SubShader
     {
@@ -40,14 +41,15 @@ Shader "Unlit/PhagocyteShader"
 
             float4 col;
             float scale;
+            const float scaleConst;
             static const float NR = 0.005 * scale;
             static const float EW = 0.002 * scale;
             float CR;
             float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor;
-                float2 fragCoord = i.uv * 200;
-                float2 p = fragCoord - (200, 200) / 2;
+                float2 fragCoord = i.uv * scaleConst;
+                float2 p = fragCoord - (scaleConst, scaleConst) / 2;
                 float ds = dot(p, p);
                 float srr = ds / ((CR - EW) * (CR - EW));
                 if (ds > CR * CR)
