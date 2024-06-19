@@ -67,8 +67,8 @@ public class Substrate : MonoBehaviour
 
         lightRange = 0.2f;
         AdjustSpeed();
-        Cell flagellocyte = SpawnCell(typeof(Flagellocyte), -0.9f, 0, new Color(0.7019f, 1f, 0.2235f));
-        flagellocyte.angle = Mathf.PI;
+        //Cell flagellocyte = SpawnCell(typeof(Flagellocyte), -0.9f, 0, new Color(0.7019f, 1f, 0.2235f));
+        //flagellocyte.angle = Mathf.PI;
     }
 
     public Material LoadShader(string shaderPath)

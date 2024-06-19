@@ -1,8 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg">
-	<circle r="100" fill="#fff" stroke="#ddd" stroke-width="10"/>
-	<circle r="20" fill="#ddd"/>
-	<polygon points="100,-15 100,15 150,0" fill="#ddd"/>
-	<polygon points="-100,-15 -100,15 -150,0" fill="#ddd"/>
-	<polygon points="-15,100 15,100 1,150" fill="#ddd"/>
-	<polygon points="-15,-100 15,-100 0,-150" fill="#ddd"/>
-</svg>
