@@ -141,7 +141,6 @@ public class Dropdown : MonoBehaviour
         {
             image.gameObject.GetComponent<Image>().material = shader;
             RectTransform rectTransform = image.GetComponent<RectTransform>();
-            Debug.Log(shader.GetFloat("scaleConst"));
             float scaleConst = shader.GetFloat("scaleConst") / 200 * rectTransform.sizeDelta.x;
             rectTransform.localPosition = new Vector3(rectTransform.localPosition.x, rectTransform.localPosition.y, 1000);
             rectTransform.sizeDelta = new Vector2(scaleConst, scaleConst);
