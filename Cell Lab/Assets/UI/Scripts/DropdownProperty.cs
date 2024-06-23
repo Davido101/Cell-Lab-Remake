@@ -17,7 +17,7 @@ public class DropdownProperty : MonoBehaviour
     {
         SetValue(defaultValue);
 
-        dropdown = Instantiate(dropdownPrefab, GetComponentInParent<Canvas>().transform).GetComponent<Dropdown>();
+        dropdown = Instantiate(dropdownPrefab, MenuUI.overlay.transform).GetComponent<Dropdown>();
         dropdown.closeOnSelect = true;
         dropdown.SetTitle(title);
         dropdown.ClearOptions();

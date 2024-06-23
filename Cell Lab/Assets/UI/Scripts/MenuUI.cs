@@ -39,6 +39,9 @@ public class MenuUI : MonoBehaviour
             })
         }
     };
+
+    public static Canvas ui;
+    public static Canvas overlay;
     
 
     public struct Challenge
@@ -122,6 +125,12 @@ public class MenuUI : MonoBehaviour
 
         public string heading;
         public List<Element> elements;
+    }
+
+    private void Awake()
+    {
+        ui = GameObject.Find("UI").GetComponent<Canvas>();
+        overlay = GameObject.Find("Overlay").GetComponent<Canvas>();
     }
 
     void Start()

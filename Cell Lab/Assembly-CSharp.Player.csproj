@@ -73,32 +73,47 @@
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
     <Compile Include="Assets\UI\Scripts\TabList.cs" />
     <Compile Include="Assets\UI\Scripts\Element.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Common\Matrix2x3.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Common\GraphicConnector.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectMode.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectArea.cs" />
     <Compile Include="Assets\Scripts\CellInfo.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Enums\BlurMode.cs" />
     <Compile Include="Assets\UI\Scripts\UI.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Common\ParameterTexture.cs" />
     <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Enums\ShadowStyle.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Common\BaseMaterialEffect.cs" />
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
+    <Compile Include="Assets\UI\Scripts\Darken.cs" />
+    <Compile Include="Assets\UI\Effects\Scripts\Enums\ColorMode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\UI\Effects\Resources\UIShiny.shader" />
     <None Include="Assets\Resources\Cells\Shaders\PhotocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\Resources\Cells\Shaders\FoodShader.shader" />
+    <None Include="Assets\UI\Effects\Resources\UIDissolve.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
+    <None Include="Assets\UI\Effects\Resources\UIEffect.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
+    <None Include="Assets\UI\Effects\Resources\UITtransition.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Resources\Cells\Shaders\DevorocyteShader.shader" />
     <None Include="Assets\Resources\Cells\Shaders\FlagellocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
+    <None Include="Assets\UI\Effects\Resources\UIEffect.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
@@ -107,10 +122,12 @@
     <None Include="Assets\Resources\Cells\Shaders\SubstrateShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\UI\Effects\Resources\UIEffectSprite.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
+    <None Include="Assets\UI\Effects\Resources\UIHsvModifier.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
   </ItemGroup>
   <ItemGroup>

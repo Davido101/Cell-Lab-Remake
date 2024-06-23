@@ -19,10 +19,19 @@ public class UI : MonoBehaviour
     List<Material> cellTypeIcons = new List<Material>();
     EventSystem eventSystem;
 
+    public static Canvas ui;
+    public static Canvas overlay;
+
+    private void Awake()
+    {
+        ui = GameObject.Find("UI").GetComponent<Canvas>();
+        overlay = GameObject.Find("Overlay").GetComponent<Canvas>();
+    }
+
     void Start()
     {
         eventSystem = this.GetComponent<EventSystem>();
-        dropdown = Instantiate(dropdownPrefab, uiCanvas.transform).GetComponent<Dropdown>();
+        dropdown = Instantiate(dropdownPrefab, overlay.transform).GetComponent<Dropdown>();
         dropdown.trigger = cellSpawn;
         dropdown.closeOnSelect = true;
         dropdown.useSvgs = true;

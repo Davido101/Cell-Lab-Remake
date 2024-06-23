@@ -36,7 +36,6 @@ public class Substrate : MonoBehaviour
     public float lightAngle;
 
     public new Camera camera;
-    public TMP_Text zoomUI;
     public RNG rng = new RNG();
     public bool updateCamera = true;
 

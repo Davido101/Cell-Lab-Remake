@@ -8,7 +8,9 @@ using UnityEngine.UI;
 public class Dropdown : MonoBehaviour
 {
     public GameObject dropdown;
+    public RectTransform dropdownRect;
     public GameObject content;
+    public RectTransform contentRect;
     public GameObject option;
     public GameObject svgOption;
     public TMP_Text titleObject;
@@ -22,32 +24,42 @@ public class Dropdown : MonoBehaviour
     public bool closeOnSelect = false;
     public bool useSvgs = false;
     public Action<string> callback;
-    
+
+    private void Awake()
+    {
+        dropdown = transform.gameObject;
+        dropdownRect = dropdown.GetComponent<RectTransform>();
+        contentRect = content.GetComponent<RectTransform>();
+    }
+
     void Start()
     {
         if (trigger != null)
         {
             trigger.onClick.AddListener(() => Toggle());
         }
-        dropdown = transform.gameObject;
     }
 
     public void Disable()
     {
-        transform.GetComponent<Image>().color = new Color(0.35f, 0.35f, 0.35f, 0);
+        Darken.Disable();
         transform.GetChild(0).gameObject.SetActive(false);
-        titleObject.gameObject.SetActive(false);
+        transform.GetChild(1).gameObject.SetActive(false);
         transform.GetChild(2).gameObject.SetActive(false);
+        titleObject.gameObject.SetActive(false);
+        transform.GetChild(4).gameObject.SetActive(false);
         active = false;
         dropdown.SetActive(false);
     }
 
     public void Enable()
     {
-        transform.GetComponent<Image>().color = new Color(0.35f, 0.35f, 0.35f, 1);
+        Darken.Enable();
         transform.GetChild(0).gameObject.SetActive(true);
-        titleObject.gameObject.SetActive(true);
+        transform.GetChild(1).gameObject.SetActive(true);
         transform.GetChild(2).gameObject.SetActive(true);
+        titleObject.gameObject.SetActive(true);
+        transform.GetChild(4).gameObject.SetActive(true);
         active = true;
         dropdown.SetActive(true);
     }
@@ -72,18 +84,8 @@ public class Dropdown : MonoBehaviour
     public void ResizeContent()
     {
         int height = optionCount * 100;
-        if (height <= 500)
-        {
-            RectTransform rectTransform = content.GetComponent<RectTransform>();
-            rectTransform.localPosition = new Vector3(0, 0, 0);
-            rectTransform.sizeDelta = new Vector3(450, 500, 0);
-        }
-        else
-        {
-            RectTransform rectTransform = content.GetComponent<RectTransform>();
-            rectTransform.localPosition = new Vector3(0, -(height / 2), 0);
-            rectTransform.sizeDelta = new Vector3(450, height, 0);
-        }
+        dropdownRect.sizeDelta = new Vector2(dropdownRect.sizeDelta.x, Math.Clamp(height, 0, 800) + 104);
+        contentRect.sizeDelta = new Vector2(contentRect.sizeDelta.x, height);
     }
 
     public void AddOption(string optionName = "Option Name", Sprite icon = null)
