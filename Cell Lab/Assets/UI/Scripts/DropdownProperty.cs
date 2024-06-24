@@ -8,7 +8,6 @@ public class DropdownProperty : MonoBehaviour
 {
     public string value;
     public TMP_Text option;
-    public GameObject dropdownPrefab;
     public Action<GameObject, string> callback;
 
     Dropdown dropdown;
@@ -17,7 +16,7 @@ public class DropdownProperty : MonoBehaviour
     {
         SetValue(defaultValue);
 
-        dropdown = Instantiate(dropdownPrefab, MenuUI.overlay.transform).GetComponent<Dropdown>();
+        dropdown = UI.CreateDropdown(UI.overlayCanvas.transform);
         dropdown.closeOnSelect = true;
         dropdown.SetTitle(title);
         dropdown.ClearOptions();

@@ -1,26 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class TabList : MonoBehaviour
 {
     public GameObject tabs;
-    public List<GameObject> tabList = new List<GameObject>();
+    public GameObject tabPrefab;
+    List<GameObject> tabList = new List<GameObject>();
     public string currentTab;
     public float glideSpeed;
     GameObject currentTabGameObject;
-    void Start()
-    {
-        RectTransform tabsRect = tabs.GetComponent<RectTransform>();
-        int children = tabs.transform.childCount;
-        for (int i = 0; i < children; i++)
-        {
-            Transform child = tabs.transform.GetChild(i);
-            RectTransform rect = child.GetComponent<RectTransform>();
-            rect.anchoredPosition = new Vector2(tabsRect.sizeDelta.x * i, 0);
-            tabList.Add(child.gameObject);
-        }
-    }
 
     void Update()
     {
@@ -40,6 +30,41 @@ public class TabList : MonoBehaviour
         }
     }
 
+    public void AddTab(string tab)
+    {
+        GameObject tabObject = Instantiate(tabPrefab, tabs.transform);
+        tabObject.name = tab;
+        if (tabList.Count == 0)
+        {
+            currentTab = tab;
+            currentTabGameObject = tabObject;
+        }
+        else
+        {
+            RectTransform lastTabRect = tabList.Last().GetComponent<RectTransform>();
+            RectTransform tabRect = tabObject.GetComponent<RectTransform>();
+            tabRect.anchoredPosition = lastTabRect.anchoredPosition + new Vector2(1920, 0);
+        }
+        tabList.Add(tabObject);
+    }
+
+    public void AddTabs(List<string> tabs)
+    {
+        foreach (string tab in tabs)
+        {
+            AddTab(tab);
+        }
+    }
+
+    public void AddTabs(List<string> tabs, string defaultTab)
+    {
+        foreach (string tab in tabs)
+        {
+            AddTab(tab);
+        }
+        SetTab(defaultTab);
+    }
+
     public void SetTab(string tab)
     {
         foreach (GameObject obj in tabList)
@@ -50,5 +75,22 @@ public class TabList : MonoBehaviour
                 currentTabGameObject = obj;
             }
         }
+    }
+
+    /// <summary>
+    /// Gets a tab's GameObject from its name
+    /// </summary>
+    /// <param name="tab">The name of the tab to get</param>
+    /// <returns>The tab's GameObject or null if not found</returns>
+    public GameObject? GetTab(string tab)
+    {
+        foreach (GameObject obj in tabList)
+        {
+            if (obj.name == tab)
+            {
+                return obj;
+            }
+        }
+        return null;
     }
 }

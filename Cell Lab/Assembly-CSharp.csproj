@@ -67,32 +67,24 @@
     <Compile Include="Assets\Scripts\Substrate.cs" />
     <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\UI\Scripts\MenuUI.cs" />
-    <Compile Include="Assets\Sounds\Audio.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
     <Compile Include="Assets\UI\Scripts\TabList.cs" />
     <Compile Include="Assets\UI\Scripts\Element.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\Matrix2x3.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\GraphicConnector.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectMode.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectArea.cs" />
     <Compile Include="Assets\Scripts\CellInfo.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\BlurMode.cs" />
+    <Compile Include="Assets\UI\Scripts\PlateUI.cs" />
     <Compile Include="Assets\UI\Scripts\UI.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\ParameterTexture.cs" />
     <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\ShadowStyle.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\BaseMaterialEffect.cs" />
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
     <Compile Include="Assets\UI\Scripts\Darken.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\ColorMode.cs" />
+    <Compile Include="Assets\Scripts\Audio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Effects\Resources\UIShiny.shader" />
@@ -1080,6 +1072,10 @@
     <ProjectReference Include="Unity.Timeline.csproj">
       <Project>{EF676C6E-D1A9-F6D7-3B77-A91051241EA8}</Project>
       <Name>Unity.Timeline</Name>
+    </ProjectReference>
+    <ProjectReference Include="UIEffect.csproj">
+      <Project>{6E939447-E191-6D77-2CEB-446D94B91C6E}</Project>
+      <Name>UIEffect</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.SettingsProvider.Editor.csproj">
       <Project>{A1D54478-E7E1-9C8D-558B-EBF19E5E3EBA}</Project>

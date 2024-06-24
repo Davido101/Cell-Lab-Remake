@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 public class MenuUI : MonoBehaviour
 {
     [Header("Properties")]
-    public HorizontalList horizontalList;
-    public TabList tabList;
+    public static HorizontalList horizontalList;
+    public static TabList tabList;
     public List<string> tabs = new List<string>() { "Gene Bank", "Experiments", "Challenges", "Settings", "About" };
-    public Audio buttonClick;
-    public Audio buttonClick2;
+    AudioClip buttonClick;
+    AudioClip buttonClick2;
 
     [Header("Experiments Tab")]
-    public VerticalList experimentsVerticalList;
+    public static VerticalList experimentsVerticalList;
 
     [Header("Challenge Tab")]
-    public VerticalList challengesVerticalList;
+    public static VerticalList challengesVerticalList;
+    // these should probably be loaded from a file or another script for mods to be able to add challenges.
     public Dictionary<string, Challenge> challenges = new Dictionary<string, Challenge>()
     {
         { "tutorial1", new Challenge("Tutorial I", "Introduction to the Microscope") },
@@ -25,7 +26,7 @@ public class MenuUI : MonoBehaviour
     };
 
     [Header("Settings")]
-    public VerticalList settingsVerticalList;
+    public static VerticalList settingsVerticalList;
     public Dictionary<string, Section> sections = new Dictionary<string, Section>()
     {
         { "general", new Section("General", new List<Element>
@@ -39,10 +40,6 @@ public class MenuUI : MonoBehaviour
             })
         }
     };
-
-    public static Canvas ui;
-    public static Canvas overlay;
-    
 
     public struct Challenge
     {
@@ -127,25 +124,28 @@ public class MenuUI : MonoBehaviour
         public List<Element> elements;
     }
 
-    private void Awake()
-    {
-        ui = GameObject.Find("UI").GetComponent<Canvas>();
-        overlay = GameObject.Find("Overlay").GetComponent<Canvas>();
-    }
-
     void Start()
     {
-        horizontalList.clickAudio= buttonClick;
+        // Load Audio
+        buttonClick = Audio.LoadAudio("Audio/button");
+        buttonClick2 = Audio.LoadAudio("Audio/button2");
+
+        horizontalList = UI.CreateHorizontalList(UI.mainCanvas.transform, new Vector2(0, 448.184f));
+        horizontalList.clickAudio = buttonClick;
         horizontalList.AddOptions(tabs, 2);
-        tabList.SetTab("Challenges");
-        StartCoroutine(LateStart());
+        horizontalList.ResetPosition();
+        tabList = UI.CreateTabList(UI.mainCanvas.transform, new Vector2(0, -56.656f), new Vector2(1920, 966.68f));
+        tabList.AddTabs(tabs, "Challenges");
+        tabList.ResetPosition();
 
         // Initialize Experiments tab
+        experimentsVerticalList = UI.CreateVerticalList(tabList.GetTab("Experiments").transform, null, new Vector2(1920, 966.6799f));
         experimentsVerticalList.clickAudio = buttonClick2;
         experimentsVerticalList.clickedCallback = ExperimentSelected;
         experimentsVerticalList.AddElement(VerticalList.ElementType.Element, "new_plate", "<color=#FFA000>New Plate</color>", "Right-click for advanced settings");
 
         // Initialize Challenges tab
+        challengesVerticalList = UI.CreateVerticalList(tabList.GetTab("Challenges").transform, null, new Vector2(1920, 966.6799f));
         challengesVerticalList.clickAudio = buttonClick2;
         challengesVerticalList.clickedCallback = ChallengeSelected;
         foreach (KeyValuePair<string, Challenge> challenge in challenges)
@@ -154,6 +154,7 @@ public class MenuUI : MonoBehaviour
         }
 
         // Initialize Settings tab
+        settingsVerticalList = UI.CreateVerticalList(tabList.GetTab("Settings").transform, null, new Vector2(1920, 966.6799f));
         settingsVerticalList.clickedCallback = SettingSelected;
         foreach (KeyValuePair<string, Section> section in sections)
         {
@@ -177,13 +178,6 @@ public class MenuUI : MonoBehaviour
         }
     }
 
-    IEnumerator LateStart()
-    {
-        yield return new WaitForSeconds(0.01f);
-        tabList.ResetPosition();
-        horizontalList.ResetPosition();
-    }
-
     void Update()
     {
         tabList.SetTab(horizontalList.selectedOption);
@@ -193,8 +187,6 @@ public class MenuUI : MonoBehaviour
     {
         if (id == "new_plate")
         {
-            if (buttonClick2.audioSource.isPlaying)
-                buttonClick2.SceneUpdate(true);
             SceneManager.LoadScene(1);
         }
     }

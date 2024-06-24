@@ -67,32 +67,24 @@
     <Compile Include="Assets\Scripts\Substrate.cs" />
     <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\UI\Scripts\MenuUI.cs" />
-    <Compile Include="Assets\Sounds\Audio.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
     <Compile Include="Assets\UI\Scripts\TabList.cs" />
     <Compile Include="Assets\UI\Scripts\Element.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\Matrix2x3.cs" />
     <Compile Include="Assets\Scripts\RNG.cs" />
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\GraphicConnector.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectMode.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\EffectArea.cs" />
     <Compile Include="Assets\Scripts\CellInfo.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\BlurMode.cs" />
+    <Compile Include="Assets\UI\Scripts\PlateUI.cs" />
     <Compile Include="Assets\UI\Scripts\UI.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\ParameterTexture.cs" />
     <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\ShadowStyle.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Common\BaseMaterialEffect.cs" />
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
     <Compile Include="Assets\UI\Scripts\Darken.cs" />
-    <Compile Include="Assets\UI\Effects\Scripts\Enums\ColorMode.cs" />
+    <Compile Include="Assets\Scripts\Audio.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Effects\Resources\UIShiny.shader" />
@@ -940,6 +932,10 @@
     <ProjectReference Include="Unity.Timeline.Player.csproj">
       <Project>{46ABBAAF-0E21-DA77-27ED-58AC6DB36652}</Project>
       <Name>Unity.Timeline.Player</Name>
+    </ProjectReference>
+    <ProjectReference Include="UIEffect.Player.csproj">
+      <Project>{545ACE37-46F9-42DA-48AF-16AAA37F5CE9}</Project>
+      <Name>UIEffect.Player</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.003.Player.csproj">
       <Project>{E8940432-5D1E-F74D-3FAD-261EFBC7E07E}</Project>

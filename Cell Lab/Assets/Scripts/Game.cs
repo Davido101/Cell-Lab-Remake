@@ -3,7 +3,7 @@ using UnityEngine;
 public class Game : MonoBehaviour
 {
     public Substrate substrate;
-    public UI ui;
+    public PlateUI ui;
     public new Camera camera;
 
     void Start()

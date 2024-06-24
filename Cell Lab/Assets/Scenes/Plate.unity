@@ -718,6 +718,7 @@ GameObject:
   - component: {fileID: 1137999491}
   - component: {fileID: 1137999490}
   - component: {fileID: 1137999489}
+  - component: {fileID: 1137999493}
   m_Layer: 5
   m_Name: UI
   m_TagString: Untagged
@@ -808,6 +809,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1137999493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1137999488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aafb14676605051488c36f577ff5f474, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dropdownPrefab: {fileID: 1516730575737684724, guid: b4c4674754c4a984a8a8906cfb1bffc6, type: 3}
 --- !u!1 &1435650061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,7 +1191,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cellSpawn: {fileID: 803623017}
   substrate: {fileID: 2052181050}
-  dropdownPrefab: {fileID: 1516730575737684724, guid: b4c4674754c4a984a8a8906cfb1bffc6, type: 3}
   dropdown: {fileID: 0}
   uiCanvas: {fileID: 1137999488}
   buttonClick2: {fileID: 1899333658}

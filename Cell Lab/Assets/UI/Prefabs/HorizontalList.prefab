@@ -31,7 +31,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7293721665951146981}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -105,7 +104,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7293721665951146981}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -148,11 +146,10 @@ RectTransform:
   - {fileID: 5320737123801828293}
   - {fileID: 7755188578651613482}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -91.816}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1920, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4936704432346904874
@@ -205,12 +202,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c8972c5b713924eaaca798fbc3e272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalList: {fileID: 4904012916821036817}
   horizontalListElement: {fileID: 1970008988151667070, guid: 66a719f08d906434b97d65b90d77fe69, type: 3}
   optionOffset: 0
   selectionOffset: 0
-  list: {fileID: 4378980690525657256}
+  glideSpeed: 0
   selectedOption: 
+  staticBar: 0
+  clickAudio: {fileID: 0}
 --- !u!1 &4953848122699824923
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,7 +240,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7293721665951146981}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -318,7 +315,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7293721665951146981}
-  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

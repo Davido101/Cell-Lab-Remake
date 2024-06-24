@@ -6,23 +6,24 @@ using UnityEngine;
 
 public class HorizontalList : MonoBehaviour
 {
-    public GameObject horizontalList;
+    GameObject horizontalList;
     public GameObject horizontalListElement;
     public float optionOffset;
     public float selectionOffset;
     public float glideSpeed;
-    public GameObject list;
+    GameObject list;
     GameObject selection;
     RectTransform rectSelection;
     List<GameObject> options = new List<GameObject>();
     public string selectedOption;
     public bool staticBar;
     GameObject selectedOptionGameObject;
-    public AudioSource clickSound;
-    public Audio clickAudio;
+    public AudioClip clickAudio;
 
-    void Start()
+    void Awake()
     {
+        horizontalList = gameObject;
+        list = transform.GetChild(3).gameObject;
         selection = horizontalList.transform.GetChild(2).gameObject;
         rectSelection = selection.GetComponent<RectTransform>();
     }
@@ -86,6 +87,7 @@ public class HorizontalList : MonoBehaviour
         GameObject optionObject = Instantiate(horizontalListElement, list.transform);
         optionObject.GetComponent<ClickDetector>().callback = OptionClicked;
         optionObject.GetComponent<TMP_Text>().text = option;
+        optionObject.name = option;
         if (options.Count == 0)
         {
             selectedOption = option;
@@ -108,8 +110,34 @@ public class HorizontalList : MonoBehaviour
         {
             AddOption(optionList[i]);
         }
-        selectedOptionGameObject = options[defaultOption];
+        SetOption(defaultOption);
+    }
+
+    public void AddOptions(List<string> optionList, string defaultOption)
+    {
+        for (int i = 0; i < optionList.Count; i++)
+        {
+            AddOption(optionList[i]);
+        }
+        SetOption(defaultOption);
+    }
+
+    public void SetOption(int index)
+    {
+        selectedOptionGameObject = options[index];
         selectedOption = selectedOptionGameObject.GetComponent<TMP_Text>().text;
+    }
+
+    public void SetOption(string option)
+    {
+        foreach (GameObject obj in options)
+        {
+            if (obj.name == option)
+            {
+                selectedOptionGameObject = obj;
+                selectedOption = selectedOptionGameObject.GetComponent<TMP_Text>().text;
+            }
+        }
     }
 
     public void ClearOptions()
@@ -127,13 +155,9 @@ public class HorizontalList : MonoBehaviour
     {
         selectedOption = option;
         selectedOptionGameObject = optionObject;
-        if (clickSound)
-        {
-            clickSound.Play();
-        }
         if (clickAudio)
         {
-            clickAudio.PlayAudio();
+            Audio.PlayAudio(clickAudio, true);
         }
     }
 }

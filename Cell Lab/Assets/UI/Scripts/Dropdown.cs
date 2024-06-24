@@ -7,27 +7,29 @@ using UnityEngine.UI;
 
 public class Dropdown : MonoBehaviour
 {
-    public GameObject dropdown;
-    public RectTransform dropdownRect;
-    public GameObject content;
-    public RectTransform contentRect;
+    GameObject dropdown;
+    RectTransform dropdownRect;
+    GameObject content;
+    RectTransform contentRect;
     public GameObject option;
     public GameObject svgOption;
-    public TMP_Text titleObject;
+    TMP_Text titleObject;
     public Button trigger;
     public List<GameObject> options = new List<GameObject>();
     public string selectedOption;
     public int value;
-    public int optionY = 0;
+    int optionY = 0;
     public int optionCount = 0;
-    public bool active = false;
+    bool active = false;
     public bool closeOnSelect = false;
     public bool useSvgs = false;
     public Action<string> callback;
 
     private void Awake()
     {
-        dropdown = transform.gameObject;
+        dropdown = gameObject;
+        titleObject = transform.GetChild(3).GetComponent<TMP_Text>();
+        content = transform.GetChild(4).GetChild(0).gameObject;
         dropdownRect = dropdown.GetComponent<RectTransform>();
         contentRect = content.GetComponent<RectTransform>();
     }
