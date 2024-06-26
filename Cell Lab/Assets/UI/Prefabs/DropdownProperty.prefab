@@ -365,8 +365,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   value: 
-  option: {fileID: 4213992919291359926}
-  dropdownPrefab: {fileID: 1516730575737684724, guid: b4c4674754c4a984a8a8906cfb1bffc6, type: 3}
 --- !u!1 &7891336960161254929
 GameObject:
   m_ObjectHideFlags: 0

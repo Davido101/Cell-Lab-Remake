@@ -7,7 +7,8 @@ using UnityEngine;
 public class HorizontalList : MonoBehaviour
 {
     GameObject horizontalList;
-    public GameObject horizontalListElement;
+    [field: SerializeField]
+    public GameObject horizontalListElement { get; private set; }
     public float optionOffset;
     public float selectionOffset;
     public float glideSpeed;
@@ -19,6 +20,7 @@ public class HorizontalList : MonoBehaviour
     public bool staticBar;
     GameObject selectedOptionGameObject;
     public AudioClip clickAudio;
+    bool shouldReset = false;
 
     void Awake()
     {
@@ -44,7 +46,7 @@ public class HorizontalList : MonoBehaviour
             if (rectSelection.sizeDelta.x < 0)
                 rectSelection.sizeDelta = new Vector2(0, rectSelection.sizeDelta.y);
             rectSelection.sizeDelta = Vector2.Lerp(rectSelection.sizeDelta, new Vector2(optionSize.x + selectionOffset, rectSelection.sizeDelta.y), Time.deltaTime * glideSpeed);
-            
+
             RectTransform listRect = list.GetComponent<RectTransform>();
             if (!staticBar)
             {
@@ -63,12 +65,25 @@ public class HorizontalList : MonoBehaviour
                 rect.sizeDelta = new Vector2(UITools.GetRenderedValues(text, text.text).x, rect.sizeDelta.y);
             }
         }
+        if (shouldReset)
+        {
+            shouldReset = !_ResetPosition();
+        }
     }
 
     public void ResetPosition()
     {
+        shouldReset = true;
+    }
+
+    private bool _ResetPosition()
+    {
         if (options.Count != 0)
         {
+            TMP_Text selectedText = selectedOptionGameObject.GetComponent<TMP_Text>();
+            Vector2 optionSize = UITools.GetRenderedValues(selectedText, selectedText.text);
+            rectSelection.sizeDelta = new Vector2(optionSize.x + selectionOffset, rectSelection.sizeDelta.y);
+
             RectTransform listRect = list.GetComponent<RectTransform>();
             if (!staticBar)
             {
@@ -79,7 +94,9 @@ public class HorizontalList : MonoBehaviour
                 rectSelection.anchoredPosition = new Vector2(selectedOptionGameObject.GetComponent<RectTransform>().anchoredPosition.x + listRect.anchoredPosition.x, rectSelection.anchoredPosition.y);
                 listRect.anchoredPosition = -((options[0].GetComponent<RectTransform>().anchoredPosition + options.Last().GetComponent<RectTransform>().anchoredPosition) / 2);
             }
+            return true;
         }
+        return false;
     }
 
     public void AddOption(string option)

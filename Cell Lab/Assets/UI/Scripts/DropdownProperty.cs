@@ -7,10 +7,15 @@ using UnityEngine;
 public class DropdownProperty : MonoBehaviour
 {
     public string value;
-    public TMP_Text option;
+    TMP_Text option;
     public Action<GameObject, string> callback;
 
     Dropdown dropdown;
+
+    public void Awake()
+    {
+        option = transform.GetChild(1).GetComponent<TMP_Text>();
+    }
 
     public void Initialize(string title, string defaultValue)
     {

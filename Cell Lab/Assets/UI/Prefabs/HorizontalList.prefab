@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8c8972c5b713924eaaca798fbc3e272, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalListElement: {fileID: 1970008988151667070, guid: 66a719f08d906434b97d65b90d77fe69, type: 3}
+  <horizontalListElement>k__BackingField: {fileID: 1970008988151667070, guid: 66a719f08d906434b97d65b90d77fe69, type: 3}
   optionOffset: 0
   selectionOffset: 0
   glideSpeed: 0

@@ -84,7 +84,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c4a7aecd131cce4387f8aa50f5c008f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tabs: {fileID: 6554237653487835017}
-  tabPrefab: {fileID: 8453424217207798909, guid: 7707c1fddf7e06a4ab13c2ac0ef997ac, type: 3}
+  <tabPrefab>k__BackingField: {fileID: 8453424217207798909, guid: 7707c1fddf7e06a4ab13c2ac0ef997ac, type: 3}
   currentTab: 
   glideSpeed: 0

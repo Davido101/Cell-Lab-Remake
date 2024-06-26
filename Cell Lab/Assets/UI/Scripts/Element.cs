@@ -9,7 +9,7 @@ public class Element : MonoBehaviour
     public int childId;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         fillRect = transform.GetChild(childId).GetChild(1).GetComponent<RectTransform>();

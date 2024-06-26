@@ -789,6 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba33aebe887a0a47b419c649870eac6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  childId: 1
 --- !u!114 &559044790898695673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,4 +803,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   toggleState: 0
-  activation: {fileID: 7570781715340485449}

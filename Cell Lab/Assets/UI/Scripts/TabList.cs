@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class TabList : MonoBehaviour
 {
-    public GameObject tabs;
-    public GameObject tabPrefab;
+    GameObject tabs;
+
+    [field: SerializeField]
+    public GameObject tabPrefab { get; private set; }
+
     List<GameObject> tabList = new List<GameObject>();
     public string currentTab;
     public float glideSpeed;
     GameObject currentTabGameObject;
+
+    private void Awake()
+    {
+        tabs = transform.GetChild(0).gameObject;
+    }
 
     void Update()
     {

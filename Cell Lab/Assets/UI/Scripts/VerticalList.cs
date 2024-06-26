@@ -15,19 +15,30 @@ public class VerticalList : MonoBehaviour
         Element
     }
 
-    [Header("Prefabs")]
-    public GameObject elementPrefab;
-    public GameObject headingPrefab;
-    public GameObject togglePrefab;
-    public GameObject dropdownPrefab;
+    [field: SerializeField]
+    public GameObject elementPrefab { get; private set; }
+
+    [field: SerializeField]
+    public GameObject headingPrefab { get; private set; }
+
+    [field: SerializeField]
+    public GameObject togglePrefab { get; private set; }
+
+    [field: SerializeField]
+    public GameObject dropdownPrefab { get; private set; }
 
     [Header("Properties")]
-    public GameObject content;
+    GameObject content;
     public Action<string, ClickedEventData> clickedCallback;
     public AudioClip clickAudio;
     Dictionary<GameObject, string> elements = new Dictionary<GameObject, string>();
     List<DropdownProperty> dropdowns = new List<DropdownProperty>();
-    
+
+    public void Awake()
+    {
+        content = transform.GetChild(0).gameObject;
+    }
+
     public struct ClickedEventData
     {
         public ClickedEventData(string value, GameObject obj)

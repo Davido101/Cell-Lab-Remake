@@ -6,7 +6,12 @@ using UnityEngine.UI;
 public class ToggleProperty : MonoBehaviour
 {
     public bool toggleState;
-    public Image activation;
+    Image activation;
+
+    public void Awake()
+    {
+        activation = transform.GetChild(2).GetChild(0).GetComponent<Image>();
+    }
 
     /// <summary>
     /// Sets the state of the ToggleProperty
