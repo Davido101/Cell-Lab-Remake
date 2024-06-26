@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Audio : MonoBehaviour
 {
-    static Dictionary<string, AudioClip> loadedResources = new Dictionary<string, AudioClip>();
     private static Audio instance;
 
     private void Awake()
@@ -28,17 +27,7 @@ public class Audio : MonoBehaviour
     /// <returns>The AudioClip loaded</returns>
     public static AudioClip LoadAudio(string resourcePath)
     {
-        // If AudioClip is already loaded, return it
-        if (loadedResources.ContainsKey(resourcePath))
-        {
-            return loadedResources[resourcePath];
-        }
-
-        // Otherwise, load it
-        AudioClip audioClip = Resources.Load<AudioClip>(resourcePath);
-
-        loadedResources.Add(resourcePath, audioClip);
-        return audioClip;
+        return Resources.Load<AudioClip>(resourcePath);
     }
 
     /// <summary>

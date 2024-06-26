@@ -76,6 +76,7 @@
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\UI\Scripts\ButtonAction.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\CellInfo.cs" />

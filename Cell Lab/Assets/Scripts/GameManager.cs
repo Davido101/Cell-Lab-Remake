@@ -24,10 +24,11 @@ public class GameManager : MonoBehaviour
             SceneManager.activeSceneChanged += SceneChanged;
         }
     }
-
+    
     private void SceneChanged(Scene current, Scene next)
-    {// to be made into something useful
-        //Debug.Log(current.name);
-        //Debug.Log(next.name);
+    {
+        scene = next.name;
+        if (sceneChanged != null)
+            sceneChanged.Invoke(next.name);
     }
 }

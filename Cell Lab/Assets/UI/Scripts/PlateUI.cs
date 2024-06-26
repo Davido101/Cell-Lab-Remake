@@ -9,7 +9,7 @@ using UnityEngine.SceneManagement;
 
 public class PlateUI : MonoBehaviour
 {
-    public Button cellSpawn;
+    public ButtonAction cellSpawn;
     public Substrate substrate;
     public Dropdown cellDropdown;
     public GameObject uiCanvas;
@@ -27,10 +27,12 @@ public class PlateUI : MonoBehaviour
         buttonClick = Audio.LoadAudio("Audio/button");
         buttonClick2 = Audio.LoadAudio("Audio/button2");
 
+        // Create Select Cell Type ButtonAction
+        cellSpawn = UI.CreateButtonAction(UI.LoadSprite("Sprites/buttonBackground45"), UI.LoadSprite("Sprites/cell"));
+
         // Create Dropdown
         cellDropdown = UI.CreateDropdown(UI.overlayCanvas.transform);
-        cellDropdown.trigger = cellSpawn;
-        cellSpawn.onClick.AddListener(() => { Audio.PlayAudio(buttonClick); });
+        cellSpawn.triggered += () => { cellDropdown.Toggle(); Audio.PlayAudio(buttonClick); };
         cellDropdown.closeOnSelect = true;
         cellDropdown.SetTitle("Select Cell Type");
 

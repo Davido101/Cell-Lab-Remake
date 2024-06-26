@@ -238,9 +238,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 02ebffff2ef0ffffb6f0fffffef1ffff60f2ffffd6f2ffff48f3ffffdef3ffff72f4ffff82f9ffff1afbffff8465000098650000
+      m_SelectedIDs: e8690000
+      m_LastClickedID: 27112
+      m_ExpandedIDs: a4d7ffffe0d7ffff1afbffff70620000c0620000c4690000d4690000e8690000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -660,9 +660,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 992.51654, y: 523.7813, z: -6.291382}
+    m_Target: {x: 1873.0109, y: 1045.2948, z: 1.4522824}
     speed: 2
-    m_Value: {x: 992.51654, y: 523.7813, z: -6.291382}
+    m_Value: {x: 1871.1227, y: 1044.3142, z: 1.4351147}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -712,9 +712,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 810.8013
+    m_Target: 36.434307
     speed: 2
-    m_Value: 810.8013
+    m_Value: 38.151108
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -811,7 +811,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/UI/Prefabs
+    - Assets/Scenes
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -819,16 +819,16 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/UI/Prefabs
+  - Assets/Scenes
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\lazar\Desktop\CellLab\Cell-Lab-Remake\Cell Lab
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 127}
-    m_SelectedIDs: 36650000
-    m_LastClickedID: 25910
-    m_ExpandedIDs: 00000000e2640000fa64000000ca9a3bffffff7f
+    m_SelectedIDs: f4640000
+    m_LastClickedID: 25844
+    m_ExpandedIDs: 00000000ea640000fa64000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -856,7 +856,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000e2640000
+    m_ExpandedIDs: 00000000ea640000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -881,8 +881,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: e8690000
+    m_LastClickedInstanceID: 27112
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c62300002e610000006200003a6200001062000036620000426200003e6200004c6400001a64000024630000c26300000a64000000000000
     m_RenameOverlay:

@@ -14,7 +14,6 @@ public class Dropdown : MonoBehaviour
     public GameObject option;
     public GameObject svgOption;
     TMP_Text titleObject;
-    public Button trigger;
     public List<GameObject> options = new List<GameObject>();
     public string selectedOption;
     public int value;
@@ -32,14 +31,6 @@ public class Dropdown : MonoBehaviour
         content = transform.GetChild(4).GetChild(0).gameObject;
         dropdownRect = dropdown.GetComponent<RectTransform>();
         contentRect = content.GetComponent<RectTransform>();
-    }
-
-    void Start()
-    {
-        if (trigger != null)
-        {
-            trigger.onClick.AddListener(() => Toggle());
-        }
     }
 
     public void Disable()
