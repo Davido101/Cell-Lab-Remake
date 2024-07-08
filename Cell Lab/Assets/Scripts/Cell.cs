@@ -167,7 +167,7 @@ public class Cell : MonoBehaviour
     public virtual Vector2 ReactionForce(Vector2 relativePos, float collision)
     {
         if (collision <= 0) return Vector2.zero;
-        return -relativePos.normalized * collision * springConst;
+        return collision * springConst * -relativePos.normalized;
     }
 
     public virtual Vector2 DynamicFrictionForce()
