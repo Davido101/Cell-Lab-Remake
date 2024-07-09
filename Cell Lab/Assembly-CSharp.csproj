@@ -61,12 +61,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\UI\Scripts\Dropdown.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowserEditor.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleOpenFileText.cs" />
     <Compile Include="Assets\Scripts\Food.cs" />
     <Compile Include="Assets\UI\Scripts\ClickDetector.cs" />
     <Compile Include="Assets\UI\Scripts\DropdownProperty.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleOpenFileImage.cs" />
     <Compile Include="Assets\Scripts\Substrate.cs" />
     <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\UI\Scripts\MenuUI.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowser.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
     <Compile Include="Assets\Scripts\Cells\Phagocyte.cs" />
@@ -76,17 +80,28 @@
     <Compile Include="Assets\UI\Scripts\UITools.cs" />
     <Compile Include="Assets\UI\Scripts\HorizontalList.cs" />
     <Compile Include="Assets\Scripts\Game.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleSaveFileText.cs" />
     <Compile Include="Assets\UI\Scripts\ButtonAction.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\BasicSample.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleSaveFileImage.cs" />
+    <Compile Include="Assets\Scripts\Utils\GZip.cs" />
     <Compile Include="Assets\Scripts\CellInfo.cs" />
     <Compile Include="Assets\UI\Scripts\PlateUI.cs" />
     <Compile Include="Assets\UI\Scripts\UI.cs" />
     <Compile Include="Assets\Scripts\Cells\Photocyte.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowserMac.cs" />
     <Compile Include="Assets\Scripts\Cell.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleOpenFileTextMultiple.cs" />
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
     <Compile Include="Assets\UI\Scripts\Darken.cs" />
+    <Compile Include="Assets\Scripts\BinaryHandler.cs" />
+    <Compile Include="Assets\Scripts\FileManager.cs" />
     <Compile Include="Assets\Scripts\Audio.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\IStandaloneFileBrowser.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowserLinux.cs" />
+    <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowserWindows.cs" />
     <Compile Include="Assets\Scripts\Cells\Keratinocyte.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -102,6 +117,7 @@
     <None Include="Assets\UI\Effects\Resources\UIEffect.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\UI\Effects\Resources\UITtransition.shader" />
+    <None Include="Assets\UI\StandaloneFileBrowser\Plugins\Ookii.Dialogs.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Resources\Cells\Shaders\DevorocyteShader.shader" />
     <None Include="Assets\Resources\Cells\Shaders\FlagellocyteShader.shader" />
@@ -118,6 +134,7 @@
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Resources\Cells\Shaders\KeratinocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
+    <None Include="Assets\UI\StandaloneFileBrowser\Plugins\System.Windows.Forms.dll" />
     <None Include="Assets\UI\Effects\Resources\UIEffectSprite.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -463,8 +480,16 @@
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Ookii.Dialogs">
+      <HintPath>Assets\UI\StandaloneFileBrowser\Plugins\Ookii.Dialogs.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.4\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <HintPath>Assets\UI\StandaloneFileBrowser\Plugins\System.Windows.Forms.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="netstandard">

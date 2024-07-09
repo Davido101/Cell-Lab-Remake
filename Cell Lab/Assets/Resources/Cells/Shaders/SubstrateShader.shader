@@ -4,7 +4,7 @@ Shader "Unlit/SubstrateShader"
     {
         bgcol ("Background Color", Color) = (0.8509804,0.8509804,0.99215686,1)
         lightcol ("Light Color", Color) = (0.5,0.35,0.25,1)
-        radius ("Radius", float) = 1000
+        radius ("Radius", float) = 500
         dirX ("DirectionX", float) = 1
         dirY ("DirectionY", float) = 0
         amount ("Light Amount", float) = 2

@@ -75,13 +75,15 @@ public class Cell : MonoBehaviour
         float x = Mathf.Lerp(lastPosition.x, position.x, lerping);
         float y = Mathf.Lerp(lastPosition.y, position.y, lerping);
 
-        radius += (Mathf.Sqrt(mass) * 8 - radius) * radiusChangeSpeed * Time.deltaTime;
+        radius += (Mathf.Sqrt(mass) * 8 - radius) * radiusChangeSpeed * Time.deltaTime * substrate.temperature;
         gameObject.transform.position = new Vector3(x, y, 0);
-        gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1);
+        //gameObject.transform.localScale = new Vector3(radius * 2, radius * 2, 1); shader redesign in progress
         gameObject.transform.eulerAngles = Vector3.forward * angle * Mathf.Rad2Deg; // unity takes in rotation as degrees
         color.a = opacity;
 
         shader.SetColor("col", color);
+        shader.SetFloat("CR", radius * 6.4f);
+        shader.SetFloat("scale", 3200);
         return true;
     }
 

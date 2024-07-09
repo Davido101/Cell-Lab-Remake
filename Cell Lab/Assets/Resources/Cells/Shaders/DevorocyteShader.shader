@@ -2,8 +2,8 @@ Shader "Unlit/DevorocyteShader"
 {
     Properties
     {
-        col ("col", Color) = (0.439, 1, 0.086, 1)
-        scale ("scale", float) = 5000
+        col ("Color", Color) = (0.439, 1, 0.086, 1)
+        scale ("Scale", float) = 5000
         CR ("Cell Radius", float) = 100
         N ("N", Float) = 19
         scaleConst ("Scale Constant", float) = 290

@@ -34,12 +34,14 @@ public class Substrate : MonoBehaviour
     public float lightAmount;
     public float lightRange;
     public float lightAngle;
+    public float age = 0;
 
     public new Camera camera;
     public RNG rng = new RNG();
     public bool updateCamera = true;
 
     public Material substrateShader;
+    public static string substrateFile = "";
 
     private void Awake()
     {
@@ -67,8 +69,22 @@ public class Substrate : MonoBehaviour
 
         lightRange = 0.2f;
         AdjustSpeed();
-        SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));
-        SpawnCell(typeof(Phagocyte), 50, 0, new Color(0.7019f, 1f, 0.2235f));
+
+        if (substrateFile != "")
+        {
+            Substrate self = GetComponent<Substrate>();
+            bool success = FileManager.LoadLegacySubstrate(substrateFile, ref self);
+            substrateFile = "";
+            if (!success)
+                Debug.Log("Erorr loading substrate.");
+        }
+        else
+        {
+            SpawnCell(typeof(Phagocyte), 0, 50, new Color(0.7019f, 1f, 0.2235f));
+            SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));
+            SpawnCell(typeof(Phagocyte), 50, 0, new Color(0.7019f, 1f, 0.2235f));
+            SpawnFoodLump(0, 0, 100, 100);
+        }
     }
 
     public Material LoadShader(string shaderPath)
@@ -148,6 +164,7 @@ public class Substrate : MonoBehaviour
         }
 
         float dt = temperature / Time.timeScale / 50;
+        age += dt;
         //threads = new NativeList<JobHandle>(Allocator.Temp);
         foreach (Cell cell in cells)
         {
@@ -183,12 +200,12 @@ public class Substrate : MonoBehaviour
         renderer.material = cell.shader;
         cell.shader = renderer.material;
         float scaleConst = renderer.material.GetFloat("scaleConst") / 200;
-        cellObject.transform.GetChild(0).localScale = new Vector3(scaleConst, scaleConst, scaleConst);
+        cellObject.transform.GetChild(0).localScale = new Vector3(scaleConst / 3.2f, scaleConst / 3.2f, scaleConst / 3.2f);
         cell.position = position;
         cell.lastPosition = position;
         cell.color = color;
         cell.substrate = this;
-        renderer.sortingOrder = 1;
+        renderer.sortingOrder = 2;
         cells.Add(cell);
         return cell;
     }
@@ -203,7 +220,7 @@ public class Substrate : MonoBehaviour
 
         GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
         Food food = foodObject.AddComponent<Food>();
-        food.position = new Vector2(x * radius, y * radius);
+        food.position = new Vector2(x * (radius / 500), y * (radius / 500));
         food.size = size;
         food.coating = coating;
         food.substrate = this;
@@ -267,7 +284,7 @@ public class Substrate : MonoBehaviour
 
     public void UpdateShader()
     {
-        substrateShader.SetFloat("radius", radius);
+        //substrateShader.SetFloat("radius", radius); // we actually shouldn't set this
         substrateShader.SetFloat("amount", lightAmount * 2); // temporary fix to light bug (remove when fixed)
         substrateShader.SetFloat("lrange", lightRange);
         substrateShader.SetFloat("dirX", MathF.Cos(lightAngle));

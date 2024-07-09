@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using SFB;
 
 public class MenuUI : MonoBehaviour
 {
@@ -143,6 +144,7 @@ public class MenuUI : MonoBehaviour
         experimentsVerticalList.clickAudio = buttonClick2;
         experimentsVerticalList.clickedCallback = ExperimentSelected;
         experimentsVerticalList.AddElement(VerticalList.ElementType.Element, "new_plate", "<color=#FFA000>New Plate</color>", "Right-click for advanced settings");
+        experimentsVerticalList.AddElement(VerticalList.ElementType.Element, "load_plate", "<color=#FFA000>Load Plate</color>", "Load a substrate from your computer");
 
         // Initialize Challenges tab
         challengesVerticalList = UI.CreateVerticalList(tabList.GetTab("Challenges").transform, null, new Vector2(1920, 966.6799f));
@@ -185,9 +187,31 @@ public class MenuUI : MonoBehaviour
 
     void ExperimentSelected(string id, VerticalList.ClickedEventData eventData)
     {
-        if (id == "new_plate")
+        switch (id)
         {
-            SceneManager.LoadScene(1);
+            case "new_plate":
+                SceneManager.LoadScene(1);
+                break;
+            case "load_plate":
+                var extensions = new[]
+                {
+                    new ExtensionFilter("substrate files", "substrate"),
+                };
+                string[] paths = StandaloneFileBrowser.OpenFilePanel("open substrate", "", extensions, false);
+                if (paths.Length > 0)
+                {
+                    Debug.Log("selected: " + paths[0]);
+                    Substrate.substrateFile = paths[0];
+                    SceneManager.LoadScene(1);
+                }
+                else
+                {
+                    Debug.Log("nothing selected");
+                }
+                break;
+            default:
+                Debug.Log("Not implemented.");
+                break;
         }
     }
 
