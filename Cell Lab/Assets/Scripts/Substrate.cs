@@ -212,7 +212,7 @@ public class Substrate : MonoBehaviour
 
     public Food SpawnFood(float x, float y)
     {
-        return SpawnFood(x, y, 1.2f, 0);
+        return SpawnFood(x, y, 0.1875f, 0);
     }
 
     public Food SpawnFood(float x, float y, float size, float coating)
@@ -229,7 +229,7 @@ public class Substrate : MonoBehaviour
         return food;
     }
 
-    public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize = 1.2f, float coating = 0)
+    public void SpawnFoodLump(float x, float y, int foodCount, float lumpSize, float foodSize = 0.1875f, float coating = 0)
     {
         for (int i = 0; i < foodCount; i++)
         {

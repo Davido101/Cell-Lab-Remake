@@ -5,7 +5,7 @@ public class Food : MonoBehaviour
     public int gridID;
 
     public Vector2 position = Vector2.zero;
-    public float size = 1.2f;
+    public float size = 0.1875f;
     public float coating = 0;
     public float radius = Mathf.Sqrt(1.2f / 3) / 1000;
     public bool eaten = false;
