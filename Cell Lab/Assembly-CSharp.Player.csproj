@@ -87,6 +87,7 @@
     <Compile Include="Assets\UI\Scripts\VerticalList.cs" />
     <Compile Include="Assets\UI\Scripts\Darken.cs" />
     <Compile Include="Assets\Scripts\Audio.cs" />
+    <Compile Include="Assets\Scripts\Cells\Keratinocyte.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\UI\Effects\Resources\UIShiny.shader" />
@@ -115,6 +116,7 @@
     <None Include="Assets\Resources\Cells\Shaders\PhagocyteShader.shader" />
     <None Include="Assets\Resources\Cells\Shaders\SubstrateShader.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Resources\Cells\Shaders\KeratinocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\UI\Effects\Resources\UIEffectSprite.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
