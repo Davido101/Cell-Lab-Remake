@@ -48,6 +48,7 @@ public class Substrate : MonoBehaviour
              new CellInfo(typeof(Flagellocyte), LoadShader("Cells/Materials/FlagellocyteMaterial")),
              new CellInfo(typeof(Devorocyte), LoadShader("Cells/Materials/DevorocyteMaterial")),
              new CellInfo(typeof(Photocyte), LoadShader("Cells/Materials/PhotocyteMaterial")),
+             new CellInfo(typeof(Keratinocyte), LoadShader("Cells/Materials/KeratinocyteMaterial")),
         };
     }
 

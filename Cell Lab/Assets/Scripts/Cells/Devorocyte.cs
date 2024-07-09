@@ -13,7 +13,7 @@ public class Devorocyte : Cell
 
     public override void React(Cell cell, float dt)
     {
-        Consume(cell, dt);
+        if (cell.type != typeof(Keratinocyte)) Consume(cell, dt);
         force += ReactionForce(cell);
     }
 
