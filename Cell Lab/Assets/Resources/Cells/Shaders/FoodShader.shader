@@ -52,7 +52,7 @@ Shader "Unlit/FoodShader"
                 if (ds > FR)
                     return 0;
 
-                fragColor = lerp(col, float4(1, 1, 1, 0.5), 0.43);
+                fragColor = lerp(col, float4(1, 1, 1, 1), 0.43);
 
                 // Gamma Correction
                 fragColor.rgb = pow(fragColor.rgb, 2.2);
