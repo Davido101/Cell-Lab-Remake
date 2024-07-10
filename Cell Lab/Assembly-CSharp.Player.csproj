@@ -122,6 +122,7 @@
     <None Include="Assets\UI\StandaloneFileBrowser\Plugins\Ookii.Dialogs.dll" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\Resources\Cells\Shaders\DevorocyteShader.shader" />
+    <None Include="Assets\Resources\Cells\Shaders\LipocyteShader.shader" />
     <None Include="Assets\Resources\Cells\Shaders\FlagellocyteShader.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />

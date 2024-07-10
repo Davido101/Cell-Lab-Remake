@@ -1,3 +1,4 @@
+using Unity.Burst;
 using UnityEngine;
 
 public class Lipocyte : Cell
@@ -13,16 +14,27 @@ public class Lipocyte : Cell
         radius = Mathf.Sqrt(3.6f)*8;
     }
 
-    public override void fixedupdate(float dt)
+    public override bool handleGraphics()
     {
-        //shader.SetFloat("lipids", lipids);
-        HandlePhysics(dt);
+        if (!base.handleGraphics())
+            return false;
+
+        // set shader here
+        return true;
     }
 
     public override float Eat(float amount)
     {
-        float eaten = Mathf.Min(amount, lipids);
-        lipids -= eaten;
+        float eaten = Mathf.Min(amount, lipids + mass);
+        if (eaten > lipids)
+        {
+            mass -= eaten - lipids;
+            lipids = 0;
+        }
+        else
+        {
+            lipids -= eaten;
+        }
         return eaten;
     }
 }
