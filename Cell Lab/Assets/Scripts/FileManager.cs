@@ -152,13 +152,14 @@ public class FileManager : MonoBehaviour
     // Old Format
     public static bool LoadLegacySubstrate(string path, ref Substrate substrate)
     {
-        BinaryHandler substrateFile = new BinaryHandler(path);
+        BinaryHandler substrateFile = new BinaryHandler(path, true);
         return ParseLegacySubstrate(substrateFile, ref substrate);
     }
 
     public static void SaveLegacySubstrate(string path, ref Substrate substrate)
     {
-        throw new NotImplementedException();
+        BinaryHandler substrateFile = new BinaryHandler(path, false);
+        ConvertLegacySubstrate(substrateFile, ref substrate);
     }
 
     public static void LoadLegacyGenome(string path)
@@ -188,6 +189,7 @@ public class FileManager : MonoBehaviour
         substrate.age = (float)legacySubstrate.age;
         substrate.lightAmount = (float)legacySubstrate.lightAmount;
         substrate.lightRange = (float)legacySubstrate.lightRange;
+        substrate.radius = (float)legacySubstrate.radius * 500;
 
         byte[] cell_data = substrateFile.ReadAll();
         substrateFile.Overwrite(GZip.Decompress(cell_data));
@@ -234,6 +236,91 @@ public class FileManager : MonoBehaviour
         return true;
     }
 
+    private static void ConvertLegacySubstrate(BinaryHandler substrateFile, ref Substrate substrate)
+    {
+        byte[] header = new byte[] { 0xac, 0xed, 0x00, 0x05 };
+        substrateFile.WriteBytes(header);
+        substrateFile.WriteByte(0x77);
+        substrateFile.WriteByte(0xbf);
+
+        substrateFile.WriteInt(95);
+        substrateFile.WriteDouble(substrate.age);
+        substrateFile.WriteInt(substrate.cells.Count);
+        substrateFile.WriteInt(95);
+        substrateFile.WriteDouble(0); // nutrient rate
+        substrateFile.WriteDouble(0); // nutrient chunk rate
+        substrateFile.WriteDouble(0); // radiation
+        substrateFile.WriteDouble(substrate.lightAmount);
+        substrateFile.WriteDouble(0); // light direction change
+        substrateFile.WriteDouble(substrate.lightRange);
+        substrateFile.WriteDouble(0); // viscosity
+        substrateFile.WriteInt(18);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteDouble(0); // gravity
+        substrateFile.WriteDouble(0); // density
+        substrateFile.WriteDouble(0); // density gradient
+        substrateFile.WriteBool(false); // kill cells at edge
+        substrateFile.WriteDouble(1); // nitrates
+        substrateFile.WriteInt(Math.Max(substrate.cells.Count + 500, 1000)); // max cells
+        substrateFile.WriteInt(Math.Max(substrate.foods.Count + 2000, 3500)); // max food
+        substrateFile.WriteDouble(substrate.radius / 500);
+        substrateFile.WriteDouble(0); // dynamic friction
+        substrateFile.WriteDouble(0); // static friction
+        substrateFile.WriteBool(false); // only point mutations
+        substrateFile.WriteFloat(0.33f); // salinity
+        substrateFile.WriteBool(true); // cell aging
+        substrateFile.WriteDouble(0); // nutrient lumpiness
+        substrateFile.WriteDouble(0); // nutrient lump size
+        substrateFile.WriteBool(false); // mobile food
+        substrateFile.WriteFloat(0); // nutrient coating
+
+        BinaryHandler cellFile = new BinaryHandler();
+        cellFile.WriteDouble(substrate.lightAngle);
+
+        for (int i = 0; i < substrate.cells.Count; i++)
+        {
+            Cell currentCell = substrate.cells[i];
+            ConvertLegacyCell(substrateFile, ref currentCell);
+        }
+
+        cellFile.WriteInt(substrate.foods.Count);
+        for (int i = 0; i < substrate.foods.Count; i++)
+        {
+            Food food = substrate.foods[i];
+            substrateFile.WriteFloat(food.position.x * 500);
+            substrateFile.WriteFloat(food.position.y * 500);
+            substrateFile.WriteFloat(food.size);
+            substrateFile.WriteFloat(0); // x velocity
+            substrateFile.WriteFloat(0); // y velocity
+            substrateFile.WriteFloat(0); // coating
+        }
+
+        cellFile.Flush();
+        substrateFile.WriteBytes(GZip.Compress(Binary.ConvertToJavaStream(cellFile.GetData())));
+        cellFile.Close();
+
+        substrateFile.Flush();
+        substrateFile.Close();
+    }
+
     private static bool ParseLegacyCell(BinaryHandler substrateFile, ref Substrate substrate)
     {
         int version = substrateFile.ReadInt();
@@ -277,6 +364,8 @@ public class FileManager : MonoBehaviour
             cell.mass = (float)mass * 10;
             cell.angle = (float)angle;
             cell.radius = (float)radius * 500;
+            cell.velocity = new Vector2((float)xVelocity * 500, (float)yVelocity * 500);
+            cell.age = (float)age;
         }
 
         int tag = substrateFile.ReadInt();
@@ -305,6 +394,55 @@ public class FileManager : MonoBehaviour
         double lift = substrateFile.ReadDouble();
 
         return true;
+    }
+
+    private static void ConvertLegacyCell(BinaryHandler substrateFile, ref Cell cell)
+    {
+        substrateFile.WriteInt(95);
+        substrateFile.WriteDouble(cell.position.x / 500);
+        substrateFile.WriteDouble(cell.position.y / 500);
+        substrateFile.WriteDouble(cell.angle);
+        substrateFile.WriteDouble(0); // m
+        substrateFile.WriteDouble(cell.velocity.x / 500);
+        substrateFile.WriteDouble(cell.velocity.y / 500);
+        substrateFile.WriteDouble(0); // angular velocity
+        substrateFile.WriteDouble(0); // n
+        substrateFile.WriteDouble(cell.radius / 500);
+        substrateFile.WriteDouble(cell.mass / 10);
+        substrateFile.WriteDouble(cell.age);
+        substrateFile.WriteInt(0); // link count
+        // link converter would go here
+        substrateFile.WriteInt(0); // adhesin connection count
+        substrateFile.WriteBool(cell.dead);
+        substrateFile.WriteFloat(cell.color.r);
+        substrateFile.WriteFloat(cell.color.g);
+        substrateFile.WriteFloat(cell.color.b);
+        substrateFile.WriteInt(1); // mode count
+        // mode converter would go here but for now just generate a test current mode
+        ConvertLegacyMode(substrateFile, ref cell);
+        substrateFile.WriteInt(0); // active mode
+        substrateFile.WriteInt(0); // tag
+        substrateFile.WriteInt(0); // F
+        substrateFile.WriteDouble(0); // t
+        substrateFile.WriteDouble(0); // u
+        substrateFile.WriteDouble(0); // v
+        substrateFile.WriteDouble(1); // nitrogen
+        substrateFile.WriteBool(false); // mirrored
+        // signals
+        for (int i = 0; i < 4; i++)
+        {
+            substrateFile.WriteFloat(0);
+            substrateFile.WriteFloat(0);
+        }
+        substrateFile.WriteFloat(0); // toxins
+        substrateFile.WriteFloat(0); // injury
+        substrateFile.WriteFloat(0); // aa
+        substrateFile.WriteFloat(0); // ab
+        substrateFile.WriteFloat(0); // ac
+        substrateFile.WriteFloat(0); // lipids
+        substrateFile.WriteFloat(0); // mutations
+        substrateFile.WriteFloat(-1); // telomeres
+        substrateFile.WriteDouble(0); // lift
     }
 
     private static bool ParseLegacyLink(BinaryHandler substrateFile)
@@ -344,12 +482,69 @@ public class FileManager : MonoBehaviour
         return (LegacyMode)mode;
     }
 
+    private static void ConvertLegacyMode(BinaryHandler substrateFile, ref Cell cell)
+    {
+        substrateFile.WriteInt(95);
+        substrateFile.WriteFloat(cell.color.r);
+        substrateFile.WriteFloat(cell.color.g);
+        substrateFile.WriteFloat(cell.color.b);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteInt(GetCellType(cell.type));
+        substrateFile.WriteInt(0);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteBool(true);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteBool(false);
+        substrateFile.WriteFloat(0);
+        for (int i = 0; i < 11; i++)
+        {
+            ConvertLegacyProgrammableValue(substrateFile);
+        }
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(0);
+        substrateFile.WriteInt(-1);
+
+    }
+
     private static LegacyProgrammableValue ParseLegacyProgrammableValue(BinaryHandler substrateFile)
     {
         object programmableValue = (object)new LegacyProgrammableValue();
         FillStruct(substrateFile, ref programmableValue);
 
         return (LegacyProgrammableValue)programmableValue;
+    }
+
+    private static void ConvertLegacyProgrammableValue(BinaryHandler substrateFile)
+    {
+        substrateFile.WriteShort(0);
+        substrateFile.WriteShort(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(0);
     }
 
     private static Type? GetCellType(int mode)
@@ -369,6 +564,34 @@ public class FileManager : MonoBehaviour
         else
         {
             return cell_types[mode];
+        }
+    }
+
+    private static int GetCellType(Type cellType)
+    {
+        if (cellType == typeof(Phagocyte))
+        {
+            return 0;
+        }
+        else if (cellType == typeof(Flagellocyte))
+        {
+            return 1;
+        }
+        else if (cellType == typeof(Photocyte))
+        {
+            return 2;
+        }
+        else if (cellType == typeof(Devorocyte))
+        {
+            return 3;
+        }
+        else if (cellType == typeof(Keratinocyte))
+        {
+            return 5;
+        }
+        else
+        {
+            return 0;
         }
     }
 

@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Unity.Jobs;
 using Unity.Collections;
+using UnityEngine.SceneManagement;
 
 public class Substrate : MonoBehaviour
 {
@@ -57,6 +58,20 @@ public class Substrate : MonoBehaviour
 
     void Start()
     {
+        bool defaultCells = true;
+        Substrate self = GetComponent<Substrate>();
+        if (substrateFile != "")
+        {
+            defaultCells = false;
+            bool success = FileManager.LoadLegacySubstrate(substrateFile, ref self);
+            substrateFile = "";
+            if (!success)
+            {
+                Debug.Log("Erorr loading substrate.");
+                SceneManager.LoadScene(0);
+            }
+        }
+
         transform.localScale = new Vector3(radius * 2.04f, radius * 2.04f, 1);
         camera = (Camera)FindObjectOfType(typeof(Camera));
         zoom = 1.2f * radius;
@@ -70,16 +85,8 @@ public class Substrate : MonoBehaviour
 
         lightRange = 0.2f;
         AdjustSpeed();
-
-        if (substrateFile != "")
-        {
-            Substrate self = GetComponent<Substrate>();
-            bool success = FileManager.LoadLegacySubstrate(substrateFile, ref self);
-            substrateFile = "";
-            if (!success)
-                Debug.Log("Erorr loading substrate.");
-        }
-        else
+        
+        if (defaultCells)
         {
             SpawnCell(typeof(Phagocyte), 0, 50, new Color(0.7019f, 1f, 0.2235f));
             SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));

@@ -93,7 +93,7 @@ Material:
     - _ZWrite: 1
     - blobScale: 20
     - scale: 5000
-    - scaleConst: 2000
+    - scaleConst: 200
     - speed: 0.1
     - wallThickness: 30
     m_Colors:

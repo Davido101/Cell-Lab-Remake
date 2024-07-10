@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Substrate.cs" />
     <Compile Include="Assets\Scripts\Cells\Flagellocyte.cs" />
     <Compile Include="Assets\UI\Scripts\MenuUI.cs" />
+    <Compile Include="Assets\Scripts\Cells\Lipocyte.cs" />
     <Compile Include="Assets\UI\StandaloneFileBrowser\StandaloneFileBrowser.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\Cells\Devorocyte.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\Scripts\Game.cs" />
     <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\CanvasSampleSaveFileText.cs" />
     <Compile Include="Assets\UI\Scripts\ButtonAction.cs" />
+    <Compile Include="Assets\Scripts\Utils\Binary.cs" />
     <Compile Include="Assets\UI\Scripts\ToggleProperty.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\UI\StandaloneFileBrowser\Sample\BasicSample.cs" />
