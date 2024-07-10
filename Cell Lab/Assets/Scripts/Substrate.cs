@@ -51,6 +51,7 @@ public class Substrate : MonoBehaviour
              new CellInfo(typeof(Devorocyte), LoadShader("Cells/Materials/DevorocyteMaterial")),
              new CellInfo(typeof(Photocyte), LoadShader("Cells/Materials/PhotocyteMaterial")),
              new CellInfo(typeof(Keratinocyte), LoadShader("Cells/Materials/KeratinocyteMaterial")),
+             new CellInfo(typeof(Lipocyte), LoadShader("Cells/Materials/LipocyteMaterial"))
         };
     }
 

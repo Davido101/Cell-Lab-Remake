@@ -13,7 +13,18 @@ public class Devorocyte : Cell
 
     public override void React(Cell cell, float dt)
     {
-        if (cell.type != typeof(Keratinocyte)) Consume(cell, dt);
+        if (cell is Lipocyte lipocyte)
+        {
+            if (lipocyte.lipids == 0)
+            {
+                Consume(cell, dt);
+            } else 
+            {
+                float eaten = lipocyte.Eat(devoringRate * dt);
+                Grow(eaten);
+            }
+        }
+        else if (cell is not Keratinocyte) Consume(cell, dt);
         force += ReactionForce(cell);
     }
 
