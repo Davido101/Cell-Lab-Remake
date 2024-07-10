@@ -4,7 +4,6 @@ Shader "Unlit/KeratinocyteShader"
     {
         col ("Color", Color) = (0.439, 1, 0.086, 0.5)
         CR ("Cell Radius", float) = 100
-        IR ("Inner Wall Radius", float) = 80 // Keeping this for any other purpose you might have
         scale ("Scale", float) = 5000
         scaleConst ("Scale Constant", float) = 200
     }
@@ -45,35 +44,33 @@ Shader "Unlit/KeratinocyteShader"
             const float scaleConst;
             static const float NR = 0.005 * scale;
             static const float EW = 0.002 * scale;
+            static const float EWH = 0.001 * scale;
             float CR;
-            float IR; // Keeping this for any other purpose you might have
             float4 frag (v2f i) : SV_Target
             {
                 float4 fragColor;
                 float2 fragCoord = i.uv * scaleConst;
                 float2 p = fragCoord - (scaleConst, scaleConst) / 2;
                 float ds = dot(p, p);
-                float srr = ds / ((CR - EW) * (CR - EW));
-
                 if (ds > CR * CR)
                 {
                     // discard
                     return 0;
                 }
-                else if (ds - 4350 > NR * NR && srr < IR / CR)
-                {
-                    // inner wall
-                    fragColor = float4(0.5*col.rgb, 1);
-                }
-                else if (ds > NR * NR && srr < 1)
-                {
-                    // cell
-                    fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
-                }
-                else
+                
+                float srr = max(ds / ((CR - EW) * (CR - EW)), EW / max(EWH, CR));
+                float srr2 = max(ds / ((CR - 2 * EW) * (CR - 2 * EW)), 2 * EW / CR);
+                float srr3 = max(ds / ((CR - 3 * EW) * (CR - 3 * EW)), 3 * EW / CR);
+
+                if (ds < NR * NR || srr > 1 || (srr2 < 1 ^ srr3 < 1))
                 {
                     // wall or nucleus
                     fragColor = float4(0.5*col.rgb, 1);
+                }
+                else
+                {
+                    // cell
+                    fragColor = lerp(float4(col.rgba), float4(1, 1, 1, col.a), 0.5);
                 }
                 
                 // Gamma correction
