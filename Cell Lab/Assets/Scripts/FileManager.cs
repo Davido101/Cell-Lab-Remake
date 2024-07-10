@@ -555,6 +555,8 @@ public class FileManager : MonoBehaviour
             typeof(Flagellocyte),
             typeof(Photocyte),
             typeof(Devorocyte),
+            typeof(Lipocyte),
+            typeof(Keratinocyte),
         };
 
         if (mode > cell_types.Length - 1)
@@ -584,6 +586,10 @@ public class FileManager : MonoBehaviour
         else if (cellType == typeof(Devorocyte))
         {
             return 3;
+        }
+        else if (cellType == typeof(Lipocyte))
+        {
+            return 4;
         }
         else if (cellType == typeof(Keratinocyte))
         {
