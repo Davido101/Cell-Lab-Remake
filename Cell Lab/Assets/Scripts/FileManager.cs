@@ -305,8 +305,8 @@ public class FileManager : MonoBehaviour
         for (int i = 0; i < substrate.foods.Count; i++)
         {
             Food food = substrate.foods[i];
-            cellFile.WriteFloat(food.position.x * 500);
-            cellFile.WriteFloat(food.position.y * 500);
+            cellFile.WriteFloat(food.position.x / 500);
+            cellFile.WriteFloat(food.position.y / 500);
             cellFile.WriteFloat(food.size);
             cellFile.WriteFloat(0); // x velocity
             cellFile.WriteFloat(0); // y velocity
