@@ -46,7 +46,7 @@ public class BinaryHandler : MonoBehaviour
         }
         else
         {
-            FileStream fileStream = File.OpenWrite(path);
+            FileStream fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
             writer = new BinaryWriter(fileStream);
             stream = fileStream;
         }
@@ -212,7 +212,7 @@ public class BinaryHandler : MonoBehaviour
     {
         if (read)
             throw new FileOperationProhibited("Can't write bytes when file was opened for reading.");
-        writer.Write(bytes);
+        writer.Write(bytes, 0, bytes.Length);
     }
 
     public void WriteByte(byte b)

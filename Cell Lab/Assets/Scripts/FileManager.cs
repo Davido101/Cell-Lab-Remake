@@ -298,23 +298,27 @@ public class FileManager : MonoBehaviour
         for (int i = 0; i < substrate.cells.Count; i++)
         {
             Cell currentCell = substrate.cells[i];
-            ConvertLegacyCell(substrateFile, ref currentCell);
+            ConvertLegacyCell(cellFile, ref currentCell);
         }
 
         cellFile.WriteInt(substrate.foods.Count);
         for (int i = 0; i < substrate.foods.Count; i++)
         {
             Food food = substrate.foods[i];
-            substrateFile.WriteFloat(food.position.x * 500);
-            substrateFile.WriteFloat(food.position.y * 500);
-            substrateFile.WriteFloat(food.size);
-            substrateFile.WriteFloat(0); // x velocity
-            substrateFile.WriteFloat(0); // y velocity
-            substrateFile.WriteFloat(0); // coating
+            cellFile.WriteFloat(food.position.x * 500);
+            cellFile.WriteFloat(food.position.y * 500);
+            cellFile.WriteFloat(food.size);
+            cellFile.WriteFloat(0); // x velocity
+            cellFile.WriteFloat(0); // y velocity
+            cellFile.WriteFloat(0); // coating
         }
 
         cellFile.Flush();
-        substrateFile.WriteBytes(GZip.Compress(Binary.ConvertToJavaStream(cellFile.GetData())));
+        byte[] data = cellFile.GetData();
+        byte[] javaStream = Binary.ConvertToJavaStream(data);
+        byte[] compressed = GZip.Compress(javaStream);
+        Debug.Log("Original data: " + data.Length.ToString() + ", Compressed data: " + compressed.Length.ToString());
+        substrateFile.WriteBytes(compressed);
         cellFile.Close();
 
         substrateFile.Flush();
@@ -510,6 +514,7 @@ public class FileManager : MonoBehaviour
         {
             ConvertLegacyProgrammableValue(substrateFile);
         }
+        substrateFile.WriteFloat(0);
         substrateFile.WriteFloat(0);
         substrateFile.WriteFloat(0);
         substrateFile.WriteFloat(0);
