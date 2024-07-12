@@ -444,8 +444,8 @@ public class FileManager : MonoBehaviour
         substrateFile.WriteFloat(0); // ab
         substrateFile.WriteFloat(0); // ac
         substrateFile.WriteFloat(0); // lipids
-        substrateFile.WriteFloat(0); // mutations
-        substrateFile.WriteFloat(-1); // telomeres
+        substrateFile.WriteInt(0); // mutations
+        substrateFile.WriteInt(-1); // telomeres
         substrateFile.WriteDouble(0); // lift
     }
 
@@ -492,46 +492,46 @@ public class FileManager : MonoBehaviour
         substrateFile.WriteFloat(cell.color.r);
         substrateFile.WriteFloat(cell.color.g);
         substrateFile.WriteFloat(cell.color.b);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteBool(false);
-        substrateFile.WriteBool(true);
-        substrateFile.WriteBool(true);
-        substrateFile.WriteInt(GetCellType(cell.type));
-        substrateFile.WriteInt(0);
-        substrateFile.WriteBool(true);
-        substrateFile.WriteBool(true);
-        substrateFile.WriteBool(false);
-        substrateFile.WriteBool(false);
-        substrateFile.WriteFloat(0);
+        substrateFile.WriteFloat(3.6f); // split mass
+        substrateFile.WriteFloat(0.5f); // split ratio
+        substrateFile.WriteFloat(0); // split angle
+        substrateFile.WriteFloat(0); // child 1 angle
+        substrateFile.WriteFloat(0); // child 2 angle
+        substrateFile.WriteFloat(0); // nutrient priority
+        substrateFile.WriteInt(0); // child 1 mode
+        substrateFile.WriteInt(0); // child 2 mode
+        substrateFile.WriteBool(false); // make adhesin
+        substrateFile.WriteBool(true); // child 1 keep adhesin
+        substrateFile.WriteBool(true); // child 2 keep adhesin
+        substrateFile.WriteInt(GetCellType(cell.type)); // cell type
+        substrateFile.WriteInt(0); // empty
+        substrateFile.WriteBool(true); // prioritize
+        substrateFile.WriteBool(true); // initial
+        substrateFile.WriteBool(false); // child 1 mirror
+        substrateFile.WriteBool(false); // child 2 mirror
+        substrateFile.WriteFloat(0); // adhesin stiffness
         for (int i = 0; i < 11; i++)
         {
             ConvertLegacyProgrammableValue(substrateFile);
         }
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteFloat(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(0);
-        substrateFile.WriteInt(-1);
+        substrateFile.WriteFloat(0); // sensocyte or stereocyte output value
+        substrateFile.WriteFloat(0); // red smell
+        substrateFile.WriteFloat(0); // green smell
+        substrateFile.WriteFloat(0); // blue smell
+        substrateFile.WriteFloat(0); // smell threshold
+        substrateFile.WriteFloat(0); // adhesin length
+        substrateFile.WriteFloat(1); // cytoskeleton
+        substrateFile.WriteInt(0); // virus copy from or gamete mode after fertilization
+        substrateFile.WriteInt(0); // gamete compatible mode
+        substrateFile.WriteInt(0); // senseocyte or stereocyte smell output signal type
+        substrateFile.WriteInt(0); // senseocyte or stereocyte smell type
+        substrateFile.WriteInt(0); // secrocyte secretion type
+        substrateFile.WriteInt(0); // neurocyte channel 1 signal type
+        substrateFile.WriteInt(0); // neurocyte channel 2 signal type
+        substrateFile.WriteInt(0); // neurocyte channel 3 signal type
+        substrateFile.WriteInt(0); // neurocyte channel 4 signal type
+        substrateFile.WriteInt(1); // max connections
+        substrateFile.WriteInt(-1); // telomeres
 
     }
 
