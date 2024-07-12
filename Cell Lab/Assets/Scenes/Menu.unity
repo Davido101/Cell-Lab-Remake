@@ -898,7 +898,7 @@ AudioSource:
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 1
-  Mute: 1
+  Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
@@ -1113,6 +1113,7 @@ MonoBehaviour:
   <_horizontalListPrefab>k__BackingField: {fileID: 4904012916821036817, guid: 33c8b862b8efed64c80a82414d9d546c, type: 3}
   <_verticalListPrefab>k__BackingField: {fileID: 6683745374585738730, guid: 1618d669170c48e48befa326a48aa64e, type: 3}
   <_tabListPrefab>k__BackingField: {fileID: 6949206266957793440, guid: 01f2a3dbd9b8d4f4cbe3d52d75f56f74, type: 3}
+  <_buttonActionPrefab>k__BackingField: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

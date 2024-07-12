@@ -1,4 +1,3 @@
-using Unity.Burst;
 using UnityEngine;
 
 public class Lipocyte : Cell

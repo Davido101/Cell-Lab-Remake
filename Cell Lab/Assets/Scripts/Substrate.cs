@@ -1,11 +1,9 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using Unity.Jobs;
 using Unity.Collections;
 using UnityEngine.SceneManagement;
-using Ookii.Dialogs;
 
 public class Substrate : MonoBehaviour
 {
@@ -111,6 +109,11 @@ public class Substrate : MonoBehaviour
         {
             cell.update();
         }
+
+        foreach (Food food in foods)
+        {
+            food.update();
+        }
     }
 
     public void fixedupdate()
@@ -187,11 +190,6 @@ public class Substrate : MonoBehaviour
         {
             cell.fixedupdate(dt);
         }
-
-        foreach (Food food in foods)
-        {
-            food.fixedupdate(dt);
-        }
     }
 
     public void Clear()
@@ -250,12 +248,15 @@ public class Substrate : MonoBehaviour
     {
 
         GameObject foodObject = Instantiate(defaultFood, new Vector3(x * radius, y * radius, 0), new Quaternion());
+        Renderer renderer = foodObject.GetComponent<Renderer>();
         Food food = foodObject.AddComponent<Food>();
+        renderer.material = food.shader;
+        food.shader = renderer.material;
         food.position = new Vector2(x * (radius / 500), y * (radius / 500));
         food.size = size;
         food.coating = coating;
         food.substrate = this;
-        food.fixedupdate(0);
+        food.update();
         foods.Add(food);
         return food;
     }

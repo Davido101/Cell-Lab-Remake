@@ -3,7 +3,7 @@ Shader "Unlit/FoodShader"
     Properties
     {
         col ("Color", Color) = (0.6, 0.4, 0.2, 1)
-        FR ("Food Radius", float) = 350
+        FR ("Food Radius", float) = 10000
     }
     SubShader
     {
