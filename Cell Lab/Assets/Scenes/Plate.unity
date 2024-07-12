@@ -1379,7 +1379,7 @@ MonoBehaviour:
   interactionSquareWidth: 32
   interactionGridLength: -1
   radius: 500
-  temperature: 0
+  temperature: 1
   dynamicFriction: 0
   lightAmount: 1
   lightRange: 1

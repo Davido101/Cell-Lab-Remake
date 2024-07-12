@@ -7,9 +7,6 @@ Shader "Unlit/FlagellocyteShader"
         scale ("Scale", float) = 5000
         speed ("Speed", Range(0, 100)) = 1 
         CR ("Cell Radius", float) = 100
-        END ("Tail Length", Range(0, 2)) = 0.7
-        R ("Radius", float) = 0.1
-        TAIL_R ("Tail Radius", float) = 400
         scaleConst ("Scale Constant", float) = 560
     }
     SubShader
@@ -52,9 +49,9 @@ Shader "Unlit/FlagellocyteShader"
             const float scaleConst;
             static const float NR = 0.005*scale;
             static const float EW = 0.002*scale;
-            const float END;
-            const float R;
-            const float TAIL_R;
+            static const float END = 0.7;
+            static const float R = 0.1;
+            static const float TAIL_R = 4 * CR;
             const float res;
             float4 tail(float2 p)
             {
@@ -64,11 +61,11 @@ Shader "Unlit/FlagellocyteShader"
                     return fragColor;
                     
                 float ww = (TAIL_R + p.x) * 0.1 * (d - CR) / CR;
-                float my = sin(-age * speed - p.x * 0.04) * ww;
-                float k = 4 * cos(-age * speed - p.x * 0.04) * ww;
-                float w = (1 + p.x / (TAIL_R*END)) * 0.3 * (1 + 0.5 * k * k / 100 / 100) * 100;
+                float my = sin(-age * speed - p.x * 4 / CR) * ww;
+                float k = 4 * cos(-age * speed - p.x * 4 / CR) * ww;
+                float w = (1 + p.x / (TAIL_R*END)) * 0.3 * (1 + 0.5 * k * k / CR / CR) * CR;
                 if (d - CR < R * CR && 1 > (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R))
-                    w += 100 * (R - R * sqrt(1 - (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R)));
+                    w += CR * (R - R * sqrt(1 - (1 - (d - CR) / CR / R) * (1 - (d - CR) / CR / R)));
                     
                 if (abs(p.y - my) < w)
                 {

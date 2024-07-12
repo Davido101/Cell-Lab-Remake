@@ -32,6 +32,7 @@ public class Dropdown : MonoBehaviour
         content = transform.GetChild(4).GetChild(0).gameObject;
         dropdownRect = dropdown.GetComponent<RectTransform>();
         contentRect = content.GetComponent<RectTransform>();
+        Disable();
     }
 
     public void Disable()

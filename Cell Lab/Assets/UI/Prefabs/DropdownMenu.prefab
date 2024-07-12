@@ -93,22 +93,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69d2b91919e414d44a651719770fea0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropdown: {fileID: 0}
-  dropdownRect: {fileID: 0}
-  content: {fileID: 6071528214553104180}
-  contentRect: {fileID: 0}
   option: {fileID: 8235281985411180654, guid: e977822d5da86eb45b99f76c81fc4ece, type: 3}
   svgOption: {fileID: 4472045514804349384, guid: 773a61afc86d26146addd131fe31bdb9, type: 3}
-  titleObject: {fileID: 3815055505421870386}
-  trigger: {fileID: 0}
   options: []
   selectedOption: 
   value: 0
-  optionY: 0
   optionCount: 0
-  active: 0
   closeOnSelect: 0
   useSvgs: 0
+  clickAudio: {fileID: 0}
 --- !u!1 &1574437067758383570
 GameObject:
   m_ObjectHideFlags: 0
