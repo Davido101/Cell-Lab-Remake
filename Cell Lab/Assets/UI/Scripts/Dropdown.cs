@@ -23,6 +23,7 @@ public class Dropdown : MonoBehaviour
     public bool closeOnSelect = false;
     public bool useSvgs = false;
     public Action<string> callback;
+    public AudioClip clickAudio;
 
     private void Awake()
     {
@@ -198,6 +199,8 @@ public class Dropdown : MonoBehaviour
         value = buttonIndex;
         if (closeOnSelect)
             Disable();
+        if (clickAudio)
+            Audio.PlayAudio(clickAudio);
         if (callback != null)
             callback.Invoke(selectedOption);
     }

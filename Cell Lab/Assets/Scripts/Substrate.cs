@@ -5,6 +5,7 @@ using TMPro;
 using Unity.Jobs;
 using Unity.Collections;
 using UnityEngine.SceneManagement;
+using Ookii.Dialogs;
 
 public class Substrate : MonoBehaviour
 {
@@ -59,10 +60,10 @@ public class Substrate : MonoBehaviour
     void Start()
     {
         bool defaultCells = true;
-        Substrate self = GetComponent<Substrate>();
         if (substrateFile != "")
         {
             defaultCells = false;
+            Substrate self = GetComponent<Substrate>();
             bool success = FileManager.LoadLegacySubstrate(substrateFile, ref self);
             substrateFile = "";
             if (!success)
@@ -191,6 +192,28 @@ public class Substrate : MonoBehaviour
         {
             food.fixedupdate(dt);
         }
+    }
+
+    public void Clear()
+    {
+        foreach (Cell cell in cells)
+        {
+            cell.Destroy();
+        }
+
+        foreach (Food food in foods)
+        {
+            food.Destroy();
+        }
+
+        cells.Clear();
+        foods.Clear();
+    }
+
+    public void Save(string path)
+    {
+        Substrate self = GetComponent<Substrate>();
+        FileManager.SaveLegacySubstrate(path, ref self);
     }
 
     public void AdjustSpeed()

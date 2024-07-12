@@ -193,7 +193,7 @@ public class MenuUI : MonoBehaviour
                 SceneManager.LoadScene(1);
                 break;
             case "load_plate":
-                var extensions = new[]
+                ExtensionFilter[] extensions = new[]
                 {
                     new ExtensionFilter("substrate files", "substrate"),
                 };

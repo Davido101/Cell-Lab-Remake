@@ -83,7 +83,7 @@ Material:
     - _ZWrite: 1
     - age: 0
     - res: 560
-    - scale: 3200
+    - scale: 5000
     - scaleConst: 560
     - speed: 10
     m_Colors:

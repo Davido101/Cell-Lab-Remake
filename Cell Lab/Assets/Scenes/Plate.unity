@@ -608,13 +608,13 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 5
   m_Spacing: 10
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
+  m_ReverseArrangement: 1
 --- !u!1 &982744654
 GameObject:
   m_ObjectHideFlags: 0
@@ -1119,11 +1119,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cellSpawn: {fileID: 0}
+  plate: {fileID: 0}
   substrate: {fileID: 2052181050}
   cellDropdown: {fileID: 0}
+  plateDropdown: {fileID: 0}
   uiCanvas: {fileID: 1137999488}
   buttonClick: {fileID: 0}
   buttonClick2: {fileID: 0}
+  sterilize: {fileID: 0}
 --- !u!1 &1899333657
 GameObject:
   m_ObjectHideFlags: 0
