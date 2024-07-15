@@ -1,15 +1,12 @@
 using UnityEngine;
 
-public class Food : MonoBehaviour
+public class Food : SubstrateElement
 {
-    public int gridID;
-
     public Vector2 position = Vector2.zero;
     public float size = 0.1875f;
     public float coating = 0;
     public float radius = Mathf.Sqrt(1.2f / 3) / 1000;
     public bool eaten = false;
-    public Substrate substrate;
     public float radiusChangeSpeed = 1;
     public Material shader;
 
@@ -40,6 +37,12 @@ public class Food : MonoBehaviour
         handleGraphics();
     }
 
+    public void fixedupdate(float dt)
+    {
+        radius = Mathf.Sqrt(size / 3) / 1000;
+        UpdateGrid();
+    }
+
     public float Eat(float amount)
     {
         if (eaten) return 0;
@@ -48,9 +51,11 @@ public class Food : MonoBehaviour
         if (size <= 0)
         {
             eaten = true;
+            substrate.RemoveFromGridCell(gridID, this);
         }
         return totalEaten;
     }
+
 
     public void Destroy()
     {

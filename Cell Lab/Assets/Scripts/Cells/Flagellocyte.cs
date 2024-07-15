@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Flagellocyte : Cell
 {
-    public float swimForce = 2608.2f;
+    public float swimForce = 2608.2f/10f;// 20865.6f;
 
     void Awake()
     {

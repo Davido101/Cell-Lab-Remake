@@ -1,16 +1,12 @@
 using System;
 using UnityEngine;
 
-public class Cell : MonoBehaviour
+public class Cell : SubstrateElement
 {
     public bool optimizedInteractions = true;
     public bool reactsToFood = false;
 
-    public int gridID;
-
     public float springConst = 200;
-
-    public Substrate substrate;
 
     public Type type = typeof(Cell);
 
@@ -90,6 +86,7 @@ public class Cell : MonoBehaviour
     public virtual void fixedupdate(float dt)
     {
         HandlePhysics(dt);
+        UpdateGrid();
     }
 
     public virtual bool HandlePhysics(float dt)

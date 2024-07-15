@@ -7,9 +7,6 @@ using UnityEngine.SceneManagement;
 
 public class Substrate : MonoBehaviour
 {
-    public NativeList<JobHandle> threads; // Currently useless
-    public int maxThreads; // For now the game crashes if this is set higher than 1
-
     public float maxScale;
     public float zoom;
     public float zoomSpeed;
@@ -25,7 +22,7 @@ public class Substrate : MonoBehaviour
     public GameObject defaultFood;
 
     public Dictionary<int, GridCell> interactionGrid;
-    public float interactionSquareWidth;
+    public float interactionCellWidth;
     public int interactionGridLength;
     
     public float radius;
@@ -53,20 +50,19 @@ public class Substrate : MonoBehaviour
              new CellInfo(typeof(Keratinocyte), LoadShader("Cells/Materials/KeratinocyteMaterial")),
              new CellInfo(typeof(Lipocyte), LoadShader("Cells/Materials/LipocyteMaterial"))
         };
+        interactionGrid = new Dictionary<int, GridCell>();
     }
 
     void Start()
     {
-        bool defaultCells = true;
         if (substrateFile != "")
         {
-            defaultCells = false;
             Substrate self = GetComponent<Substrate>();
             bool success = FileManager.LoadLegacySubstrate(substrateFile, ref self);
             substrateFile = "";
             if (!success)
             {
-                Debug.Log("Erorr loading substrate.");
+                Debug.Log("Error loading substrate.");
                 SceneManager.LoadScene(0);
             }
         }
@@ -77,7 +73,7 @@ public class Substrate : MonoBehaviour
         camera.orthographicSize = zoom;
 
 
-        interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionSquareWidth);
+        interactionGridLength = Mathf.CeilToInt(radius * 2 / interactionCellWidth);
 
         substrateShader = GetComponent<SpriteRenderer>().material;
         lightAngle = Mathf.PI / 2;
@@ -85,13 +81,8 @@ public class Substrate : MonoBehaviour
         lightRange = 0.2f;
         AdjustSpeed();
         
-        if (defaultCells)
-        {
-            SpawnCell(typeof(Phagocyte), 0, 50, new Color(0.7019f, 1f, 0.2235f));
-            SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));
-            SpawnCell(typeof(Phagocyte), 50, 0, new Color(0.7019f, 1f, 0.2235f));
-            SpawnFoodLump(0, 0, 100, 100);
-        }
+        SpawnCell(typeof(Flagellocyte), -50, 0, new Color(0.7019f, 1f, 0.2235f));
+        SpawnCell(typeof(Phagocyte), 50, 0, new Color(0.7019f, 1f, 0.2235f));
     }
 
     public Material LoadShader(string shaderPath)
@@ -119,25 +110,12 @@ public class Substrate : MonoBehaviour
     public void fixedupdate()
     {
         List<Cell> deadCells = new List<Cell>();
-        interactionGrid = new Dictionary<int, GridCell>();
         foreach (Cell cell in cells)
         {
             if (cell.dead)
             {
                 deadCells.Add(cell);
                 continue;
-            }
-
-            int gridID = ToGridID(cell);
-            cell.gridID = gridID;
-            if (interactionGrid.ContainsKey(gridID))
-            {
-                interactionGrid[gridID].cells.Add(cell);
-            }
-            else
-            {
-                interactionGrid[gridID] = new GridCell();
-                interactionGrid[gridID].cells.Add(cell);
             }
         }
 
@@ -148,18 +126,6 @@ public class Substrate : MonoBehaviour
             {
                 eatenFood.Add(food);
                 continue;
-            }
-
-            int gridID = ToGridID(food);
-            food.gridID = gridID;
-            if (interactionGrid.ContainsKey(gridID))
-            {
-                interactionGrid[gridID].foods.Add(food);
-            }
-            else
-            {
-                interactionGrid[gridID] = new GridCell();
-                interactionGrid[gridID].foods.Add(food);
             }
         }
 
@@ -177,18 +143,20 @@ public class Substrate : MonoBehaviour
 
         float dt = temperature / Time.timeScale / 50;
         age += dt;
-        //threads = new NativeList<JobHandle>(Allocator.Temp);
         foreach (Cell cell in cells)
         {
             if (cell.optimizedInteractions) OptimizedInteractions(cell, dt);
             else Interactions(cell, dt);
         }
-        //JobHandle.CompleteAll(threads);
-        //threads.Clear();
 
         foreach (Cell cell in cells)
         {
             cell.fixedupdate(dt);
+        }
+
+        foreach (Food food in foods)
+        {
+            food.fixedupdate(dt);
         }
     }
 
@@ -234,6 +202,8 @@ public class Substrate : MonoBehaviour
         cell.lastPosition = position;
         cell.color = color;
         cell.substrate = this;
+        cell.gridID = cell.ToGridID();
+        AddToGridCell(cell.gridID, cell);
         renderer.sortingOrder = 2;
         cells.Add(cell);
         return cell;
@@ -256,6 +226,8 @@ public class Substrate : MonoBehaviour
         food.size = size;
         food.coating = coating;
         food.substrate = this;
+        food.gridID = food.ToGridID();
+        AddToGridCell(food.gridID, food);
         food.update();
         foods.Add(food);
         return food;
@@ -323,19 +295,6 @@ public class Substrate : MonoBehaviour
         substrateShader.SetFloat("dirY", MathF.Sin(lightAngle));
     }
 
-    public int ToGridID(Cell cell)
-    {
-        return ToGridID(cell.position.x, cell.position.y);
-    }
-
-    public int ToGridID(Food food)
-    {
-        return ToGridID(food.position.x, food.position.y);
-    }
-
-    public int ToGridID(float x, float y) {
-        return ToGridID(Mathf.FloorToInt((x + radius) / interactionSquareWidth), Mathf.FloorToInt((y + radius) / interactionSquareWidth));
-    }
     public int ToGridID(int x, int y) {
         return x + y * interactionGridLength;
     }
@@ -386,47 +345,66 @@ public class Substrate : MonoBehaviour
     public bool Interact(Cell cell1, Cell cell2, float dt)
     {
         if (cell1.Equals(cell2)) return false;
-        if (maxThreads == 1) cell1.React(cell2, dt);
-        else
-        {
-            while (threads.Length >= maxThreads)
-            {
-                for (int i = 0; i < threads.Length; i++)
-                {
-                    if (threads[i].IsCompleted)
-                    {
-                        threads.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-
-            //threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
-        }
+        cell1.React(cell2, dt);
         return true;
     }
 
     public bool Interact(Cell cell, Food food, float dt)
     {
         if (!cell.reactsToFood) return false;
-        if (maxThreads == 1) cell.React(food, dt);
+        cell.React(food, dt);
+        return true;
+    }
+
+    public GridCell GridCellAt(int gridID)
+    {
+        if (interactionGrid.ContainsKey(gridID))
+        {
+            return interactionGrid[gridID];
+        }
         else
         {
-            while (threads.Length >= maxThreads)
-            {
-                for (int i = 0; i < threads.Length; i++)
-                {
-                    if (threads[i].IsCompleted)
-                    {
-                        threads.RemoveAt(i);
-                        i--;
-                    }
-                }
-            }
-
-            //threads.Add(new Interaction() { cell1 = _cell1, cell2 = _cell2 }.Schedule());
+            return interactionGrid[gridID] = new GridCell(); ;
         }
-        return true;
+    }
+
+    public void AddToGridCell(int gridID, SubstrateElement element)
+    {
+        GridCell gridCell = GridCellAt(gridID);
+        if (element is Cell)
+        {
+            gridCell.cells.Add(element as Cell);
+        }
+        else if (element is Food)
+        {
+            gridCell.foods.Add(element as Food);
+        }
+    }
+
+    public void RemoveFromGridCell(int gridID, SubstrateElement element)
+    {
+        GridCell gridCell = GridCellAt(gridID);
+        if (element is Cell)
+        {
+            gridCell.cells.Remove(element as Cell);
+        }
+        else if (element is Food)
+        {
+            gridCell.foods.Remove(element as Food);
+        }
+        CheckGridCellEmpty(gridID);
+    }
+
+    public bool CheckGridCellEmpty(int gridID)
+    {
+
+        GridCell gridCell = interactionGrid[gridID];
+        if (gridCell.cells.Count == 0 && gridCell.foods.Count == 0)
+        {
+            interactionGrid.Remove(gridID);
+            return true;
+        }
+        return false;
     }
 
     public float LightAmountAt(float x, float y)
